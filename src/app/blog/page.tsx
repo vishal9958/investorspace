@@ -4,75 +4,152 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, User, ArrowRight, Clock, X } from "lucide-react";
 import Footer from "@/components/Footer";
+import PageTitle from "@/components/PageTitle";
 
 // Sample blog data
 const blogPosts = [
     {
         id: 1,
-        title: "Why Dholera SIR is India's Next Mega Investment Hub",
-        excerpt: "An inside look into the infrastructure projects driving land value in Dholera.",
-        content: "Dholera Special Investment Region (SIR) is slated to be larger than Singapore. With the upcoming international airport, expressway, and the massive Tata semiconductor plant, property values are projected to soar. Investors securing clear-title land now are positioned for exceptional long-term ROI. In this article, we break down the key drivers of Dholera's growth engine and how retail investors can safely participate.",
+        title: "Why Dholera SIR is India's First Smart City Investment Jackpot",
+        excerpt: "An inside look into how DSIRDA planning, 4-tier infrastructure, and plug-and-play land models are creating massive ROI opportunities.",
+        content: `Dholera Special Investment Region (SIR) isn't just another land development—it is India's largest greenfield smart city, spanning 920 sq km (larger than Singapore). Managed by DSIRDA, Dholera features plug-and-play infrastructure, underground utility ducts, and ICT-enabled governance.
+
+For real estate investors, buying title-clear land in High-Access Zones (like Activation Zone TP1 & TP2) offers high liquidity and steady appreciation. As roads, power grids, and water treatment plants go operational, early-stage investors are locking in ground-level entry prices before full commercial expansion.`,
         author: "Aditya Tiwari",
         date: "Oct 12, 2026",
         readTime: "5 min read",
         category: "Investment",
-        image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop"
+        image: "/images/invesment.png"
     },
     {
         id: 2,
-        title: "5 Documents You Must Check Before Buying Land",
-        excerpt: "Don't get scammed. Follow this legal checklist before you pay a single rupee.",
-        content: "Title clearance, NA (Non-Agricultural) order, layout sanction, encumbrance certificate, and RERA registration are the fundamental pillars of a safe land purchase. We explore what each document means, where to procure them, and how to verify their authenticity. Trusting verbal promises is the biggest mistake you can make in real estate.",
+        title: "The ₹91,000 Cr Tata Semiconductor Plant: What It Means for Land Prices",
+        excerpt: "How massive industrial investments in Dholera SIR are driving exponential housing and commercial plot demand.",
+        content: `The approval of Tata's mega semiconductor fabrication plant in Dholera SIR (with an investment exceeding ₹91,000 Crores) marks a pivotal shift in Gujarat's industrial landscape. The fab unit alone is projected to create over 100,000 direct and indirect high-skilled jobs.
+
+This influx of engineers, corporate executives, and ancillary supply-chain vendors creates an urgent demand for residential layouts, commercial complexes, and rental housing. Strategic plots near the industrial hub and expressway corridors are poised for rapid capital appreciation over the next 3 to 5 years.`,
         author: "Kunal Varma",
         date: "Oct 05, 2026",
-        readTime: "7 min read",
-        category: "Legal",
-        image: "https://images.unsplash.com/photo-1450101499163-c8848c66cb85?q=80&w=800&auto=format&fit=crop"
+        readTime: "6 min read",
+        category: "Economy & Jobs",
+        image: "/images/economy&job.png"
     },
     {
         id: 3,
-        title: "Residential vs Commercial Plots in Dholera",
-        excerpt: "Which property type yields better returns over a 10-year horizon?",
-        content: "While commercial plots offer higher rental yields and exponential appreciation near transport hubs, residential plots provide stability and steady growth. Depending on your risk appetite and investment duration, we analyze both segments in the context of Dholera's master plan.",
-        author: "Khushi Sharma",
+        title: "Dholera International Airport & Expressways: Connectivity Masterclass",
+        excerpt: "Key transport corridors connecting Ahmedabad to Dholera and how proximity to major transit routes multiplies plot value.",
+        content: `Seamless transport infrastructure is the backbone of real estate growth. Dholera SIR is anchored by three massive connectivity catalysts:
+
+Dholera International Airport (Navagam): Designed to handle both cargo and passenger traffic, easing international trade.
+
+Ahmedabad-Dholera 4-Lane Expressway: Reducing travel time between Ahmedabad and Dholera to under 1 hour.
+
+Monorail & Freight Corridors: Connecting Dholera directly to industrial centers across India.
+
+Plots positioned along TP roads connecting directly to the expressway or airport corridor enjoy maximum commercial viability and resale speed.`,
+        author: "Satyam Singh",
         date: "Sep 28, 2026",
-        readTime: "4 min read",
-        category: "Real Estate",
-        image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop"
+        readTime: "5 min read",
+        category: "Infrastructure",
+        image: "/images/infrastructure.png"
     },
     {
         id: 4,
-        title: "Understanding Town Planning (TP) Schemes",
-        excerpt: "How government zoning affects your plot's future value and utility.",
-        content: "TP schemes dictate land use, FSI (Floor Space Index), and infrastructure development. Investing in a plot without understanding its TP zone is a gamble. We simplify the zoning laws of Dholera SIR and highlight the most lucrative sectors.",
-        author: "Satyam Singh",
+        title: "5 Documents You Must Verify Before Buying Any Plot in Dholera",
+        excerpt: "Protect your capital with this non-negotiable legal checklist for title-clear and DSIRDA-compliant land purchases.",
+        content: `Land investments carry maximum safety when legal due diligence is thorough. Before paying a booking token for any plot, insist on verifying:
+
+7/12 Extract & 8A (Pahani Patrak): Confirms absolute land ownership and revenue records.
+
+N.A. (Non-Agricultural) Order: Verifies that agricultural land has been legally converted for residential or commercial use.
+
+Title Clearance & Search Report: A 30-year search report issued by an advocate confirming zero pending litigations or mortgages.
+
+Layout Sanction Plan: Approval from local planning authorities (DSIRDA / Collector).
+
+Zone Verification Certificate: Ensures the land falls within approved development zones and not restricted/green belts.`,
+        author: "Kunal Varma",
         date: "Sep 15, 2026",
-        readTime: "6 min read",
-        category: "Infrastructure",
-        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop"
+        readTime: "7 min read",
+        category: "Legal & Compliance",
+        image: "/images/leagal.png"
     },
     {
         id: 5,
-        title: "The Impact of Tata Semiconductor Fab",
-        excerpt: "How the ₹91,000 Cr ecosystem is reshaping Dholera's real estate.",
-        content: "The Tata group's massive investment is expected to create over 100,000 direct and indirect jobs. This massive influx of talent will require housing, commercial spaces, and recreational facilities, driving an unprecedented boom in land demand.",
-        author: "Kunal Varma",
+        title: "Town Planning (TP) Schemes Demystified: Zone Differences Explained",
+        excerpt: "Understanding TP1, TP2, FSI limits, and zoning laws so you invest in the right land category.",
+        content: `Dholera SIR is divided into structured Town Planning (TP) schemes to prevent unplanned urban sprawl. Understanding where your plot lies determines its utility and yield:
+
+Residential Zones: Ideal for plotted housing, villas, and low-rise apartments.
+
+Commercial & High-Density Zones: Located along primary arterial roads; allows higher FSI for retail, offices, and hotels.
+
+Industrial & Logistics Zones: Targeted at manufacturing, warehousing, and tech hubs.
+
+Knowledge & IT Zones: Designed for universities, R&D centers, and tech parks.
+
+Investing in TP1 and TP2 guarantees immediate proximity to early infrastructure rollouts and primary trunk roads.`,
+        author: "Aditya Tiwari",
         date: "Sep 02, 2026",
-        readTime: "5 min read",
-        category: "Economy",
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop"
+        readTime: "6 min read",
+        category: "Town Planning",
+        image: "/images/town planing.png"
     },
     {
         id: 6,
-        title: "NRI Guide to Investing in Indian Land",
-        excerpt: "FEMA regulations, repatriation of funds, and tax implications simplified.",
-        content: "NRIs have a unique set of advantages and regulatory hurdles when buying agricultural or non-agricultural land in India. We provide a step-by-step compliance guide for a seamless cross-border investment experience.",
-        author: "Aditya Tiwari",
+        title: "Why Commercial Plots Deliver Higher Yields for Developers & Builders",
+        excerpt: "How commercial and multi-use land layouts in Dholera cater to developers building retail spaces and workforce accommodation.",
+        content: `For builders and institutional investors, Dholera SIR provides a blank canvas with pre-cleared zoning and high FSI allocations. Commercial plots situated near main TP sector roads are optimized for:
+
+Multi-story retail centers and supermarkets serving incoming tech workers.
+
+Serviced apartments and corporate guest houses.
+
+Warehousing and light industrial parks along logistics corridors.
+
+By partnering with trusted advisory firms like Investor Space, developers get access to vetted, title-clear land parcels without administrative friction.`,
+        author: "Khushi Sharma",
         date: "Aug 20, 2026",
+        readTime: "5 min read",
+        category: "B2B Investment",
+        image: "/images/b2b.png"
+    },
+    {
+        id: 7,
+        title: "The NRI Guide to Buying Land in Dholera SIR: FEMA & Taxation Made Simple",
+        excerpt: "A complete step-by-step guide for Non-Resident Indians purchasing residential and commercial plots in India.",
+        content: `For NRIs looking to tap into India's infrastructure growth, Dholera SIR is one of the most structured land markets. Key rules under RBI & FEMA regulations include:
+
+Eligible Land: NRIs can freely purchase residential and commercial land. (Agricultural land requires special approvals/status).
+
+Payment Channels: Transactions must be routed through NRE/NRO banking channels or inward remittances.
+
+Power of Attorney (PoA): Overseas investors can register plots remotely by appointing a trusted PoA in India.
+
+Capital Gains & Repatriation: Sale proceeds can be smoothly repatriated back to your country of residence subject to standard Indian tax compliance (TDS & Capital Gains).`,
+        author: "Aditya Tiwari",
+        date: "Aug 10, 2026",
         readTime: "8 min read",
         category: "NRI Advice",
-        image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop"
-    }
+        image: "/images/nri advice.png"
+    },
+    {
+        id: 8,
+        title: "Residential vs Commercial Plots: How to Pick the Right Segment for 5-Year Holding",
+        excerpt: "Comparing capital appreciation, liquidity, and holding costs to align land purchases with your financial goals.",
+        content: `Choosing between residential and commercial plots depends on your budget and exit timeline:
+
+Residential Plots — Entry Capital: Moderate / Accessible | Target Exit: End-users, homebuilders, rental | Appreciation Engine: Housing demand & township growth | Best Holding Term: 3–5 Years
+
+Commercial Plots — Entry Capital: Higher initial ticket size | Target Exit: Developers, corporate leases, retail | Appreciation Engine: Road traffic, industrial hubs & footfall | Best Holding Term: 5–7 Years
+
+For first-time investors with a 3–5 year horizon, residential plots in Dholera's TP1 activation zone offer the best balance of entry cost and appreciation potential. For developers with larger capital and longer holds, commercial plots near the expressway corridor deliver superior yield and lease income.`,
+        author: "Kunal Varma",
+        date: "Jul 28, 2026",
+        readTime: "6 min read",
+        category: "Strategy",
+        image: "/images/startegy.png"
+    },
 ];
 
 export default function BlogPage() {
@@ -95,6 +172,7 @@ export default function BlogPage() {
 
     return (
         <div className="min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col justify-between overflow-x-hidden">
+            <PageTitle title="Blog" />
             <main className="pb-16 pt-20 sm:pt-28 md:pt-32">
 
                 {/* HERO SECTION */}

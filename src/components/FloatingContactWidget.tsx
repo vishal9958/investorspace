@@ -105,14 +105,14 @@ export default function FloatingContactWidget() {
         {
             id: "whatsapp",
             icon: MessageCircle,
-            href: "https://wa.me/919876543210",
+            href: "https://wa.me/919818581518",
             isBot: false,
             label: "WhatsApp",
         },
         {
             id: "phone",
             icon: Phone,
-            href: "tel:+919876543210",
+            href: "tel:+919818581518",
             isBot: false,
             label: "Call Us",
         },
@@ -209,7 +209,7 @@ export default function FloatingContactWidget() {
             setStep("DONE");
 
             // Direct WhatsApp Lead Notification
-            const ownerNumber = "919876543210";
+            const ownerNumber = "919818581518";
             const waText = `*New Lead Captured via AI Bot*%0A%0A*Name:* ${finalData.name}%0A*Phone:* ${finalData.phone}%0A*Email:* ${finalData.email}%0A*Service:* ${text}`;
             window.open(`https://wa.me/${ownerNumber}?text=${waText}`, "_blank");
 

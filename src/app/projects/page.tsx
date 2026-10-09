@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import PageTitle from "@/components/PageTitle";
 
 // Project database - Single project in Ahmedabad
 const projectsData = [
@@ -84,6 +85,7 @@ export default function ProjectsPage() {
 
   return (
     <>
+      <PageTitle title="Projects" />
       <main className="pt-20 bg-background text-foreground font-sans">
         {/* HERO SECTION */}
         <section className="relative isolate flex min-h-[520px] items-center overflow-hidden bg-black text-white">

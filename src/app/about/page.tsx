@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from "@/components/Footer";
+import PageTitle from "@/components/PageTitle";
 import {
   ArrowRight,
   Target,
@@ -134,18 +135,18 @@ export default function AboutPage() {
     {
       quote:
         "Every document in Kesar Green Flora was 100% NA and clear title before we booked. The location right on the 6-lane highway gave us complete peace of mind.",
-      name: "Ritika Sharma",
+      name: "Aditya Sharma",
       role: "Plot Buyer, Ahmedabad",
       bgImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920&auto=format&fit=crop",
-      personImage: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+      personImage: "/images/Aditya Sharma.png",
     },
     {
       quote:
         "Investing in Dholera SIR remotely felt daunting, but Investor Space provided digitized layout plans and 100% government approvals before booking.",
-      name: "Arjun Mehta",
+      name: "Priya Mehta",
       role: "Investor, Dholera SIR",
       bgImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1920&auto=format&fit=crop",
-      personImage: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+      personImage: "/images/Priya Mehta.png",
     },
   ];
 
@@ -180,6 +181,7 @@ export default function AboutPage() {
 
   return (
     <>
+      <PageTitle title="About" />
       <main className="pt-20 font-sans text-slate-900 bg-white">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-white">
@@ -735,11 +737,11 @@ export default function AboutPage() {
                 className="absolute inset-0 size-full object-cover"
               />
 
-              <div className="absolute right-0 bottom-0 top-0 w-full md:w-2/3 lg:w-1/2 flex items-end justify-end pointer-events-none">
+              <div className="absolute right-0 bottom-0 top-0 w-full md:w-2/3 lg:w-1/2 overflow-hidden pointer-events-none">
                 <img
                   src={testimonials[currentTestimonial].personImage}
                   alt={testimonials[currentTestimonial].name}
-                  className="h-[92%] object-contain object-bottom"
+                  className="absolute bottom-0 right-0 h-[105%] w-auto object-contain object-bottom translate-x-6"
                 />
               </div>
 
@@ -835,3 +837,4 @@ export default function AboutPage() {
     </>
   );
 }
+

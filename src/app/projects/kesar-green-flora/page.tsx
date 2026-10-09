@@ -157,7 +157,10 @@ export default function KesarGreenFloraDetailPage() {
                                 <motion.a
                                     whileHover={{ scale: 1.04 }}
                                     whileTap={{ scale: 0.96 }}
-                                    href="/contact"
+                                    href="/kesar-green-flora-brochure.pdf"
+                                    download="Kesar-Green-Flora-Brochure.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-7 py-3.5 text-xs sm:text-sm font-bold text-white backdrop-blur hover:bg-white/30 transition-colors shadow-lg"
                                 >
                                     Download Layout PDF <Download className="size-4" />

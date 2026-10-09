@@ -152,7 +152,7 @@ export default function Footer() {
                     Schedule a Free Consultation
                   </Link>
                   <a
-                    href="tel:+9198185811518"
+                    href="tel:+919818581518"
                     className="inline-flex min-h-11 items-center rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
                   >
                     Call an Advisor
@@ -173,6 +173,7 @@ export default function Footer() {
                     src={slide.image}
                     alt="Investor Space Character"
                     fill
+                    sizes="(max-width: 768px) 100vw, 400px"
                     className="object-contain object-bottom"
                     priority
                   />
@@ -264,9 +265,9 @@ export default function Footer() {
                   R2 LG 34, M3M Corner Walk, Sector-74, Gurgaon - 122004
                 </li>
                 <li>
-                  <a href="tel:+9198185811518" className="flex items-center gap-2 transition-colors hover:text-white">
+                  <a href="tel:+919818581518" className="flex items-center gap-2 transition-colors hover:text-white">
                     <Phone className="size-4 shrink-0 text-primary" />
-                    +91 98185811518
+                    +91 98185 81518
                   </a>
                 </li>
                 <li>

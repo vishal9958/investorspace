@@ -22,6 +22,7 @@ import {
     PhoneCall,
 } from "lucide-react";
 import Footer from "@/components/Footer";
+import PageTitle from "@/components/PageTitle";
 
 // ─── SCROLL-LOCKED HISTORY TIMELINE ───────────────────────────────────────────
 const milestones = [
@@ -291,6 +292,7 @@ export default function CompanyPage() {
 
     return (
         <div className="min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col justify-between overflow-x-hidden">
+            <PageTitle title="Company" />
             <main className="pb-16 pt-20 sm:pt-28 md:pt-32">
                 {/* 1. HERO & AT A GLANCE SECTION */}
                 <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
@@ -381,11 +383,11 @@ export default function CompanyPage() {
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                                     <a
-                                        href="tel:+919858181518"
+                                        href="tel:+919818581518"
                                         className="flex items-center gap-2 p-3 rounded-2xl bg-red-50 hover:bg-red-100 text-red-700 transition-all duration-300 font-medium text-xs sm:text-sm hover:scale-[1.02]"
                                     >
                                         <Phone className="size-4 text-red-600" />
-                                        <span>+91 9858181518</span>
+                                        <span>+91 9818581518</span>
                                     </a>
                                     <a
                                         href="mailto:sales@investorspace.co"
@@ -588,11 +590,11 @@ export default function CompanyPage() {
                                 Send An Enquiry
                             </button>
                             <a
-                                href="tel:+919858181518"
+                                href="tel:+919818581518"
                                 className="bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-800 font-bold px-5 py-3 rounded-full text-xs sm:text-sm flex items-center gap-2 transition-all hover:-translate-y-0.5"
                             >
                                 <PhoneCall className="size-4 text-red-600" />
-                                <span>+91 9858181518</span>
+                                <span>+91 9818581518</span>
                             </a>
                         </div>
                     </div>
@@ -645,3 +647,4 @@ export default function CompanyPage() {
         </div>
     );
 }
+

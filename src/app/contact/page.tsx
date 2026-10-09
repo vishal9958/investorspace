@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageTitle from "@/components/PageTitle";
 import {
   ArrowRight,
   MessageCircle,
@@ -131,6 +132,7 @@ export default function ContactPage() {
 
   return (
     <>
+      <PageTitle title="Contact" />
       <Navbar />
       <main className="pt-20 bg-white text-slate-900 overflow-hidden">
         {/* Hero Section */}
@@ -183,6 +185,7 @@ export default function ContactPage() {
                       src={HERO_SLIDES[heroIndex].image}
                       alt="Consultation"
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover object-center"
                     />
 
@@ -307,7 +310,7 @@ export default function ContactPage() {
               </div>
 
               <a
-                href="tel:+9198185811518"
+                href="tel:+919818581518"
                 className="group relative flex flex-col justify-between p-6 rounded-2xl bg-slate-50 hover:bg-white text-slate-900 transition-all duration-300 hover:-translate-y-1 hover:border-primary border border-slate-200 shadow-sm hover:shadow-md"
               >
                 <div className="flex justify-between items-start">
@@ -327,7 +330,7 @@ export default function ContactPage() {
               </a>
 
               <a
-                href="https://wa.me/9198185811518"
+                href="https://wa.me/919818581518"
                 target="_blank"
                 rel="noreferrer"
                 className="group relative flex flex-col justify-between p-6 rounded-2xl bg-slate-50 hover:bg-white text-slate-900 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500 border border-slate-200 shadow-sm hover:shadow-md"
@@ -512,6 +515,7 @@ export default function ContactPage() {
                       src={FEATURE_SLIDES[featureIndex].image}
                       alt="Feature Preview"
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover opacity-60"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
@@ -692,3 +696,4 @@ export default function ContactPage() {
     </>
   );
 }
+

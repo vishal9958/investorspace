@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import PageTitle from "@/components/PageTitle";
 import Testimonials from "@/components/home/Testimonials";
 import {
   ArrowRight,
@@ -173,6 +174,7 @@ export default function ServicesPage() {
 
   return (
     <>
+      <PageTitle title="Services" />
       <main className="pt-20 bg-white font-sans text-slate-900 overflow-hidden">
         {/* ================= HERO SECTION ================= */}
         <section className="relative min-h-[720px] lg:min-h-[780px] flex items-center justify-center overflow-hidden border-b border-slate-200/80 px-6 sm:px-10 lg:px-16 bg-slate-50">

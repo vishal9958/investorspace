@@ -24,11 +24,22 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Investor Space | Government-Approved Plots in Dholera SIR",
+  title: {
+    default: "Investor Space",
+    template: "%s | Investor Space",
+  },
   description:
     "Buy title-clear, government-approved plots in Dholera SIR. We handle verification, documentation and resale support for a safer investment.",
   keywords: "Dholera SIR plots, government approved plots, Dholera investment, real estate Gujarat, DSIRDA approved",
   authors: [{ name: "Investor Space" }],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
+      { url: "/images/logo1.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/images/logo1.png",
+  },
   openGraph: {
     type: "website",
     siteName: "Investor Space",
