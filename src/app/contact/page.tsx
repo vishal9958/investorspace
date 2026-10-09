@@ -619,7 +619,7 @@ export default function ContactPage() {
 
               <div className="lg:col-span-2 rounded-3xl overflow-hidden border border-slate-200 shadow-md bg-white flex flex-col h-[400px] lg:h-auto relative">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.34989123!2d77.06!3d28.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjh8MjQnMDAuMCJOIDc3wrAwMycwMC4wIkU!5e0!3m2!1sen!2sin!4v1600000000000"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.1!2d77.0537!3d28.4089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d229b5a6b4b41%3A0x8c8b74a1a8f0c1c0!2sM3M%20Corner%20Walk%2C%20Sector%2066%2C%20Gurugram%2C%20Haryana%20122018!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -630,7 +630,7 @@ export default function ContactPage() {
                 <div className="p-4 bg-white border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
                   <div>
                     <h4 className="font-bold text-slate-900">Investor Space Main Office</h4>
-                    <p className="text-xs text-slate-500">Sector 66, Gurugram, Haryana</p>
+                    <p className="text-xs text-slate-500">M3M Corner Walk, Sector 66, Gurugram, Haryana</p>
                   </div>
                   <div className="flex gap-3">
                     <a
@@ -640,12 +640,12 @@ export default function ContactPage() {
                       <PhoneCall className="h-3.5 w-3.5 text-primary" /> Call Now
                     </a>
                     <a
-                      href="https://maps.google.com"
+                      href="https://www.google.com/maps/dir/?api=1&destination=M3M+Corner+Walk+Sector+66+Gurugram+Haryana&destination_place_id=ChIJQUs2WpuyDDkRwMHwqKF0i4w&travelmode=driving"
                       target="_blank"
                       rel="noreferrer"
                       className="px-4 py-2 rounded-xl bg-primary text-xs font-bold text-white hover:bg-primary/90 transition-colors flex items-center gap-1.5 shadow-md shadow-primary/20"
                     >
-                      <Navigation className="h-3.5 w-3.5" /> Directions
+                      <Navigation className="h-3.5 w-3.5" /> Get Directions
                     </a>
                   </div>
                 </div>

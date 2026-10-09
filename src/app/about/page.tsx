@@ -195,14 +195,16 @@ export default function AboutPage() {
                   exit={{ opacity: 0, scale: 1.01 }}
                   transition={{ duration: 1 }}
                   className="absolute inset-0 size-full object-cover"
+                  style={{ filter: "blur(2px)" }}
                 />
               </AnimatePresence>
 
+              <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]"></div>
               <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             </div>
 
-            <div className="absolute inset-0 flex items-end px-6 pb-10 sm:px-10 lg:px-16">
-              <div className="grid w-full grid-cols-1 gap-5 lg:grid-cols-[1.25fr_1fr] lg:items-end lg:gap-14">
+            <div className="absolute inset-0 flex items-center px-6 pb-10 pt-10 sm:px-10 lg:px-16">
+              <div className="grid w-full grid-cols-1 gap-5 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-14">
 
                 <div>
                   <motion.div
@@ -352,6 +354,7 @@ export default function AboutPage() {
             </div>
 
             <div className="mt-8 grid items-stretch gap-4 sm:mt-10 sm:grid-cols-[1.7fr_0.9fr] sm:gap-5">
+              {/* Left column */}
               <div className="flex flex-col gap-4 sm:h-[440px] lg:h-[500px]">
                 <div className="h-48 overflow-hidden rounded-2xl shadow-sm sm:h-auto sm:flex-[7]">
                   <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1920&auto=format&fit=crop" className="size-full object-cover" alt="Discussion" />
@@ -373,18 +376,20 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-              <div className="relative h-72 w-full overflow-hidden rounded-2xl bg-black shadow-sm sm:h-full">
+
+              {/* Right column — Dholera image fills full height */}
+              <div className="relative self-stretch overflow-hidden rounded-2xl shadow-sm">
                 <img
                   src="/images/Dholera SIR.png"
-                  alt="Building"
-                  className="absolute inset-0 size-full object-cover opacity-60"
+                  alt="Dholera SIR"
+                  className="absolute inset-0 w-full h-full object-cover opacity-70 scale-[1.15]"
+                  style={{ objectPosition: "center 20%" }}
                 />
-
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6">
                   <h3 className="font-display text-xl font-bold text-white sm:text-2xl">
                     Dholera SIR Growth Engine
                   </h3>
-
                   <p className="mt-2 text-sm leading-relaxed text-white/80">
                     A 920 sq. km planned smart city with 422 sq. km town planning, 5-way
                     multi-modal connectivity, and ₹91,000 Cr TATA semiconductor anchor
@@ -646,12 +651,12 @@ export default function AboutPage() {
             </div>
 
             <div className="mt-8 flex items-center gap-3">
-              <div className="size-10 rounded-full overflow-hidden border-2 border-white shadow-xs">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=100&auto=format&fit=crop" alt="Avatar" className="size-full object-cover" />
-              </div>
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="size-10 rounded-full bg-slate-200/60 border-2 border-white"></div>
+              {teamMembers.map((member, i) => (
+                <div key={i} className="size-10 rounded-full overflow-hidden border-2 border-white shadow-xs bg-slate-100">
+                  <img src={member.img} alt={member.name} className="size-full object-cover object-top" />
+                </div>
               ))}
+              <div className="size-10 rounded-full bg-slate-200/60 border-2 border-white flex items-center justify-center text-xs font-bold text-slate-500">+</div>
             </div>
 
             <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">

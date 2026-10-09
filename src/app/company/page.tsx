@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
     Building2,
     Calendar,
@@ -22,6 +22,155 @@ import {
     PhoneCall,
 } from "lucide-react";
 import Footer from "@/components/Footer";
+
+// ─── SCROLL-LOCKED HISTORY TIMELINE ───────────────────────────────────────────
+const milestones = [
+    {
+        year: "2015",
+        title: "Title-First Investment Mandate",
+        desc: "Founded Investor Space Real Estate Promoters with a strict rule: 100% Government Approved, All NA (Non-Agricultural), NOC Certified, and Title Clear land listings only.",
+        badge: "ORIGIN",
+    },
+    {
+        year: "2018",
+        title: "Strategic Corridor Acquisition",
+        desc: "Focused on high-growth corridors along the Main 6-Lane Highway and TP 1A / TP 1B linear developments parallel to the Ahmedabad-Dholera Expressway.",
+        badge: "DHOLERA SIR FOCUS",
+    },
+    {
+        year: "2021",
+        title: "Anchor Infra Alignment",
+        desc: "Positioned projects within 2 to 10 minutes from major growth drivers: TATA Semiconductor Fab (₹91,000 Cr), International Airport Circle, and Metro links.",
+        badge: "INFRASTRUCTURE",
+    },
+    {
+        year: "2024",
+        title: "Kesar Green Flora Landmark",
+        desc: "Launched flagship residential plot development 'Kesar Green Flora' in Dholera SIR offering plot sizes starting from 100 sq. yards onwards.",
+        badge: "PROJECT LAUNCH",
+    },
+    {
+        year: "2026",
+        title: "Nationwide Investor Network",
+        desc: "Guiding investors across 12 major cities in unlocking value in India's first greenfield smart industrial city (920 sq. km DSIR).",
+        badge: "SCALE & TRUST",
+    },
+];
+
+function HistoryTimeline() {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const scrolling = useRef(false);
+    const activeRef = useRef(0);
+
+    // keep ref in sync with state
+    useEffect(() => { activeRef.current = activeIndex; }, [activeIndex]);
+
+    const goTo = (i: number) => {
+        const next = Math.max(0, Math.min(milestones.length - 1, i));
+        setActiveIndex(next);
+        activeRef.current = next;
+    };
+
+    // Attach wheel listener directly on the container div (non-passive)
+    useEffect(() => {
+        const el = containerRef.current;
+        if (!el) return;
+
+        const onWheel = (e: WheelEvent) => {
+            const cur = activeRef.current;
+            const goingDown = e.deltaY > 0;
+            const goingUp = e.deltaY < 0;
+
+            // At edges — let page scroll
+            if (cur === 0 && goingUp) return;
+            if (cur === milestones.length - 1 && goingDown) return;
+
+            // Middle milestones — eat the scroll
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (scrolling.current) return;
+            scrolling.current = true;
+            setTimeout(() => { scrolling.current = false; }, 700);
+
+            goTo(cur + (goingDown ? 1 : -1));
+        };
+
+        el.addEventListener("wheel", onWheel, { passive: false });
+        return () => el.removeEventListener("wheel", onWheel);
+    }, []);
+
+    const ITEM_H = 160;
+
+    return (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-lg border border-slate-100/80 hover:shadow-xl transition-all duration-300">
+                <span className="text-red-600 font-bold uppercase tracking-wider text-xs sm:text-sm bg-red-50 px-3.5 py-1.5 rounded-full border border-red-100">
+                    OUR HISTORY
+                </span>
+                <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-4 mb-1">
+                    Guiding Dholera SIR Buyers Since 2018
+                </h2>
+                <p className="text-slate-500 text-sm mb-8">
+                    Only milestones we can prove appear here.
+                </p>
+
+                {/* This div catches wheel events */}
+                <div ref={containerRef} className="flex gap-6 sm:gap-10" style={{ height: ITEM_H }}>
+                    {/* Left: red line + dots */}
+                    <div className="relative flex flex-col items-center" style={{ minWidth: 20, height: ITEM_H }}>
+                        <div className="absolute left-1/2 -translate-x-1/2 inset-y-0 w-0.5 bg-red-100 rounded-full" />
+                        <motion.div
+                            className="absolute left-1/2 -translate-x-1/2 top-0 w-0.5 bg-red-600 rounded-full origin-top"
+                            animate={{ height: `${(activeIndex / (milestones.length - 1)) * 100}%` }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                        />
+                        <div className="relative z-10 flex flex-col justify-between h-full py-1">
+                            {milestones.map((_, i) => (
+                                <button key={i} onClick={() => goTo(i)} className="focus:outline-none flex items-center justify-center">
+                                    <motion.div
+                                        animate={{
+                                            scale: i === activeIndex ? 1.6 : 1,
+                                            backgroundColor: i <= activeIndex ? "#dc2626" : "#fecaca",
+                                        }}
+                                        transition={{ duration: 0.3 }}
+                                        className="w-2.5 h-2.5 rounded-full border-2 border-white shadow"
+                                    />
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Right: animated content */}
+                    <div className="flex-1 overflow-hidden" style={{ height: ITEM_H }}>
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeIndex}
+                                initial={{ opacity: 0, y: 40 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -40 }}
+                                transition={{ duration: 0.35, ease: "easeOut" }}
+                                style={{ height: ITEM_H }}
+                                className="flex flex-col justify-center"
+                            >
+                                <div className="flex items-center gap-2 mb-1">
+                                    <span className="text-red-600 font-black text-2xl sm:text-3xl">{milestones[activeIndex].year}</span>
+                                    <span className="text-[0.6rem] font-bold uppercase tracking-widest text-red-400 bg-red-50 border border-red-100 px-2 py-0.5 rounded-full">
+                                        {milestones[activeIndex].badge}
+                                    </span>
+                                </div>
+                                <h3 className="font-bold text-slate-900 text-sm sm:text-base mb-1">{milestones[activeIndex].title}</h3>
+                                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-2">{milestones[activeIndex].desc}</p>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+// ──────────────────────────────────────────────────────────────────────────────
 
 export default function CompanyPage() {
     const [openDocIndex, setOpenDocIndex] = useState<number | null>(0);
@@ -280,37 +429,8 @@ export default function CompanyPage() {
                     </div>
                 </motion.section>
 
-                {/* 3. OUR HISTORY SECTION */}
-                <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                    <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-lg border border-slate-100/80 hover:shadow-xl transition-all duration-300">
-                        <span className="text-red-600 font-bold uppercase tracking-wider text-xs sm:text-sm bg-red-50 px-3.5 py-1.5 rounded-full border border-red-100">
-                            OUR HISTORY
-                        </span>
-                        <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-4 mb-2">
-                            Guiding Dholera SIR Buyers Since 2018
-                        </h2>
-                        <p className="text-slate-500 text-sm mb-8">
-                            Only milestones we can prove appear here.
-                        </p>
-
-                        <div className="relative border-l-2 border-red-200 ml-4 pl-6 space-y-6">
-                            <div className="relative group">
-                                <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-red-600 border-4 border-white shadow group-hover:scale-125 transition-transform duration-300"></div>
-                                <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100 group-hover:border-red-200 group-hover:bg-red-50/20 group-hover:shadow-md transition-all duration-300">
-                                    <span className="text-red-600 font-black text-lg block mb-1">
-                                        2018
-                                    </span>
-                                    <h3 className="font-bold text-slate-900 mb-1">
-                                        Investor Space begins
-                                    </h3>
-                                    <p className="text-slate-600 text-sm">
-                                        We started helping investors buy plots in Dholera SIR, Gujarat.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </motion.section>
+                {/* 3. OUR HISTORY SECTION - SCROLL-LOCKED TIMELINE */}
+                <HistoryTimeline />
 
                 {/* 4. SERVICES FOR EVERY BUYER */}
                 <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
