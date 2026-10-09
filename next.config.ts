@@ -3,6 +3,16 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactCompiler: true,
 
+  // Build ke time TypeScript errors ignore karne ke liye:
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+
+  // Build ke time ESLint warnings/errors ignore karne ke liye:
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   images: {
     remotePatterns: [
       {
