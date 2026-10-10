@@ -326,12 +326,12 @@ export default function CompanyPage() {
                                 documents first, so you and your lawyer can verify before you pay.
                             </motion.p>
                             <div className="flex flex-wrap items-center gap-4">
-                                <button className="bg-red-600 hover:bg-red-700 active:scale-95 text-white font-bold px-7 py-3.5 rounded-full shadow-lg shadow-red-600/30 transition-all duration-300 hover:-translate-y-1 flex items-center gap-2 text-sm sm:text-base cursor-pointer">
+                                <a href="tel:+919818581518" className="bg-red-600 hover:bg-red-700 active:scale-95 text-white font-bold px-7 py-3.5 rounded-full shadow-lg shadow-red-600/30 transition-all duration-300 hover:-translate-y-1 flex items-center gap-2 text-sm sm:text-base cursor-pointer">
                                     Talk to An Adviser <ArrowRight className="size-4" />
-                                </button>
-                                <button className="bg-white hover:bg-slate-100 active:scale-95 text-slate-800 border border-slate-200 font-bold px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 text-sm sm:text-base shadow-sm cursor-pointer">
+                                </a>
+                                <a href="/services" className="bg-white hover:bg-slate-100 active:scale-95 text-slate-800 border border-slate-200 font-bold px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 text-sm sm:text-base shadow-sm cursor-pointer">
                                     See Our Services
-                                </button>
+                                </a>
                             </div>
                         </div>
 
@@ -586,9 +586,9 @@ export default function CompanyPage() {
                             </p>
                         </div>
                         <div className="flex flex-wrap items-center gap-3 shrink-0">
-                            <button className="bg-red-600 hover:bg-red-700 active:scale-95 text-white font-bold px-6 py-3 rounded-full text-xs sm:text-sm transition-all shadow-md shadow-red-600/20 hover:-translate-y-0.5 cursor-pointer">
+                            <a href="/contact#callback" className="bg-red-600 hover:bg-red-700 active:scale-95 text-white font-bold px-6 py-3 rounded-full text-xs sm:text-sm transition-all shadow-md shadow-red-600/20 hover:-translate-y-0.5 cursor-pointer">
                                 Send An Enquiry
-                            </button>
+                            </a>
                             <a
                                 href="tel:+919818581518"
                                 className="bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-800 font-bold px-5 py-3 rounded-full text-xs sm:text-sm flex items-center gap-2 transition-all hover:-translate-y-0.5"
@@ -618,15 +618,15 @@ export default function CompanyPage() {
                             </p>
 
                             <div className="flex flex-wrap items-center gap-3">
-                                <button className="bg-red-600 hover:bg-red-700 active:scale-95 text-white font-bold px-6 py-3.5 rounded-full text-xs sm:text-sm transition-all duration-300 shadow-lg shadow-red-600/40 hover:-translate-y-0.5 cursor-pointer">
+                                <a href="/contact#callback" className="bg-red-600 hover:bg-red-700 active:scale-95 text-white font-bold px-6 py-3.5 rounded-full text-xs sm:text-sm transition-all duration-300 shadow-lg shadow-red-600/40 hover:-translate-y-0.5 cursor-pointer">
                                     Schedule A Free Consultation
-                                </button>
-                                <button className="bg-neutral-800 hover:bg-neutral-700 active:scale-95 text-white font-bold px-5 py-3.5 rounded-full text-xs sm:text-sm transition-all cursor-pointer">
+                                </a>
+                                <a href="tel:+919818581518" className="bg-neutral-800 hover:bg-neutral-700 active:scale-95 text-white font-bold px-5 py-3.5 rounded-full text-xs sm:text-sm transition-all cursor-pointer">
                                     Call an Adviser
-                                </button>
-                                <button className="bg-neutral-800 hover:bg-neutral-700 active:scale-95 text-white font-bold px-5 py-3.5 rounded-full text-xs sm:text-sm transition-all cursor-pointer">
+                                </a>
+                                <a href="https://wa.me/919818581518" target="_blank" rel="noopener noreferrer" className="bg-neutral-800 hover:bg-neutral-700 active:scale-95 text-white font-bold px-5 py-3.5 rounded-full text-xs sm:text-sm transition-all cursor-pointer">
                                     WhatsApp Us
-                                </button>
+                                </a>
                             </div>
                         </div>
 

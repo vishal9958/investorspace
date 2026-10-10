@@ -823,12 +823,20 @@ export default function AboutPage() {
             <h2 className="mt-3 font-display text-2xl font-bold sm:text-4xl">
               Invest with confidence in land designed to grow with you.
             </h2>
-            <a
-              href="tel:+919818581518"
-              className="mt-6 inline-block rounded-full bg-red-600 px-8 py-3 text-sm font-bold text-white hover:opacity-90 transition-opacity"
-            >
-              Book a Free Site Visit (+91 9818-581-518)
-            </a>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <a
+                href="/contact#callback"
+                className="inline-block rounded-full bg-red-600 px-8 py-3 text-sm font-bold text-white hover:opacity-90 transition-opacity"
+              >
+                Book a Free Site Visit
+              </a>
+              <a
+                href="/contact#callback"
+                className="inline-block rounded-full border border-white/30 px-8 py-3 text-sm font-bold text-white hover:bg-white/10 transition-colors"
+              >
+                Ask for Documents
+              </a>
+            </div>
           </div>
         </section>
       </main >

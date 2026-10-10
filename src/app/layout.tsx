@@ -63,6 +63,7 @@ export default function RootLayout({
         <SmoothScroll>
           <Preloader />
           <Navbar />
+          <ScrollToTop />
           {children}
           <FloatingContactWidget />
         </SmoothScroll>

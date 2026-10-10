@@ -102,7 +102,7 @@ export default function Hero() {
             <motion.div variants={fadeUp} transition={{ duration: 0.6, delay: 1 }}
               className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-4"
             >
-              <Link href="/#enquiry" className="group inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-dark active:scale-95 sm:px-7 sm:py-4">
+              <Link href="/contact#callback" className="group inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-dark active:scale-95 sm:px-7 sm:py-4">
                 Get the Investment Kit
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
               </Link>
