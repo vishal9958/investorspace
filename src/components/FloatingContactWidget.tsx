@@ -83,16 +83,15 @@ export default function FloatingContactWidget() {
         {
             id: 1,
             sender: "bot",
-            text: "Namaste! 🙏 Welcome to InvestorSpace AI Support.",
+            text: "Namaste! 🙏 I'm the Investor Space AI Assistant.",
         },
         {
             id: 2,
             sender: "bot",
-            text: "May I please know your Name?",
+            text: "We help investors, developers & builders buy 100% government-approved, title-clear plots in Dholera SIR — India's first greenfield smart city.\n\n📌 Our plots are NA certified, NOC cleared & DSIRDA compliant.\n\nMay I know your name to get started?",
         },
     ]);
 
-    // Rotating main trigger icon
     const rotatingItems = [
         { id: "logo", type: "logo" },
         { id: "whatsapp", type: "icon", icon: MessageCircle },
@@ -100,7 +99,6 @@ export default function FloatingContactWidget() {
         { id: "email", type: "icon", icon: Mail },
     ];
 
-    // All buttons in Red theme (#8D0102)
     const actionButtons = [
         {
             id: "whatsapp",
@@ -119,7 +117,7 @@ export default function FloatingContactWidget() {
         {
             id: "email",
             icon: Mail,
-            href: "mailto:info@investorspace.com?subject=Client%20Inquiry",
+            href: "mailto:bappadityabiswas433@gmail.com",
             isBot: false,
             label: "Send Email",
         },
@@ -156,16 +154,14 @@ export default function FloatingContactWidget() {
 
     const currentItem = rotatingItems[activeIconIndex];
 
-    // Process Bot Responses
     const processInput = (text: string) => {
         if (!text.trim()) return;
 
         const userMsgId = Date.now();
         const newMessages: ChatMessage[] = [
             ...messages,
-            { id: userMsgId, sender: "user", text: text },
+            { id: userMsgId, sender: "user", text },
         ];
-
         setUserInput("");
 
         if (step === "GREETING" || step === "NAME") {
@@ -176,9 +172,10 @@ export default function FloatingContactWidget() {
                 {
                     id: userMsgId + 1,
                     sender: "bot",
-                    text: `Pleasure to connect with you, ${text}! 😊 Please share your 10-digit Mobile Number so our advisor can call you.`,
+                    text: `Great to meet you, ${text}! 😊\n\nPlease share your 10-digit mobile number so our advisor can reach you.`,
                 },
             ]);
+
         } else if (step === "PHONE") {
             setLeadData((prev) => ({ ...prev, phone: text }));
             setStep("EMAIL");
@@ -187,9 +184,10 @@ export default function FloatingContactWidget() {
                 {
                     id: userMsgId + 1,
                     sender: "bot",
-                    text: "Thanks! Could you also provide your Email Address? (Or type 'skip')",
+                    text: "Thanks! Could you share your Email Address? (or type 'skip')",
                 },
             ]);
+
         } else if (step === "EMAIL") {
             const emailValue = text.toLowerCase() === "skip" ? "Not Provided" : text;
             setLeadData((prev) => ({ ...prev, email: emailValue }));
@@ -199,26 +197,22 @@ export default function FloatingContactWidget() {
                 {
                     id: userMsgId + 1,
                     sender: "bot",
-                    text: "Which service category best describes your requirement?",
-                    options: ["Developer", "Builder", "Investor", "Service for All"],
+                    text: "Which category best describes you?",
+                    options: ["Developer", "Builder", "Investor", "First-time Buyer"],
                 },
             ]);
+
         } else if (step === "SERVICE") {
             const finalData = { ...leadData, service: text };
             setLeadData(finalData);
             setStep("DONE");
-
-            // Direct WhatsApp Lead Notification
-            const ownerNumber = "919818581518";
-            const waText = `*New Lead Captured via AI Bot*%0A%0A*Name:* ${finalData.name}%0A*Phone:* ${finalData.phone}%0A*Email:* ${finalData.email}%0A*Service:* ${text}`;
-            window.open(`https://wa.me/${ownerNumber}?text=${waText}`, "_blank");
 
             setMessages([
                 ...newMessages,
                 {
                     id: userMsgId + 1,
                     sender: "bot",
-                    text: `Thank you, ${finalData.name}! 🎉 Your requirement as [${text}] has been received. Our team will contact you shortly on ${finalData.phone}.`,
+                    text: `Thank you, ${finalData.name}! 🎉\n\nYour enquiry as a [${text}] has been received. Our team will contact you shortly on ${finalData.phone}.\n\n📞 You can also call us directly: +91 98185 81518`,
                 },
             ]);
         }

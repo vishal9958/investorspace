@@ -112,12 +112,11 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Add API submission logic here
-    console.log("Form Submitted:", formData);
     setTimeout(() => {
       setIsSubmitting(false);
-      alert("Callback request submitted successfully!");
-    }, 1000);
+      alert("Thank you! Our team will contact you within one working day.");
+      setFormData({ name: "", phone: "", email: "", budget: "", preferredTime: "", message: "", siteVisit: false });
+    }, 800);
   };
 
   const fadeInUp = {
@@ -373,7 +372,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="text-lg font-bold text-slate-900">Let's Meet in Gurgaon</h4>
-                  <p className="text-xs text-slate-500 mt-1">Sector 66, Gurugram, Haryana</p>
+                  <p className="text-xs text-slate-500 mt-1">Sector-74, Gurgaon - 122004</p>
                   <span className="inline-block mt-2 text-[11px] font-semibold text-primary">View Location &rarr;</span>
                 </div>
               </a>
@@ -594,7 +593,7 @@ export default function ContactPage() {
                   <div className="mt-6 space-y-3 text-xs border-t border-slate-100 pt-4">
                     <div className="flex items-start gap-2 text-slate-700">
                       <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                      <span>R2-10-34, M3M Corner Walk, Sector 66, Gurugram, Haryana</span>
+                      <span>R2 LG 34, M3M Corner Walk, Sector-74, Gurgaon - 122004</span>
                     </div>
                     <div className="flex items-center gap-2 text-slate-700">
                       <Clock className="w-4 h-4 text-primary shrink-0" />
@@ -623,7 +622,7 @@ export default function ContactPage() {
 
               <div className="lg:col-span-2 rounded-3xl overflow-hidden border border-slate-200 shadow-md bg-white flex flex-col h-[400px] lg:h-auto relative">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.1!2d77.0537!3d28.4089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d229b5a6b4b41%3A0x8c8b74a1a8f0c1c0!2sM3M%20Corner%20Walk%2C%20Sector%2066%2C%20Gurugram%2C%20Haryana%20122018!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.8!2d77.0689!3d28.4261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d229b5a6b4b41%3A0x8c8b74a1a8f0c1c0!2sM3M%20Corner%20Walk%2C%20Sector%2074%2C%20Gurugram%2C%20Haryana%20122004!5e0!3m2!1sen!2sin!4v1700000000001!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -634,7 +633,7 @@ export default function ContactPage() {
                 <div className="p-4 bg-white border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
                   <div>
                     <h4 className="font-bold text-slate-900">Investor Space Main Office</h4>
-                    <p className="text-xs text-slate-500">M3M Corner Walk, Sector 66, Gurugram, Haryana</p>
+                    <p className="text-xs text-slate-500">R2 LG 34, M3M Corner Walk, Sector-74, Gurgaon - 122004</p>
                   </div>
                   <div className="flex gap-3">
                     <a
@@ -644,7 +643,7 @@ export default function ContactPage() {
                       <PhoneCall className="h-3.5 w-3.5 text-primary" /> Call Now
                     </a>
                     <a
-                      href="https://www.google.com/maps/dir/?api=1&destination=M3M+Corner+Walk+Sector+66+Gurugram+Haryana&destination_place_id=ChIJQUs2WpuyDDkRwMHwqKF0i4w&travelmode=driving"
+                      href="https://www.google.com/maps/dir/?api=1&destination=R2+LG+34+M3M+Corner+Walk+Sector+74+Gurgaon+122004&travelmode=driving"
                       target="_blank"
                       rel="noreferrer"
                       className="px-4 py-2 rounded-xl bg-primary text-xs font-bold text-white hover:bg-primary/90 transition-colors flex items-center gap-1.5 shadow-md shadow-primary/20"
