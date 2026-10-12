@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageTitle from "@/components/PageTitle";
 import {
@@ -132,7 +131,6 @@ export default function ContactPage() {
   return (
     <>
       <PageTitle title="Contact" />
-      <Navbar />
       <main className="pt-20 bg-white text-slate-900 overflow-hidden">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-slate-50/70 py-12 sm:py-16 lg:py-20 text-slate-900 border-b border-slate-200">
@@ -294,7 +292,13 @@ export default function ContactPage() {
         {/* Contact Grid Section */}
         <section className="py-16 bg-slate-50/60">
           <div className="shell max-w-7xl mx-auto px-4 sm:px-8 flex flex-col gap-6">
-            <div className="grid gap-6 rounded-3xl bg-white p-6 lg:p-8 border border-slate-200 lg:grid-cols-[1.2fr_1fr_1fr] text-slate-900 shadow-lg relative overflow-hidden">
+            <motion.div
+              className="grid gap-6 rounded-3xl bg-white p-6 lg:p-8 border border-slate-200 lg:grid-cols-[1.2fr_1fr_1fr] text-slate-900 shadow-lg relative overflow-hidden"
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            >
               <div className="absolute -top-12 -left-12 w-48 h-48 bg-primary/5 rounded-full blur-2xl pointer-events-none" />
 
               <div className="flex flex-col justify-center py-2 relative z-10">
@@ -349,10 +353,19 @@ export default function ContactPage() {
                   </p>
                 </div>
               </a>
-            </div>
+            </motion.div>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 flex flex-col justify-between min-h-[160px] shadow-sm relative overflow-hidden group hover:border-primary transition-all">
+            <motion.div
+              className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+            >
+              <motion.div
+                variants={{ hidden: { opacity: 0, y: 28, scale: 0.97 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } } }}
+                className="p-6 rounded-2xl bg-white border border-slate-200 flex flex-col justify-between min-h-[160px] shadow-sm relative overflow-hidden group hover:border-primary hover:-translate-y-1 transition-all duration-300"
+              >
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-xl" />
                 <div>
                   <h4 className="text-lg font-bold text-slate-900">Have a Specific Requirement?</h4>
@@ -361,11 +374,12 @@ export default function ContactPage() {
                 <a href="#callback" className="text-xs font-bold text-primary group-hover:text-slate-900 flex items-center gap-1.5 mt-4 transition-colors">
                   Fill Callback Form <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                 </a>
-              </div>
+              </motion.div>
 
-              <a
+              <motion.a
                 href="#map"
-                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-primary flex items-center gap-4 transition-all shadow-sm group"
+                variants={{ hidden: { opacity: 0, y: 28, scale: 0.97 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } } }}
+                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-primary flex items-center gap-4 transition-all shadow-sm group hover:-translate-y-1 duration-300"
               >
                 <div className="h-14 w-14 rounded-2xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <MapPin className="h-7 w-7 text-primary" />
@@ -375,11 +389,12 @@ export default function ContactPage() {
                   <p className="text-xs text-slate-500 mt-1">Sector-74, Gurgaon - 122004</p>
                   <span className="inline-block mt-2 text-[11px] font-semibold text-primary">View Location &rarr;</span>
                 </div>
-              </a>
+              </motion.a>
 
-              <a
+              <motion.a
                 href="mailto:sales@investorspace.co"
-                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-primary flex items-center gap-4 transition-all shadow-sm group sm:col-span-2 lg:col-span-1"
+                variants={{ hidden: { opacity: 0, y: 28, scale: 0.97 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } } }}
+                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-primary flex items-center gap-4 transition-all shadow-sm group sm:col-span-2 lg:col-span-1 hover:-translate-y-1 duration-300"
               >
                 <div className="h-14 w-14 rounded-2xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <Mail className="h-7 w-7 text-primary" />
@@ -389,8 +404,8 @@ export default function ContactPage() {
                   <p className="text-xs text-slate-500 mt-1">sales@investorspace.co</p>
                   <span className="inline-block mt-2 text-[11px] font-semibold text-primary">Send Email &rarr;</span>
                 </div>
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
           </div>
         </section>
 

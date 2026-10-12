@@ -5,26 +5,36 @@ import { Building2, LandPlot, ChartLine, Users, ArrowRight } from "lucide-react"
 import Link from "next/link";
 
 export default function Services() {
-  const riseVariants = {
+  const container = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+  };
+  const card = {
+    hidden: { opacity: 0, y: 40, scale: 0.96 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+  };
+  const labelAnim = {
+    hidden: { opacity: 0, x: -16 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
+  };
+  const headAnim = {
     hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
   };
 
   return (
     <section id="services" aria-labelledby="services-heading" className="bg-neutral-100 pb-16 overflow-hidden">
       <div className="shell section-pad">
         <div className="max-w-3xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={riseVariants}>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={labelAnim}>
             <span className="inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] bg-primary/10 text-primary">
               Our Services
             </span>
           </motion.div>
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={riseVariants}>
-            <h2 id="services-heading" className="mt-4 font-bold text-3xl sm:text-4xl lg:text-5xl text-primary leading-tight text-balance">
-              <span className="text-accent-gradient block">
-                Smart opportunities for developers, builders, and investors
-              </span>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={headAnim}>
+            <h2 id="services-heading" className="mt-4 font-bold text-3xl sm:text-4xl lg:text-5xl text-slate-900 leading-tight text-balance tracking-tight">
+              Smart opportunities for <span className="text-primary">developers, builders,</span> and investors
             </h2>
           </motion.div>
         </div>
@@ -33,13 +43,16 @@ export default function Services() {
           From land planning to sustainable growth, we help you find the right path in Dholera's evolving market.
         </p>
 
-        <div className="mt-8 grid items-stretch gap-4 lg:mt-10 lg:grid-cols-12 lg:gap-5">
+        <motion.div
+          className="mt-8 grid items-stretch gap-4 lg:mt-10 lg:grid-cols-12 lg:gap-5"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={container}
+        >
 
           {/* 1. Developer Services Card */}
-          <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={riseVariants}
-            className="lg:col-span-5 flex"
-          >
+          <motion.div variants={card} className="lg:col-span-5 flex">
             <Link href="/services/developer" className="group relative flex w-full flex-col overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/10 transition duration-300 hover:-translate-y-1 hover:shadow-xl bg-card">
 
               {/* Image Box */}
@@ -78,7 +91,7 @@ export default function Services() {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-7 lg:gap-5">
 
             {/* 2. Builder Services Card */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={riseVariants} className="flex">
+            <motion.div variants={card} className="flex">
               <Link href="/services/builder" className="group relative flex w-full flex-col overflow-hidden rounded-2xl shadow-sm ring-1 transition duration-300 hover:-translate-y-1 hover:shadow-xl bg-card ring-border hover:ring-primary/30">
                 <div className="relative w-full h-44 sm:h-48 overflow-hidden">
                   <img
@@ -109,7 +122,7 @@ export default function Services() {
             </motion.div>
 
             {/* 3. Investor Services Card */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={riseVariants} className="flex">
+            <motion.div variants={card} className="flex">
               <Link href="/services/investor" className="group relative flex w-full flex-col overflow-hidden rounded-2xl shadow-sm ring-1 transition duration-300 hover:-translate-y-1 hover:shadow-xl bg-card ring-border hover:ring-primary/30">
                 <div className="relative w-full h-44 sm:h-48 overflow-hidden">
                   <img
@@ -140,7 +153,7 @@ export default function Services() {
             </motion.div>
 
             {/* 4. Services For All Card */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={riseVariants} className="flex sm:col-span-2">
+            <motion.div variants={card} className="flex sm:col-span-2">
               <Link href="/services/all" className="group relative flex w-full flex-col overflow-hidden rounded-2xl shadow-sm ring-1 transition duration-300 hover:-translate-y-1 hover:shadow-xl bg-card ring-border hover:ring-primary/30 sm:flex-row">
                 <div className="relative w-full sm:w-[45%] h-48 sm:h-auto shrink-0 overflow-hidden">
                   <img
@@ -171,7 +184,7 @@ export default function Services() {
             </motion.div>
 
           </div>
-        </div>
+        </motion.div>
 
         <div className="mt-8 flex flex-wrap gap-3">
           <Link className="inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary" href="/services">

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import PageTitle from "@/components/PageTitle";
 import Testimonials from "@/components/home/Testimonials";
 import {
     ArrowRight,
@@ -157,8 +158,21 @@ export default function InvestorServicesPage() {
         { name: "Dedicated Exit & Resale Assistance", investorSpace: true, broker: false, direct: false },
     ];
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        const name = (form.elements.namedItem("name") as HTMLInputElement)?.value || "";
+        const phone = (form.elements.namedItem("phone") as HTMLInputElement)?.value || "";
+        const email = (form.elements.namedItem("email") as HTMLInputElement)?.value || "";
+        const interest = (form.elements.namedItem("interest") as HTMLSelectElement)?.value || "";
+        const message = (form.elements.namedItem("message") as HTMLTextAreaElement)?.value || "";
+        const waText = encodeURIComponent(`New Investor Enquiry\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nInterest: ${interest}\nMessage: ${message}`);
+        window.open(`https://wa.me/919818581518?text=${waText}`, "_blank");
+    };
+
     return (
         <>
+            <PageTitle title="Investor Services" />
             <main className="bg-white font-sans text-slate-900 overflow-hidden">
                 {/* HERO SECTION */}
                 <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-slate-950">
@@ -522,13 +536,13 @@ export default function InvestorServicesPage() {
                             </div>
 
                             <div className="lg:col-span-7 bg-white p-7 sm:p-10 rounded-3xl border border-slate-200/80 shadow-xl">
-                                <form className="space-y-4">
+                                <form className="space-y-4" onSubmit={handleSubmit}>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
                                             <label className="block text-xs font-bold text-slate-700 mb-1">Full Name</label>
                                             <input
                                                 type="text"
-                                                placeholder="John Doe"
+                                                name="name" placeholder="John Doe" required
                                                 className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
                                             />
                                         </div>
@@ -536,7 +550,7 @@ export default function InvestorServicesPage() {
                                             <label className="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
                                             <input
                                                 type="email"
-                                                placeholder="john@example.com"
+                                                name="email" placeholder="john@example.com"
                                                 className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
                                             />
                                         </div>
@@ -547,13 +561,13 @@ export default function InvestorServicesPage() {
                                             <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
                                             <input
                                                 type="tel"
-                                                placeholder="+91 98765 43210"
+                                                name="phone" placeholder="+91 98765 43210" required
                                                 className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
                                             />
                                         </div>
                                         <div>
                                             <label className="block text-xs font-bold text-slate-700 mb-1">I'm interested in...</label>
-                                            <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]">
+                                            <select name="interest" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]">
                                                 <option>Long-term High Growth Land Assets</option>
                                                 <option>Commercial Zone Parcels</option>
                                                 <option>NRI Portfolio Investment</option>
@@ -566,7 +580,7 @@ export default function InvestorServicesPage() {
                                         <label className="block text-xs font-bold text-slate-700 mb-1">Tell us what you're looking for</label>
                                         <textarea
                                             rows={4}
-                                            placeholder="Share your investment budget or timeline preferences..."
+                                            name="message" placeholder="Share your investment budget or timeline preferences..."
                                             className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
                                         ></textarea>
                                     </div>

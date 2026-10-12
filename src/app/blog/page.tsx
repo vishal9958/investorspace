@@ -203,10 +203,10 @@ export default function BlogPage() {
                             return (
                                 <motion.article
                                     key={post.id}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: idx * 0.05 }}
-                                    viewport={{ once: true }}
+                                    initial={{ opacity: 0, y: 36, scale: 0.96 }}
+                                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                                    transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                                    viewport={{ once: true, amount: 0.1 }}
                                     onClick={() => setSelectedPost(post)}
                                     className={`bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden relative group cursor-pointer transition-all duration-300 flex flex-col ${selectedPost?.id === post.id ? "opacity-0" : "hover:shadow-xl hover:border-red-200"
                                         }`}
@@ -279,9 +279,15 @@ export default function BlogPage() {
                         </div>
 
                         <div className="relative z-10 w-full md:max-w-md">
-                            <form className="flex flex-col sm:flex-row gap-3">
+                            <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => {
+                                e.preventDefault();
+                                const email = (e.currentTarget.elements.namedItem("email") as HTMLInputElement)?.value || "";
+                                const waText = encodeURIComponent(`New Newsletter Subscription\nEmail: ${email}`);
+                                window.open(`https://wa.me/919818581518?text=${waText}`, "_blank");
+                            }}>
                                 <input
                                     type="email"
+                                    name="email"
                                     placeholder="Enter your email"
                                     className="flex-1 bg-white/10 border border-white/20 rounded-full px-5 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 text-sm"
                                     required

@@ -25,7 +25,7 @@ export default function WhyInvest() {
             <span className="inline-flex rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider bg-red-100/80 text-primary">
               Why Investor Space
             </span>
-            <h2 id="why-heading" className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <h2 id="why-heading" className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
               Why Buy Dholera SIR Plots With <span className="text-primary">Investor Space</span>
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-500 max-w-2xl leading-relaxed">
@@ -196,61 +196,33 @@ export default function WhyInvest() {
         </div>
 
         {/* Bottom 3 Pills Grid */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
-          <motion.article
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={sv}
-            className="rounded-2xl bg-white p-5 shadow-sm border border-slate-200/80 flex items-start gap-4 hover:border-primary/40 transition-colors"
-          >
-            <span className="grid shrink-0 place-items-center rounded-full bg-primary text-white size-10 shadow-sm">
-              <FileCheck className="size-5" />
-            </span>
-            <div>
-              <h3 className="text-sm font-bold text-slate-900">Clear Pricing</h3>
-              <p className="mt-1 text-xs text-slate-500 leading-relaxed">
-                One rate card with every charge listed upfront, so the final amount matches the quote.
-              </p>
-            </div>
-          </motion.article>
-
-          <motion.article
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={sv}
-            className="rounded-2xl bg-white p-5 shadow-sm border border-slate-200/80 flex items-start gap-4 hover:border-primary/40 transition-colors"
-          >
-            <span className="grid shrink-0 place-items-center rounded-full bg-primary text-white size-10 shadow-sm">
-              <MapPin className="size-5" />
-            </span>
-            <div>
-              <h3 className="text-sm font-bold text-slate-900">Site Visits With Our Team</h3>
-              <p className="mt-1 text-xs text-slate-500 leading-relaxed">
-                Visit the plot with an advisor who knows Dholera SIR and its TP zones.
-              </p>
-            </div>
-          </motion.article>
-
-          <motion.article
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={sv}
-            className="rounded-2xl bg-white p-5 shadow-sm border border-slate-200/80 flex items-start gap-4 hover:border-primary/40 transition-colors"
-          >
-            <span className="grid shrink-0 place-items-center rounded-full bg-primary text-white size-10 shadow-sm">
-              <TrendingUp className="size-5" />
-            </span>
-            <div>
-              <h3 className="text-sm font-bold text-slate-900">Resale Guidance</h3>
-              <p className="mt-1 text-xs text-slate-500 leading-relaxed">
-                Valuation guidance and resale help when you choose to sell.
-              </p>
-            </div>
-          </motion.article>
-        </div>
+        <motion.div
+          className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.13 } } }}
+        >
+          {[
+            { icon: FileCheck, title: "Clear Pricing", desc: "One rate card with every charge listed upfront, so the final amount matches the quote." },
+            { icon: MapPin, title: "Site Visits With Our Team", desc: "Visit the plot with an advisor who knows Dholera SIR and its TP zones." },
+            { icon: TrendingUp, title: "Resale Guidance", desc: "Valuation guidance and resale help when you choose to sell." },
+          ].map(({ icon: Icon, title, desc }) => (
+            <motion.article
+              key={title}
+              variants={{ hidden: { opacity: 0, y: 28, scale: 0.96 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } } }}
+              className="rounded-2xl bg-white p-5 shadow-sm border border-slate-200/80 flex items-start gap-4 hover:border-primary/40 hover:-translate-y-1 transition-all duration-300"
+            >
+              <span className="grid shrink-0 place-items-center rounded-full bg-primary text-white size-10 shadow-sm">
+                <Icon className="size-5" />
+              </span>
+              <div>
+                <h3 className="text-sm font-bold text-slate-900">{title}</h3>
+                <p className="mt-1 text-xs text-slate-500 leading-relaxed">{desc}</p>
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
 
       </div>
     </section>

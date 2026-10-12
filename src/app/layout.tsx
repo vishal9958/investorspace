@@ -1,24 +1,26 @@
 import type { Metadata } from "next";
-import { DM_Sans, Playfair_Display } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Preloader from "@/components/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
 import FloatingContactWidget from "@/components/FloatingContactWidget";
 import ScrollToTop from "@/components/ScrollToTop";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 
-const dmSans = DM_Sans({
+// Clean, modern sans — used by Linear, Vercel, Notion
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   weight: ["300", "400", "500", "600", "700", "800"],
-  style: ["normal", "italic"],
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+// Elegant serif for headlines — warm, premium, not old-fashioned
+const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fredoka",
-  weight: ["600", "700", "800", "900"],
+  weight: ["300", "400", "600", "700", "800", "900"],
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -57,11 +59,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${playfair.variable}`}
+      className={`${inter.variable} ${fraunces.variable}`}
     >
       <body className="min-h-full font-sans antialiased text-foreground">
         <SmoothScroll>
           <Preloader />
+          <ScrollProgressBar />
           <Navbar />
           <ScrollToTop />
           {children}

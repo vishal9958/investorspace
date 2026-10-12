@@ -157,7 +157,7 @@ export default function Stats() {
                 </span>
               </motion.div>
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={sv}>
-                <h2 id="stats-heading" className="mt-4 font-bold text-balance text-3xl sm:text-4xl lg:text-5xl text-primary sm:mt-5">
+                <h2 id="stats-heading" className="mt-4 font-bold text-balance text-3xl sm:text-4xl lg:text-5xl text-slate-900 sm:mt-5 tracking-tight">
                   Our Track Record In Numbers
                 </h2>
               </motion.div>

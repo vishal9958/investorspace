@@ -174,8 +174,13 @@ export default function Navbar() {
             className="fixed inset-x-0 top-0 z-40 overflow-y-auto bg-white/98 backdrop-blur-lg pt-20 pb-8 px-5 shadow-xl lg:hidden"
           >
             <ul className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <li key={link.href}>
+              {navLinks.map((link, i) => (
+                <motion.li
+                  key={link.href}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05, duration: 0.2 }}
+                >
                   <Link
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
@@ -187,17 +192,22 @@ export default function Navbar() {
                   >
                     {link.label}
                   </Link>
-                </li>
+                </motion.li>
               ))}
-              <li className="mt-4 pt-4 border-t border-border">
+              <motion.li
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navLinks.length * 0.05, duration: 0.2 }}
+                className="mt-4 pt-4 border-t border-border"
+              >
                 <Link
                   href="/contact#callback"
                   onClick={() => setMobileOpen(false)}
-                  className="block rounded-full bg-primary px-5 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-primary-dark active:scale-95"
+                  className="block rounded-full bg-primary px-5 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white transition-all hover:bg-primary-dark hover:scale-[1.02] active:scale-95"
                 >
                   Book a Site Visit
                 </Link>
-              </li>
+              </motion.li>
             </ul>
           </motion.div>
         )}

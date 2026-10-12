@@ -147,7 +147,7 @@ export default function Footer() {
                 >
                   <Link
                     href="/contact#callback"
-                    className="inline-flex min-h-11 items-center rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white transition-transform hover:bg-primary-dark active:scale-95 shadow-lg shadow-primary/20"
+                    className="btn-shimmer relative inline-flex min-h-11 items-center rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-primary-dark hover:scale-105 hover:shadow-[0_0_30px_rgba(141,1,2,0.45)] active:scale-95 shadow-lg shadow-primary/20"
                   >
                     Schedule a Free Consultation
                   </Link>
@@ -169,12 +169,14 @@ export default function Footer() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="relative h-[280px] sm:h-[340px] w-full"
                 >
+                  {/* Glow behind character */}
+                  <div className="absolute inset-x-0 bottom-0 h-32 bg-primary/20 blur-3xl rounded-full pointer-events-none" />
                   <Image
                     src={slide.image}
                     alt="Investor Space Character"
                     fill
                     sizes="(max-width: 768px) 100vw, 400px"
-                    className="object-contain object-bottom"
+                    className="object-contain object-bottom drop-shadow-2xl"
                     priority
                   />
                 </motion.div>

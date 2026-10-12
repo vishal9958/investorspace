@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     Building2,
@@ -209,24 +210,28 @@ export default function CompanyPage() {
         {
             tag: "Dholera land advisory",
             title: "Developer Services",
+            href: "/services/developer",
             desc: "Land sourcing, approval support and launch planning for development projects in Dholera SIR.",
             icon: Compass,
         },
         {
             tag: "Joint Development in Dholera",
             title: "Builder Services",
+            href: "/services/builder",
             desc: "Joint development, approval tracking and execution support for builders working in Dholera.",
             icon: Building2,
         },
         {
             tag: "Dholera plot investment",
             title: "Investor Services",
+            href: "/services/investor",
             desc: "Plots in Dholera SIR with clear documents, transparent pricing and an exit plan from the start.",
             icon: TrendingUp,
         },
         {
             tag: "Plots for every buyer",
             title: "Services For All",
+            href: "/services/all",
             desc: "First-time buyers, NRIs and families guided step-by-step in simple language.",
             icon: Users,
         },
@@ -402,12 +407,19 @@ export default function CompanyPage() {
                     </div>
 
                     {/* 2. KEY STATS CARDS WITH ANIMATION */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
+                    <motion.div
+                      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-14"
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.1 }}
+                      variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.09 } } }}
+                    >
                         {stats.map((stat, idx) => {
                             const IconComp = stat.icon;
                             return (
-                                <div
+                                <motion.div
                                     key={idx}
+                                    variants={{ hidden: { opacity: 0, y: 32, scale: 0.95 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } } }}
                                     className="bg-white rounded-3xl p-6 shadow-md border border-slate-100/90 hover:border-red-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group cursor-pointer"
                                 >
                                     <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/5 rounded-full blur-xl group-hover:bg-red-500/15 transition-all"></div>
@@ -425,10 +437,10 @@ export default function CompanyPage() {
                                     <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
                                         {stat.desc}
                                     </p>
-                                </div>
+                                </motion.div>
                             );
                         })}
-                    </div>
+                    </motion.div>
                 </motion.section>
 
                 {/* 3. OUR HISTORY SECTION - SCROLL-LOCKED TIMELINE */}
@@ -448,12 +460,19 @@ export default function CompanyPage() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <motion.div
+                      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.1 }}
+                      variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+                    >
                         {services.map((item, idx) => {
                             const Icon = item.icon;
                             return (
-                                <div
+                                <motion.div
                                     key={idx}
+                                    variants={{ hidden: { opacity: 0, y: 36, scale: 0.95 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } } }}
                                     className="bg-white rounded-3xl p-6 shadow-md border border-slate-100/90 hover:border-red-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
                                 >
                                     <div>
@@ -470,13 +489,16 @@ export default function CompanyPage() {
                                             {item.desc}
                                         </p>
                                     </div>
-                                    <button className="text-red-600 font-bold text-xs sm:text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all cursor-pointer">
+                                    <Link
+                                        href={item.href}
+                                        className="text-red-600 font-bold text-xs sm:text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
+                                    >
                                         Learn more <ArrowRight className="size-4" />
-                                    </button>
-                                </div>
+                                    </Link>
+                                </motion.div>
                             );
                         })}
-                    </div>
+                    </motion.div>
                 </motion.section>
 
                 {/* 5. COMPLIANCE & ACCORDION */}

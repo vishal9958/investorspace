@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from "@/components/Footer";
+import PageTitle from "@/components/PageTitle";
 import {
     ShieldCheck,
     Plane,
@@ -82,6 +83,7 @@ export default function KesarGreenFloraDetailPage() {
 
     return (
         <>
+            <PageTitle title="Kesar Green Flora" />
             <main className="pt-20 bg-white text-slate-900 font-sans overflow-hidden">
                 {/* Breadcrumb Navigation */}
                 <div className="bg-slate-50 border-b border-slate-200 py-3 px-6 sm:px-10 lg:px-16">

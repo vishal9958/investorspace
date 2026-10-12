@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import PageTitle from "@/components/PageTitle";
 import Testimonials from "@/components/home/Testimonials";
 import {
     ArrowRight,
@@ -173,11 +174,15 @@ export default function DeveloperServicesPage() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log("Developer Lead Submitted", formData);
+        const waText = encodeURIComponent(
+            `New Developer Enquiry\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nInterest: ${formData.interest}\nMessage: ${formData.message}`
+        );
+        window.open(`https://wa.me/919818581518?text=${waText}`, "_blank");
     };
 
     return (
         <>
+            <PageTitle title="Developer Services" />
             <main className="bg-white font-sans text-slate-900 overflow-hidden">
                 {/* ================= 1. SCREEN-FIT HERO SECTION ================= */}
                 <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-slate-950">

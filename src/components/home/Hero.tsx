@@ -46,7 +46,15 @@ export default function Hero() {
             transition={{ duration: 1.2, ease: "easeInOut" }}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/75 to-black/30" />
+        {/* Rich layered overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#3a0000]/70 via-transparent to-transparent" />
+        {/* Breathing glow orb */}
+        <motion.div
+          className="absolute -bottom-20 -left-20 w-[500px] h-[500px] rounded-full bg-primary/25 blur-[120px] pointer-events-none"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.35, 0.6, 0.35] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        />
       </div>
 
       <div className="shell relative w-full pb-20 pt-32 text-white sm:pb-24">
@@ -64,7 +72,7 @@ export default function Hero() {
 
             <h1 className="sr-only">Invest in Dholera SIR plots that are legally clear and built to grow.</h1>
 
-            <div aria-hidden="true" className="mt-6 max-w-4xl font-display text-[clamp(2rem,5.5vw,4.5rem)] font-semibold leading-[1.02] tracking-tight sm:mt-7">
+            <div aria-hidden="true" className="mt-6 max-w-4xl font-display text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold leading-[1.0] tracking-[-0.03em] sm:mt-7">
               <motion.span
                 className="block text-white"
                 initial="hidden"
@@ -102,11 +110,15 @@ export default function Hero() {
             <motion.div variants={fadeUp} transition={{ duration: 0.6, delay: 1 }}
               className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10 sm:gap-4"
             >
-              <Link href="/contact#callback" className="group inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-dark active:scale-95 sm:px-7 sm:py-4">
-                Get the Investment Kit
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
+              <Link href="/contact#callback" className="group relative inline-flex min-h-12 items-center gap-2 overflow-hidden rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-primary-dark hover:scale-105 hover:shadow-[0_0_30px_rgba(141,1,2,0.5)] active:scale-95 sm:px-7 sm:py-4">
+                <span className="relative z-10 flex items-center gap-2">
+                  Get the Investment Kit
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
+                </span>
+                {/* Shimmer effect */}
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
               </Link>
-              <Link href="/projects" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10 active:scale-95 sm:px-7 sm:py-4">
+              <Link href="/projects" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/15 hover:border-white/60 hover:scale-105 active:scale-95 sm:px-7 sm:py-4">
                 Explore Live Projects
               </Link>
             </motion.div>
@@ -114,9 +126,14 @@ export default function Hero() {
             <motion.ul variants={fadeUp} transition={{ duration: 0.6, delay: 1.2 }}
               className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/80 sm:mt-14 sm:gap-x-10"
             >
-              {["100% title-verified", "Zero hidden charges", "Resale & rental assistance"].map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <BadgeCheck className="size-4 shrink-0 text-primary" aria-hidden /> {item}
+              {[
+                { text: "100% title-verified", gold: false },
+                { text: "Zero hidden charges", gold: true },
+                { text: "Resale & rental assistance", gold: false },
+              ].map((item) => (
+                <li key={item.text} className="flex items-center gap-2">
+                  <BadgeCheck className={`size-4 shrink-0 ${item.gold ? "text-yellow-400" : "text-primary"}`} aria-hidden />
+                  <span className={item.gold ? "text-gold-gradient font-semibold" : ""}>{item.text}</span>
                 </li>
               ))}
             </motion.ul>
@@ -142,12 +159,17 @@ export default function Hero() {
 
           {/* Right: Lead form */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 1.2, ease: "easeOut" }}
-            className="hidden w-full rounded-3xl border border-white/25 bg-black/45 p-5 shadow-2xl shadow-black/30 backdrop-blur-xl xl:block"
+            initial={{ opacity: 0, clipPath: "inset(0% 0% 100% 0% round 16px)" }}
+            animate={{ opacity: 1, clipPath: "inset(0% 0% 0% 0% round 16px)" }}
+            transition={{ duration: 0.8, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            className="hidden w-full rounded-2xl border border-white/20 bg-white/10 p-6 shadow-2xl shadow-black/40 backdrop-blur-2xl xl:block"
           >
-            <div className="flex items-center gap-2.5">
+            <motion.div
+              className="flex items-center gap-2.5"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.6 }}
+            >
               <span className="grid size-9 shrink-0 place-items-center rounded-full bg-white/15 text-white">
                 <PhoneCall className="size-4" aria-hidden />
               </span>
@@ -155,32 +177,47 @@ export default function Hero() {
                 <p className="font-display text-sm font-bold text-white">Talk to an expert</p>
                 <p className="text-xs text-white/80">Free consultation, callback within a working day</p>
               </div>
-            </div>
+            </motion.div>
+
             <form className="mt-4 flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
-              {/* Honeypot Fixed: tabIndex removed */}
               <div aria-hidden="true" className="hidden">
                 <input readOnly disabled name="website" />
               </div>
-              <label className="block">
-                <span className="mb-1 block text-xs font-medium text-white/80">Your name</span>
-                <input type="text" autoComplete="name" required minLength={2} maxLength={100} placeholder="e.g. Rakesh Mehta" name="name"
-                  className="w-full rounded-full border border-white/30 bg-white/10 px-3.5 py-2.5 text-sm text-white outline-none placeholder:text-white/60 focus:ring-2 focus:ring-white/60" />
-              </label>
-              <label className="block">
-                <span className="mb-1 block text-xs font-medium text-white/80">Phone number</span>
-                <input type="tel" inputMode="tel" autoComplete="tel" required placeholder="+91 98765 43210" name="phone"
-                  className="w-full rounded-full border border-white/30 bg-white/10 px-3.5 py-2.5 text-sm text-white outline-none placeholder:text-white/60 focus:ring-2 focus:ring-white/60" />
-              </label>
-              <label className="block">
-                <span className="mb-1 block text-xs font-medium text-white/80">Email address</span>
-                <input type="email" autoComplete="email" required maxLength={200} placeholder="you@example.com" name="email"
-                  className="w-full rounded-full border border-white/30 bg-white/10 px-3.5 py-2.5 text-sm text-white outline-none placeholder:text-white/60 focus:ring-2 focus:ring-white/60" />
-              </label>
-              <button type="submit"
-                className="mt-1 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-dark active:scale-95 disabled:opacity-60"
+
+              {[
+                { label: "Your name", type: "text", autoComplete: "name", placeholder: "e.g. Rakesh Mehta", name: "name", inputMode: undefined },
+                { label: "Phone number", type: "tel", autoComplete: "tel", placeholder: "+91 98185 81518", name: "phone", inputMode: "tel" as const },
+                { label: "Email address", type: "email", autoComplete: "email", placeholder: "you@example.com", name: "email", inputMode: undefined },
+              ].map((field, i) => (
+                <motion.label
+                  key={field.name}
+                  className="block"
+                  initial={{ opacity: 0, x: 24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.45, delay: 1.7 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <span className="mb-1 block text-xs font-medium text-white/80">{field.label}</span>
+                  <input
+                    type={field.type}
+                    autoComplete={field.autoComplete}
+                    required
+                    placeholder={field.placeholder}
+                    name={field.name}
+                    {...(field.inputMode ? { inputMode: field.inputMode } : {})}
+                    className="w-full rounded-full border border-white/30 bg-white/10 px-3.5 py-2.5 text-sm text-white outline-none placeholder:text-white/60 focus:ring-2 focus:ring-white/60 transition-all duration-200"
+                  />
+                </motion.label>
+              ))}
+
+              <motion.button
+                type="submit"
+                initial={{ opacity: 0, scale: 0.92 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.45, delay: 2.05, ease: [0.34, 1.56, 0.64, 1] }}
+                className="mt-1 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-primary-dark hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/30"
               >
                 Request Callback <ArrowRight className="size-4" aria-hidden />
-              </button>
+              </motion.button>
             </form>
           </motion.div>
         </div>
