@@ -59,66 +59,66 @@ export default function BuilderServicesPage() {
     const featuresBreakdown = [
         {
             id: 0,
-            title: "Land Acquisition & Plotting",
-            desc: "Prime land parcels verified for residential, commercial, or plotting project developments in Dholera SIR.",
-            icon: MapPin,
-            badge: "TP Scheme Approved",
-            details: ["High Road Connectivity", "Clear Demarcation", "Demarcated Boundary"],
+            title: "Branding",
+            desc: "We help you establish a distinct brand identity for your projects — from logo design and digital presence to storytelling that connects emotionally with your audience.",
+            icon: Sparkles,
+            badge: "Brand Identity",
+            details: ["Logo & Visual Design", "Digital Presence", "Emotional Storytelling"],
         },
         {
             id: 1,
-            title: "Layout Plan & DSIRDA Sanctions",
-            desc: "Complete assistance in getting layout designs, NA permission, and DSIRDA single window approvals.",
-            icon: Ruler,
-            badge: "N.A. & Clear Title",
-            details: ["TP Plan Alignment", "Architect Plan Vetting", "DSIRDA Single Window"],
+            title: "Promotion",
+            desc: "Our promotional campaigns span both digital and offline platforms, ensuring maximum visibility through strategic ad placements, social media campaigns, and event marketing.",
+            icon: TrendingUp,
+            badge: "Digital + Offline",
+            details: ["Ad Placements", "Social Media Campaigns", "Event Marketing"],
         },
         {
             id: 2,
-            title: "Infrastructure Execution Support",
-            desc: "Local vendor coordination, internal road planning, drainage, and utility line connectivity guidance.",
-            icon: HardHat,
-            badge: "On-Site Support",
-            details: ["Water & Electricity Lines", "Internal Road Approvals", "Drainage Access Points"],
+            title: "Marketing Strategy Support",
+            desc: "We develop customized marketing strategies that reflect your brand's strengths and market opportunities — ensuring each project reaches its full sales potential.",
+            icon: ShieldCheck,
+            badge: "Custom Strategy",
+            details: ["Brand Positioning", "Market Opportunity Mapping", "Full Sales Potential"],
         },
         {
             id: 3,
-            title: "Project Marketing & Investor Tie-ups",
-            desc: "Connecting your plotting/builder project with our investor network for faster sales velocity.",
-            icon: TrendingUp,
-            badge: "Sales Acceleration",
-            details: ["Investor Network Access", "Channel Partner Network", "Launch Campaign Support"],
+            title: "Sales Enablement",
+            desc: "Our sales experts provide end-to-end support — from lead generation and buyer engagement to negotiation and deal closure — helping you achieve faster, more profitable outcomes.",
+            icon: HardHat,
+            badge: "End-to-End Sales",
+            details: ["Lead Generation", "Buyer Engagement", "Deal Closure Support"],
         },
     ];
 
     const steps = [
         {
             num: "01",
-            title: "Land Selection",
-            subtitle: "Feasibility & Zoning",
-            desc: "Identifying land suitable for plotting or construction with clear TP Scheme approvals.",
-            tag: "Phase 01",
+            title: "Expertise",
+            subtitle: "Tailored Builder Solutions",
+            desc: "Our team has worked closely with leading builders, offering tailored solutions that build trust, recognition, and consistent sales performance in a competitive market.",
+            tag: "Why Us",
         },
         {
             num: "02",
-            title: "Legal & Sanctions",
-            subtitle: "NA & Layout Approval",
-            desc: "Complete document audit, NA status, and layout clearance from authority.",
-            tag: "Phase 02",
+            title: "Collaboration",
+            subtitle: "Aligned Goals & Outcomes",
+            desc: "We work collaboratively with your marketing and sales teams to align project goals, streamline communication, and ensure measurable outcomes.",
+            tag: "Why Us",
         },
         {
             num: "03",
-            title: "Infrastructure Setup",
-            subtitle: "Roads & Utilities",
-            desc: "Laying out internal infrastructure plan, utilities, and site preparation.",
-            tag: "Phase 03",
+            title: "Innovation",
+            subtitle: "Creativity + Data",
+            desc: "From digital storytelling to on-ground promotions, we combine creativity and data to deliver impactful campaigns that make your projects memorable.",
+            tag: "Why Us",
         },
         {
             num: "04",
-            title: "Launch & Sales",
-            subtitle: "Market Exposure",
-            desc: "Strategic project positioning, channel partner onboarding, and fast plot bookings.",
-            tag: "Phase 04",
+            title: "Commitment to Excellence",
+            subtitle: "Transparency & Growth",
+            desc: "Our transparent approach, consistent reporting, and strategic insights ensure your brand maintains credibility while achieving sustainable growth.",
+            tag: "Why Us",
         },
     ];
 
@@ -153,10 +153,10 @@ export default function BuilderServicesPage() {
     ];
 
     const comparisonRows = [
-        { name: "Land Sourcing for Plotting", investorSpace: true, broker: true, direct: false },
-        { name: "DSIRDA & Layout Approvals", investorSpace: true, broker: false, direct: false },
-        { name: "On-Site Infrastructure Setup Support", investorSpace: true, broker: false, direct: false },
-        { name: "Investor Tie-ups & Marketing Support", investorSpace: true, broker: false, direct: false },
+        { name: "Distinct Brand Identity Creation", investorSpace: true, broker: false, direct: false },
+        { name: "Digital & Offline Promotional Campaigns", investorSpace: true, broker: true, direct: false },
+        { name: "Customized Marketing Strategy", investorSpace: true, broker: false, direct: false },
+        { name: "End-to-End Sales Enablement", investorSpace: true, broker: false, direct: false },
     ];
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -209,7 +209,7 @@ export default function BuilderServicesPage() {
                             </motion.h1>
 
                             <motion.p variants={fadeInUp} className="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-xl">
-                                Infrastructure & layout permissions require accuracy. We assist builders with verified land acquisition, layout sanctions, and project execution in Dholera SIR.
+                                At InvestorSpace, we help builders create a strong presence in the real estate market — turning projects into trusted, recognizable brands through branding, promotion, marketing strategy, and sales execution.
                             </motion.p>
 
                             <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-4">
@@ -262,7 +262,7 @@ export default function BuilderServicesPage() {
                             <div>
                                 <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#8D0102]">OUR PROMISE</span>
                                 <p className="mt-1 text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                                    From selecting layout-ready land parcels to obtaining DSIRDA sanctions and infrastructure rollout, we stay on the ground until your builder project is fully live.
+                                    We go beyond conventional marketing — managing your brand perception, generating high-quality leads, and maximizing your return on investment.
                                 </p>
                             </div>
                         </motion.div>
@@ -608,7 +608,7 @@ export default function BuilderServicesPage() {
                                         <label className="block text-xs font-bold text-slate-700 mb-1">Tell us what you're looking for</label>
                                         <textarea
                                             rows={4}
-                                            name="message" placeholder="Share your plotting / builder requirement details..."
+                                            name="message" placeholder="Share your project details (e.g. branding, marketing strategy, sales support)..."
                                             className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
                                         ></textarea>
                                     </div>

@@ -26,7 +26,7 @@ export default function WhyInvest() {
               Why Investor Space
             </span>
             <h2 id="why-heading" className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
-              Why Buy Dholera SIR Plots With <span className="text-primary">Investor Space</span>
+              Why Buy With <span className="text-primary">Investor Space</span>
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-500 max-w-2xl leading-relaxed">
               Documents first, clear pricing and one point of contact, from your first call to registration.
@@ -90,10 +90,10 @@ export default function WhyInvest() {
 
               <ul className="mt-4 space-y-2">
                 {[
-                  "RERA registration",
+                  "Government approvals verified",
                   "Title and mutation records",
                   "NA order and layout sanction",
-                  "TP scheme and DSIRDA status",
+                  "Authority scheme status",
                   "Encumbrance certificate"
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
@@ -143,7 +143,7 @@ export default function WhyInvest() {
             <div className="relative z-10 mt-12">
               <p className="font-extrabold text-6xl sm:text-7xl tracking-tight leading-none text-white">2018</p>
               <p className="mt-3 text-xs sm:text-sm font-bold tracking-wider uppercase text-white/90 max-w-[200px]">
-                Guiding plot buyers in Dholera SIR
+                Guiding buyers across India
               </p>
             </div>
           </motion.div>

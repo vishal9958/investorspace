@@ -57,7 +57,7 @@ const FEATURE_SLIDES = [
     description:
       "We coordinate transport and a walkthrough for every shortlisted plot, so you see it before you decide.",
     image: "/images/Your Next Property Consultation 2.png",
-    tag: "RERA Approved",
+    tag: "Legally Verified",
   },
   {
     id: 3,

@@ -6,11 +6,11 @@ import Link from "next/link";
 import { useRef } from "react";
 
 const checks = [
-  { num: "01", title: "RERA registration", desc: "Ask for the project's RERA number and check it on the Gujarat RERA website." },
-  { num: "02", title: "Title and mutation records", desc: "The 7/12 extract and the ownership chain, reviewed by your own lawyer." },
-  { num: "03", title: "NA order and layout sanction", desc: "Proof that the land is non-agricultural and the layout is approved." },
-  { num: "04", title: "TP scheme and DSIRDA status", desc: "Confirm which TP scheme the plot falls under and its approval status." },
-  { num: "05", title: "Encumbrance certificate", desc: "Shows loans or legal claims on the land." },
+  { num: "01", title: "Government Approvals", desc: "Verify all authority sanctions, layout approvals, and government clearances for the project." },
+  { num: "02", title: "Title & Ownership Records", desc: "The ownership chain and mutation records, reviewed by your own lawyer before you proceed." },
+  { num: "03", title: "NA Order & Layout Sanction", desc: "Proof that the land is legally converted and the layout plan has been officially approved." },
+  { num: "04", title: "Zone & Authority Status", desc: "Confirm which development zone the plot falls under and verify its current approval status." },
+  { num: "05", title: "Encumbrance Certificate", desc: "Shows any loans or legal claims on the land — ensure it is free of all liabilities." },
 ];
 
 export default function BuyersGuide() {
@@ -26,11 +26,15 @@ export default function BuyersGuide() {
   const sv = { hidden: { opacity: 0, y: 28, filter: "blur(10px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6 } } };
 
   return (
-    <section aria-labelledby="dholera-guide-heading" className="relative isolate overflow-hidden bg-[#111111] text-white">
+    <section aria-labelledby="guide-heading" className="relative isolate overflow-hidden text-white">
       <div aria-hidden className="absolute inset-0 -z-10">
-        <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=1920&q=80" alt="Dholera plot" className="absolute inset-0 size-full object-cover object-center" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/55 to-black/85"></div>
-        <div className="absolute inset-0 hidden bg-gradient-to-r from-black/60 via-transparent to-transparent lg:block"></div>
+        <img
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80"
+          alt=""
+          className="absolute inset-0 size-full object-cover brightness-[0.35]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-slate-950/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
       </div>
 
       <div className="shell flex min-h-[40rem] flex-col justify-between gap-10 py-14 sm:min-h-[44rem] sm:gap-12 sm:py-16 lg:min-h-[48rem] lg:py-20">
@@ -39,11 +43,11 @@ export default function BuyersGuide() {
             <div className="max-w-none">
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={sv}>
                 <span className="inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] bg-white/10 text-white">Buyer's Guide</span>
-                <h2 id="dholera-guide-heading" className="mt-4 text-balance break-words font-bold sm:mt-5 text-2xl sm:text-3xl lg:text-4xl md:whitespace-nowrap text-white">
-                  <span className="text-[#EF3B3B] drop-shadow-[0_2px_14px_rgba(0,0,0,0.7)]">Dholera SIR Plot Buying Checklist</span>
+                <h2 id="guide-heading" className="mt-4 text-balance break-words font-bold sm:mt-5 text-2xl sm:text-3xl lg:text-4xl md:whitespace-nowrap text-white">
+                  <span className="text-primary">Plot Buying Checklist</span>
                 </h2>
                 <p className="mt-4 text-base leading-relaxed sm:mt-5 md:text-lg max-w-2xl text-white/75">
-                  Five documents to ask for before you pay. Check each one yourself or with your own lawyer.
+                  Five documents to verify before you pay. Check each one yourself or with your own lawyer.
                 </p>
               </motion.div>
             </div>
@@ -67,7 +71,7 @@ export default function BuyersGuide() {
           </div>
         </div>
 
-        <ol ref={scrollRef} aria-label="Dholera SIR plot buying checklist" className="relative -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pt-2 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 lg:mx-0 lg:grid lg:snap-none lg:grid-cols-5 lg:gap-4 lg:overflow-visible lg:px-0 lg:pt-0 lg:pb-0 [&::-webkit-scrollbar]:hidden">
+        <ol ref={scrollRef} aria-label="Plot buying checklist" className="relative -mx-4 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pt-2 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 lg:mx-0 lg:grid lg:snap-none lg:grid-cols-5 lg:gap-4 lg:overflow-visible lg:px-0 lg:pt-0 lg:pb-0 [&::-webkit-scrollbar]:hidden">
           {checks.map((check, i) => (
             <motion.li key={check.num} initial={{ opacity: 0, y: 28, scale: 0.97 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, delay: i * 0.1 }} className="min-w-[76%] snap-center sm:min-w-[44%] lg:min-w-0">
               <div className="group relative flex h-full min-h-[12.5rem] flex-col gap-3 overflow-hidden rounded-xl bg-white p-4 ring-1 transition-all duration-300 sm:min-h-[13rem] sm:p-5 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)] ring-black/5 hover:shadow-[0_26px_55px_-16px_rgba(178,2,2,0.6)] hover:ring-white/20">

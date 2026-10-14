@@ -83,7 +83,7 @@ export default function ServicesPage() {
         primeZones: "Activation Area, TP2 East & Expressway",
       },
       image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop",
+        "/images/developer.jpeg",
       icon: Building2,
     },
     {
@@ -97,16 +97,16 @@ export default function ServicesPage() {
         "Verified Joint Development (JD / JDA) Matchmaking",
         "Sub-Plot Demarcation & Layout Approval",
         "Utility, Drainage & Access Road Connectivity Verification",
-        "RERA & Local Authority File Processing Support",
+        "Legal & Authority File Processing Support",
       ],
       details: {
         parcelSize: "1 - 10 Acres Sub-Plots",
         target: "Commercial & Residential Developers",
-        approvals: "RERA Gujarat & GIDC / DSIRDA",
+        approvals: "Govt. Gujarat & GIDC / DSIRDA",
         primeZones: "High Density Residential & Commercial Hubs",
       },
       image:
-        "https://images.unsplash.com/photo-1541888086925-0c1bb6789c26?q=80&w=1000&auto=format&fit=crop",
+        "/images/builder.jpeg",
       icon: HardHat,
     },
     {
@@ -129,7 +129,7 @@ export default function ServicesPage() {
         primeZones: "Expressway Frontage & TP1 Core",
       },
       image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop",
+         "/images/invester.jpeg",
       icon: TrendingUp,
     },
     {
@@ -152,7 +152,7 @@ export default function ServicesPage() {
         primeZones: "Smart City City Center & TP2 Sector A",
       },
       image:
-        "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop",
+         "/images/for_all.jpeg",
       icon: UserCheck,
     },
   ];

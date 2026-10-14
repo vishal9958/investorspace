@@ -13,8 +13,8 @@ const heroImages = [
   { src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80", alt: "Smart city development" },
 ];
 
-const words = ["Invest", "in", "Dholera", "SIR", "plots", "that", "are", "legally"];
-const words2 = ["clear", "and", "built", "to", "grow."];
+const words = ["Invest", "in", "properties", "that", "are", "legally"];
+const words2 = ["verified", "and", "built", "to", "grow."];
 
 export default function Hero() {
   const [slide, setSlide] = useState(0);
@@ -46,9 +46,9 @@ export default function Hero() {
             transition={{ duration: 1.2, ease: "easeInOut" }}
           />
         ))}
-        {/* Rich layered overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#3a0000]/70 via-transparent to-transparent" />
+        {/* Rich layered overlay — stronger left side for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/98 via-black/85 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
         {/* Breathing glow orb */}
         <motion.div
           className="absolute -bottom-20 -left-20 w-[500px] h-[500px] rounded-full bg-primary/25 blur-[120px] pointer-events-none"
@@ -67,14 +67,14 @@ export default function Hero() {
             variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } } }}
           >
             <motion.span variants={fadeUp} transition={{ duration: 0.6 }} className="pill-badge border-white/40 text-white/90">
-              <ShieldCheck className="size-3.5" aria-hidden /> Dholera SIR Land Advisory
+              <ShieldCheck className="size-3.5" aria-hidden /> Verified Real Estate Advisory
             </motion.span>
 
-            <h1 className="sr-only">Invest in Dholera SIR plots that are legally clear and built to grow.</h1>
+            <h1 className="sr-only">Invest in plots that are legally clear and built to grow.</h1>
 
             <div aria-hidden="true" className="mt-6 max-w-4xl font-display text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold leading-[1.0] tracking-[-0.03em] sm:mt-7">
               <motion.span
-                className="block text-white"
+                className="block text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
                 initial="hidden"
                 animate="visible"
                 variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.05, delayChildren: 0.4 } } }}
@@ -102,7 +102,7 @@ export default function Hero() {
             </div>
 
             <motion.p variants={fadeUp} transition={{ duration: 0.7, delay: 0.8 }}
-              className="mt-5 max-w-xl text-base leading-relaxed text-white/85 sm:mt-6 sm:text-lg"
+              className="mt-5 max-w-xl text-base leading-relaxed text-white sm:mt-6 sm:text-lg drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)]"
             >
               Every plot we promote is government-approved, title-verified and priced without hidden margins, so you can hold, build or exit with complete confidence.
             </motion.p>
@@ -162,7 +162,7 @@ export default function Hero() {
             initial={{ opacity: 0, clipPath: "inset(0% 0% 100% 0% round 16px)" }}
             animate={{ opacity: 1, clipPath: "inset(0% 0% 0% 0% round 16px)" }}
             transition={{ duration: 0.8, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden w-full rounded-2xl border border-white/20 bg-white/10 p-6 shadow-2xl shadow-black/40 backdrop-blur-2xl xl:block"
+            className="hidden w-full rounded-2xl border border-white/25 bg-black/70 p-6 shadow-2xl shadow-black/60 backdrop-blur-2xl xl:block"
           >
             <motion.div
               className="flex items-center gap-2.5"

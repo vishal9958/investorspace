@@ -11,18 +11,18 @@ const steps = [
     label: "Free Consultation",
     title: "Discovery Call",
     subtitle: "We listen before we recommend",
-    desc: "Tell us your budget, your timeline and what you want from land in Dholera. It is a conversation, not a sales pitch.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=80",
+    desc: "Tell us your budget, your timeline and what you want from a property. It is a conversation, not a sales pitch.",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=900&q=80",
     alt: "Advisor on a phone call with a client",
     tag: "Step 01",
   },
   {
     num: "02",
     label: "Document Check",
-    title: "Site Verification",
-    subtitle: "Title, RERA & approvals first",
-    desc: "We check the title, RERA status and approvals against official records and share the findings before you commit.",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=900&q=80",
+    title: "Legal Verification",
+    subtitle: "Title & approvals first",
+    desc: "We check the title, legal status and approvals against official records and share the findings before you commit.",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66cb85?w=900&q=80",
     alt: "Document verification and legal check",
     tag: "Step 02",
   },
@@ -31,9 +31,9 @@ const steps = [
     label: "On Site",
     title: "Site Visit",
     subtitle: "See it before you sign it",
-    desc: "Visit Dholera SIR with us and see the plot, the access roads and the surroundings yourself. Pickup can be arranged.",
+    desc: "Visit the property with us and see the plot, the access roads and the surroundings yourself. Pickup can be arranged.",
     image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80",
-    alt: "Clients visiting a plot site",
+    alt: "Clients visiting a property site",
     tag: "Step 03",
   },
   {
@@ -42,7 +42,7 @@ const steps = [
     title: "Booking & Paperwork",
     subtitle: "Clause by clause, no surprises",
     desc: "The allotment letter, payment schedule and sale agreement are explained clause by clause before you sign.",
-    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=900&q=80",
     alt: "Signing agreement paperwork",
     tag: "Step 04",
   },
@@ -85,8 +85,8 @@ export default function HowWeWork() {
               id="how-we-work-heading"
               className="mt-3 font-display text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl tracking-tight"
             >
-              Five clear steps to buy your
-              <span className="text-primary"> plot in Dholera SIR</span>
+              Five clear steps to
+              <span className="text-primary"> buy your property with us</span>
             </h2>
           </div>
           <Link

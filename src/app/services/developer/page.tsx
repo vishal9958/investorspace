@@ -72,66 +72,66 @@ export default function DeveloperServicesPage() {
     const featuresBreakdown = [
         {
             id: 0,
-            title: "Strategic Land Assembly & Sourcing",
-            desc: "Identifying contiguous, high-potential land parcels tailored for large-scale industrial, commercial, and residential developments in Dholera SIR.",
-            icon: MapPin,
-            badge: "High Growth Zones",
-            details: ["Contiguous Land Parcels", "Strategic TP Scheme Sourcing", "Direct Owner Negotiations"],
+            title: "Sales Support",
+            desc: "We manage the entire sales cycle — from lead generation to closing deals — ensuring your project achieves consistent conversions and long-term success.",
+            icon: TrendingUp,
+            badge: "Full Cycle Sales",
+            details: ["Lead Generation", "Deal Closing", "Consistent Conversions"],
         },
         {
             id: 1,
-            title: "Title Audit & Legal Clearance",
-            desc: "Comprehensive legal vetting including 7/12 extracts, title search reports, zoning compliance, and encumbrance checks.",
-            icon: FileCheck,
-            badge: "100% Clear Title",
-            details: ["Complete Paperwork Audit", "Zone Verification", "Encumbrance Free Certification"],
+            title: "Marketing Solutions",
+            desc: "Our marketing experts design customized campaigns that enhance visibility, attract qualified buyers, and build a strong project identity across digital and offline channels.",
+            icon: Sparkles,
+            badge: "Digital + Offline",
+            details: ["Custom Campaigns", "Qualified Buyer Reach", "Strong Brand Identity"],
         },
         {
             id: 2,
-            title: "DSIRDA Liasioning & Sanctions",
-            desc: "End-to-end guidance in obtaining Non-Agricultural (NA) permissions, layout sanctions, and single-window government clearances.",
+            title: "Marketing Strategy & Support",
+            desc: "We create data-driven marketing strategies that help developers identify target audiences, position projects effectively, and achieve sustainable growth in a competitive market.",
             icon: ShieldCheck,
-            badge: "Authority Liaison",
-            details: ["DSIRDA Layout Approval", "NA Status Acceleration", "Single-Window Clearance"],
+            badge: "Data-Driven",
+            details: ["Target Audience Mapping", "Effective Positioning", "Sustainable Growth"],
         },
         {
             id: 3,
-            title: "Joint Venture & Investor Tie-ups",
-            desc: "Connecting developers with equity partners, institutional investors, and strategic collaborators for project expansion.",
-            icon: TrendingUp,
-            badge: "Capital & Growth",
-            details: ["JV Structuring", "Investor Matchmaking", "Strategic Market Positioning"],
+            title: "Development Planning",
+            desc: "We assist in development planning through detailed project analysis, feasibility studies, and roadmap creation — helping you make informed decisions from the ground up.",
+            icon: Building2,
+            badge: "End-to-End Planning",
+            details: ["Feasibility Studies", "Project Roadmap", "Informed Decisions"],
         },
     ];
 
     const steps = [
         {
             num: "01",
-            title: "Requirement Analysis",
-            subtitle: "Land Sourcing & Zoning",
-            desc: "Identifying large-scale land parcels matching project requirements, TP Scheme zones, and clear connectivity.",
-            tag: "Phase 01",
+            title: "Expertise",
+            subtitle: "Sales, Branding & Planning",
+            desc: "Our experienced team in real estate sales, branding, and planning offers targeted support — optimizing pricing, reaching buyers faster, and speeding up sales closures.",
+            tag: "Why Us",
         },
         {
             num: "02",
-            title: "Title & Legal Audit",
-            subtitle: "Verification & Compliance",
-            desc: "Rigorous 7/12, NA status, title clear checks, and authority liasioning before deal execution.",
-            tag: "Phase 02",
+            title: "Collaboration",
+            subtitle: "Integrated Approach",
+            desc: "We work hand in hand with your team — integrating marketing, sales, and development insights to create strong brand positioning and maximum return on investment.",
+            tag: "Why Us",
         },
         {
             num: "03",
-            title: "DSIRDA Liasioning",
-            subtitle: "Approvals & Sanctions",
-            desc: "Seamless layout planning, government approvals, and single-window sanction coordination.",
-            tag: "Phase 03",
+            title: "Creativity",
+            subtitle: "Innovation + Analytics",
+            desc: "By blending innovative campaigns with analytical insights, we ensure every project stands out in the competitive real estate landscape.",
+            tag: "Why Us",
         },
         {
             num: "04",
-            title: "Project Execution",
-            subtitle: "Handover & Infrastructure",
-            desc: "On-ground support for road access, site demarcation, and project rollout readiness.",
-            tag: "Phase 04",
+            title: "Client-Centric Focus",
+            subtitle: "Transparency & Results",
+            desc: "Transparency, accountability, and professionalism are at the heart of everything we do. Our goal is to make your project's journey seamless and result-oriented.",
+            tag: "Why Us",
         },
     ];
 
@@ -166,10 +166,10 @@ export default function DeveloperServicesPage() {
     ];
 
     const comparisonRows = [
-        { name: "Contiguous Large Land Assemblies", investorSpace: true, broker: false, direct: false },
-        { name: "DSIRDA Liasioning & Approvals", investorSpace: true, broker: false, direct: false },
-        { name: "In-depth Legal & 7/12 Title Audit", investorSpace: true, broker: true, direct: false },
-        { name: "JV Structuring & Equity Matchmaking", investorSpace: true, broker: false, direct: false },
+        { name: "Full Sales Cycle Management", investorSpace: true, broker: false, direct: false },
+        { name: "Custom Marketing Campaigns", investorSpace: true, broker: false, direct: false },
+        { name: "Data-Driven Marketing Strategy", investorSpace: true, broker: true, direct: false },
+        { name: "Development Planning & Feasibility", investorSpace: true, broker: false, direct: false },
     ];
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -217,7 +217,7 @@ export default function DeveloperServicesPage() {
                             </motion.h1>
 
                             <motion.p variants={fadeInUp} className="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-xl">
-                                Empowering real estate developers with large-scale land sourcing, rigorous legal verification, and government liasioning in Dholera SIR.
+                                At InvestorSpace, we empower developers to turn their vision into thriving real estate projects — from concept to completion, ensuring developments meet market demands and deliver measurable growth.
                             </motion.p>
 
                             <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-4">
@@ -269,7 +269,7 @@ export default function DeveloperServicesPage() {
                             <div>
                                 <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#8D0102]">OUR PROMISE FOR DEVELOPERS</span>
                                 <p className="mt-1 text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                                    From large land assembly to title verification and DSIRDA single-window approvals, we ensure seamless land execution for mega projects.
+                                    We bridge the gap between innovation and market readiness through strategic planning, marketing expertise, and performance-driven sales execution.
                                 </p>
                             </div>
                         </motion.div>
@@ -519,7 +519,7 @@ export default function DeveloperServicesPage() {
                                         Discuss Developer <span className="text-[#8D0102]">Services</span>
                                     </h2>
                                     <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                                        Planning a large-scale project, joint venture, or land acquisition in Dholera SIR? Connect with our developer advisory team today.
+                                        Looking to grow your real estate project? Connect with our developer advisory team — we combine sales, marketing, and planning expertise to position your project for success.
                                     </p>
                                 </div>
 
@@ -619,7 +619,7 @@ export default function DeveloperServicesPage() {
                                         <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Project Brief / Note</label>
                                         <textarea
                                             rows={4}
-                                            placeholder="Share project details (e.g. JV partnership, land acquisition, DSIRDA approvals)..."
+                                            placeholder="Share your project details (e.g. sales support, marketing strategy, development planning)..."
                                             value={formData.message}
                                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                             className="w-full px-4 py-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#8D0102] bg-slate-50/50"

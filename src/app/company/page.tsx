@@ -112,7 +112,7 @@ function HistoryTimeline() {
                     OUR HISTORY
                 </span>
                 <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-4 mb-1">
-                    Guiding Dholera SIR Buyers Since 2018
+                    Our Journey Since 2018
                 </h2>
                 <p className="text-slate-500 text-sm mb-8">
                     Only milestones we can prove appear here.
@@ -240,8 +240,8 @@ export default function CompanyPage() {
     // 3. Compliance Documents Data
     const documents = [
         {
-            title: "RERA Registration",
-            desc: "Ask for the project's RERA number and check it on the Gujarat RERA website.",
+            title: "Government Approvals",
+            desc: "Verify government sanction orders, layout approvals, and authority clearances.",
         },
         {
             title: "Title and Mutation Records",
@@ -275,7 +275,7 @@ export default function CompanyPage() {
         },
         {
             title: "Site Visits With Our Team",
-            desc: "Walk the plot with an adviser who knows Dholera SIR and its TP schemes.",
+            desc: "Walk the plot with an adviser who knows the area and its development plans.",
             icon: Map,
         },
         {
@@ -317,8 +317,7 @@ export default function CompanyPage() {
                                 transition={{ duration: 0.6, delay: 0.2 }}
                                 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight"
                             >
-                                Real Estate Promoters <br />
-                                in <span className="text-red-600 underline decoration-red-200 underline-offset-4">Dholera SIR</span>
+                                Real Estate Promoters <br />Across <span className="text-red-600">India</span>
                             </motion.h1>
                             <motion.p 
                                 initial={{ opacity: 0, y: 20 }}
@@ -327,7 +326,7 @@ export default function CompanyPage() {
                                 className="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed max-w-2xl"
                             >
                                 Investor Space has guided plot buyers, investors, developers and
-                                builders in Dholera SIR, Gujarat, since 2018. We share the
+                                builders across India since 2018. We share the
                                 documents first, so you and your lawyer can verify before you pay.
                             </motion.p>
                             <div className="flex flex-wrap items-center gap-4">
@@ -348,7 +347,7 @@ export default function CompanyPage() {
                                 Investor Space At A Glance
                             </h2>
                             <p className="text-xs text-slate-500 mb-6 font-medium">
-                                Real Estate Promoters, Dholera
+                                Real Estate Promoters, India
                             </p>
 
                             <div className="space-y-3.5 text-sm text-slate-700">
@@ -453,7 +452,7 @@ export default function CompanyPage() {
                             WHO WE WORK WITH
                         </span>
                         <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-3 mb-2">
-                            Services For Every Dholera SIR Buyer
+                            Services For Every Buyer
                         </h2>
                         <p className="text-slate-600 text-sm sm:text-base">
                             Developers, builders, investors and first-time buyers each get a clear process.
@@ -508,7 +507,7 @@ export default function CompanyPage() {
                             COMPLIANCE
                         </span>
                         <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 mb-2">
-                            Documents We Check On Every Dholera SIR Plot
+                            Documents We Check On Every Plot
                         </h2>
                         <p className="text-slate-600 text-sm sm:text-base mb-6">
                             We ask for the same documents on every plot, and we share them before you pay.
@@ -566,7 +565,7 @@ export default function CompanyPage() {
                             WHY INVESTOR SPACE
                         </span>
                         <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-3 mb-2">
-                            Why Buyers Choose Us For Dholera SIR Plots
+                            Why Buyers Choose Us
                         </h2>
                         <p className="text-slate-600 text-sm sm:text-base">
                             Documents first, clear pricing and one point of contact, from your first call to registration.
@@ -604,7 +603,7 @@ export default function CompanyPage() {
                                 Ready To See The Documents First?
                             </h3>
                             <p className="text-slate-600 text-xs sm:text-sm max-w-xl">
-                                Share your budget and what you are looking for. We will send the project documents and answer your questions about Dholera SIR plots.
+                                Share your budget and what you are looking for. We will send the project documents and answer your questions about our projects.
                             </p>
                         </div>
                         <div className="flex flex-wrap items-center gap-3 shrink-0">

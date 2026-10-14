@@ -25,6 +25,8 @@ import {
     HelpCircle,
     Search,
     Handshake,
+    TrendingUp,
+    Coins,
 } from "lucide-react";
 
 export default function ServicesForAllPage() {
@@ -58,66 +60,74 @@ export default function ServicesForAllPage() {
     const featuresBreakdown = [
         {
             id: 0,
-            title: "Jargon-Free Land Buying",
-            desc: "We simplify legal terms and town planning regulations so anyone can buy land with total clarity.",
-            icon: HelpCircle,
-            badge: "Easy Process",
-            details: ["Plain Language Reports", "Document Explainer Pack", "Step-by-step Guidance"],
+            title: "Verified Projects",
+            desc: "Every project listed with InvestorSpace undergoes strict verification, ensuring you invest only in government-approved, legally clear, and high-potential properties.",
+            icon: ShieldCheck,
+            badge: "Government Approved",
+            details: ["Strict Verification", "Legally Clear", "High-Potential Properties"],
         },
         {
             id: 1,
-            title: "Direct Owner Meetings",
-            desc: "Fair pricing with zero middlemen markup. Talk to verified land owners directly with transparent terms.",
-            icon: Handshake,
-            badge: "Zero Hidden Fees",
-            details: ["Direct Seller Connect", "Clear Price Breakdown", "No Broker Manipulations"],
+            title: "Personalized Visit",
+            desc: "We organize personalized site visits so you can experience each project firsthand, assess amenities, and make confident, informed decisions.",
+            icon: Search,
+            badge: "On-Ground Experience",
+            details: ["Site Visit Arranged", "Amenity Assessment", "Confident Decision-Making"],
         },
         {
             id: 2,
-            title: "Full Paperwork Audit",
-            desc: "Complete title check, revenue check, and zoning verification provided before you pay any advance.",
-            icon: FileText,
-            badge: "100% Verified",
-            details: ["7/12 Audit", "Zoning Clearance", "No Encumbrance Certificate"],
+            title: "Loan Assistance",
+            desc: "Our team partners with trusted financial institutions to help you secure housing or investment loans easily with minimal paperwork and faster approvals.",
+            icon: Coins,
+            badge: "Faster Approvals",
+            details: ["Trusted Financial Partners", "Minimal Paperwork", "Quick Loan Processing"],
         },
         {
             id: 3,
-            title: "On-Ground Site Visits",
-            desc: "Guided site tours in Dholera SIR to show you exact plot boundaries and nearby infrastructure status.",
-            icon: Search,
-            badge: "Guided Visits",
-            details: ["Pick & Drop Facility", "Physical Boundary Check", "Live Infra Inspection"],
+            title: "Legal Support",
+            desc: "We provide end-to-end legal assistance — from reviewing documents and sale deeds to verifying ownership and compliance — ensuring a safe transaction.",
+            icon: FileText,
+            badge: "100% Legal Cover",
+            details: ["Document Review", "Ownership Verification", "Safe Transaction"],
+        },
+        {
+            id: 4,
+            title: "Resell Support",
+            desc: "When it's time to upgrade or liquidate your asset, our experts assist with property resale, helping you find qualified buyers and achieve the best market value.",
+            icon: TrendingUp,
+            badge: "Best Market Value",
+            details: ["Qualified Buyer Network", "Best Price Achievement", "Smooth Resale Process"],
         },
     ];
 
     const steps = [
         {
             num: "01",
-            title: "Initial Consultation",
-            subtitle: "Understand Your Needs",
-            desc: "Share your budget and expectations; we guide you on what is realistically possible.",
-            tag: "Phase 01",
+            title: "Expertise",
+            subtitle: "Right Property, Right Budget",
+            desc: "Our real estate specialists have years of experience helping individuals find the right properties that fit their budget, lifestyle, and future goals.",
+            tag: "Why Us",
         },
         {
             num: "02",
-            title: "Shortlist & Inspection",
-            subtitle: "Guided Site Tour",
-            desc: "Review verified properties and visit Dholera SIR to inspect real land plots.",
-            tag: "Phase 02",
+            title: "Personal Guidance",
+            subtitle: "One-on-One Attention",
+            desc: "We ensure one-on-one attention with dedicated property advisors who assist you in exploring options, comparing locations, and understanding market value.",
+            tag: "Why Us",
         },
         {
             num: "03",
-            title: "Legal & Owner Meet",
-            subtitle: "Transparent Discussion",
-            desc: "Review clean paper packs and negotiate directly with verified landowners.",
-            tag: "Phase 03",
+            title: "Legal Transparency",
+            subtitle: "Government-Approved & Verified",
+            desc: "All our projects are government-approved and legally verified, giving you complete peace of mind before you invest or buy.",
+            tag: "Why Us",
         },
         {
             num: "04",
-            title: "Registry & Handover",
-            subtitle: "Complete Peace of Mind",
-            desc: "Smooth registry process and safe possession handover of your land asset.",
-            tag: "Phase 04",
+            title: "Lifetime Assistance",
+            subtitle: "Beyond the Purchase",
+            desc: "Beyond purchase, we offer long-term support — from financing and documentation to resale and property management assistance.",
+            tag: "Why Us",
         },
     ];
 
@@ -152,10 +162,10 @@ export default function ServicesForAllPage() {
     ];
 
     const comparisonRows = [
-        { name: "Direct Owner Transparency", investorSpace: true, broker: false, direct: true },
-        { name: "Simple Jargon-Free Explanation", investorSpace: true, broker: false, direct: false },
-        { name: "Pre-Verified Legal Documents", investorSpace: true, broker: false, direct: false },
-        { name: "End-to-End Registration Assistance", investorSpace: true, broker: true, direct: false },
+        { name: "Verified Government-Approved Projects", investorSpace: true, broker: false, direct: false },
+        { name: "Personalized Site Visits Arranged", investorSpace: true, broker: true, direct: false },
+        { name: "Loan Assistance & Financial Support", investorSpace: true, broker: false, direct: false },
+        { name: "End-to-End Legal & Resell Support", investorSpace: true, broker: false, direct: false },
     ];
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -207,7 +217,7 @@ export default function ServicesForAllPage() {
                             </motion.h1>
 
                             <motion.p variants={fadeInUp} className="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-xl">
-                                You don't need to be a real estate veteran to buy land safely in Dholera SIR. We make the entire process simple, transparent, and completely jargon-free.
+                                Buying a property is one of the biggest decisions in life — and at InvestorSpace, we make that decision easy, transparent, and rewarding with verified properties, personalized guidance, and complete legal assurance.
                             </motion.p>
 
                             <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-4">
@@ -259,7 +269,7 @@ export default function ServicesForAllPage() {
                             <div>
                                 <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#8D0102]">OUR PROMISE</span>
                                 <p className="mt-1 text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                                    No confusing terminology, no hidden commission traps—just honest advice, verified legal documents, and smooth land buying guidance.
+                                    We believe a confident buyer is an informed buyer — every service we offer focuses on clarity, trust, and long-term satisfaction.
                                 </p>
                             </div>
                         </motion.div>
@@ -580,7 +590,7 @@ export default function ServicesForAllPage() {
                                         <label className="block text-xs font-bold text-slate-700 mb-1">Tell us what you're looking for</label>
                                         <textarea
                                             rows={4}
-                                            placeholder="Share what type of plot or land you are interested in..."
+                                            placeholder="Share what you're looking for (e.g. first home, investment plot, resale support)..."
                                             className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
                                         ></textarea>
                                     </div>

@@ -257,9 +257,6 @@ export default function ProjectsPage() {
                             alt={proj.title}
                             className="size-full object-cover"
                           />
-                          <span className="absolute top-1 left-1 bg-primary text-[8px] font-bold uppercase px-1.5 py-0.5 rounded text-white">
-                            {proj.type}
-                          </span>
                         </div>
                         <div>
                           <span className="text-[9px] font-bold text-primary uppercase tracking-wider">

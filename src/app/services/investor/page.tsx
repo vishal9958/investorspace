@@ -58,66 +58,58 @@ export default function InvestorServicesPage() {
     const featuresBreakdown = [
         {
             id: 0,
-            title: "Strategic Land Asset Sourcing",
-            desc: "Curated land options in high-appreciation zones within Dholera SIR tailored to your target investment horizon.",
+            title: "Right Investment Options",
+            desc: "We handpick projects that offer maximum safety, appreciation potential, and government approvals — ensuring you invest in assets that truly build wealth.",
             icon: TrendingUp,
-            badge: "High Growth Zone",
-            details: ["TP Scheme Priority Alignment", "Future Connectivity Hubs", "Flexible Ticket Sizes"],
+            badge: "Verified & Approved",
+            details: ["Government Approved Projects", "High Appreciation Zones", "Safety-First Selection"],
         },
         {
             id: 1,
-            title: "Title & Legal Risk Clearance",
-            desc: "Comprehensive background checks, revenue audit, and zero-encumbrance reports before investment.",
-            icon: ShieldCheck,
-            badge: "100% Clear Title",
-            details: ["7/12 & 8-A Revenue Audit", "NA Status Tracking", "Legal Verification Pack"],
+            title: "Customized Sales / Resale Returns",
+            desc: "Our expert advisors assist in optimizing your investment journey — from selecting profitable units to managing resale for better returns with strategic flexibility and liquidity.",
+            icon: Coins,
+            badge: "Resale Optimized",
+            details: ["Profitable Unit Selection", "Resale Management", "Strategic Liquidity"],
         },
         {
             id: 2,
-            title: "Capital Appreciation Analysis",
-            desc: "Data-driven ROI forecasting based on Dholera SIR infrastructure development milestones.",
-            icon: PieChart,
-            badge: "Data Backed ROI",
-            details: ["Market Rate Benchmark", "Airport & Expressway Impact", "Zone Growth Projections"],
-        },
-        {
-            id: 3,
-            title: "Resale & Exit Strategy Support",
-            desc: "Dedicated assistance to liquidate or resell land assets when your investment reaches target valuation.",
-            icon: Coins,
-            badge: "End-to-End Exit",
-            details: ["Investor Network Reach", "Buyer Matching Service", "Hassle-free Transfer"],
+            title: "Legal Support",
+            desc: "InvestorSpace provides complete legal assistance — from document verification and compliance checks to ownership transfer — ensuring your investment remains protected from start to finish.",
+            icon: ShieldCheck,
+            badge: "Full Legal Cover",
+            details: ["Document Verification", "Compliance Checks", "Ownership Transfer"],
         },
     ];
 
     const steps = [
         {
             num: "01",
-            title: "Investor Profiling",
-            subtitle: "Budget & Goal Alignment",
-            desc: "We analyze your investment timeline, risk appetite, and expected returns.",
-            tag: "Phase 01",
+            title: "Expertise",
+            subtitle: "Market Trends & Insights",
+            desc: "Our deep understanding of market trends and investment behavior allows us to offer accurate insights and profitable opportunities that drive sustainable growth.",
+            tag: "Why Us",
         },
         {
             num: "02",
-            title: "Asset Curation",
-            subtitle: "Diligence & Documents",
-            desc: "Shortlisting verified land options with full document packages provided upfront.",
-            tag: "Phase 02",
+            title: "Partnership Approach",
+            subtitle: "Personalized Attention",
+            desc: "We believe every investor deserves personalized attention. Our team works closely with you to analyze options, forecast potential returns, and ensure smart decision-making.",
+            tag: "Why Us",
         },
         {
             num: "03",
-            title: "Secure Purchase",
-            subtitle: "Transparent Deal Closure",
-            desc: "Direct seller connection, clear commercial terms, and registered land transfer.",
-            tag: "Phase 03",
+            title: "Transparency & Trust",
+            subtitle: "Verified at Every Step",
+            desc: "All our investment recommendations are backed by verified documents and full legal compliance, guaranteeing peace of mind at every step.",
+            tag: "Why Us",
         },
         {
             num: "04",
-            title: "Asset Monitoring",
-            subtitle: "Portfolio & Exit Growth",
-            desc: "Regular updates on infrastructure progress and resale opportunity alerts.",
-            tag: "Phase 04",
+            title: "Growth-Oriented Vision",
+            subtitle: "Long-Term Value Creation",
+            desc: "We focus on long-term value creation — helping investors diversify portfolios and achieve measurable, consistent growth.",
+            tag: "Why Us",
         },
     ];
 
@@ -152,10 +144,10 @@ export default function InvestorServicesPage() {
     ];
 
     const comparisonRows = [
-        { name: "Curated High ROI Land Parcels", investorSpace: true, broker: true, direct: false },
-        { name: "Full Legal Document Upfront Pack", investorSpace: true, broker: false, direct: false },
-        { name: "Zero Speculative Pricing Guarantee", investorSpace: true, broker: false, direct: false },
-        { name: "Dedicated Exit & Resale Assistance", investorSpace: true, broker: false, direct: false },
+        { name: "Verified Government-Approved Projects", investorSpace: true, broker: true, direct: false },
+        { name: "Customized Resale & Returns Strategy", investorSpace: true, broker: false, direct: false },
+        { name: "Complete Legal Support & Compliance", investorSpace: true, broker: false, direct: false },
+        { name: "Growth-Oriented Portfolio Guidance", investorSpace: true, broker: false, direct: false },
     ];
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -207,7 +199,7 @@ export default function InvestorServicesPage() {
                             </motion.h1>
 
                             <motion.p variants={fadeInUp} className="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-xl">
-                                Land can be a steady wealth generator when paperwork is clean. We provide verified options and market insights to build your asset portfolio safely in Dholera SIR.
+                                At InvestorSpace, we empower investors to make confident, informed, and secure real estate decisions — with verified projects, legal transparency, and data-backed insights tailored to your goals.
                             </motion.p>
 
                             <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-4">
@@ -259,7 +251,7 @@ export default function InvestorServicesPage() {
                             <div>
                                 <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#8D0102]">OUR PROMISE</span>
                                 <p className="mt-1 text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                                    We hand over pre-verified legal document packs, offer clear pricing benchmarks, and stay with you until your targeted investment exit.
+                                    We don't just recommend properties — we align your investments with your financial goals to ensure steady returns, minimal risks, and long-term stability.
                                 </p>
                             </div>
                         </motion.div>
@@ -580,7 +572,7 @@ export default function InvestorServicesPage() {
                                         <label className="block text-xs font-bold text-slate-700 mb-1">Tell us what you're looking for</label>
                                         <textarea
                                             rows={4}
-                                            name="message" placeholder="Share your investment budget or timeline preferences..."
+                                            name="message" placeholder="Share your investment goals (e.g. first-time investor, portfolio growth, resale support)..."
                                             className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
                                         ></textarea>
                                     </div>
