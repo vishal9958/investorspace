@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { ShieldCheck, ArrowRight, BadgeCheck, Pause, Play, PhoneCall } from "lucide-react";
 
 const heroImages = [
-  { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80", alt: "Aerial view of Dholera SIR planned development" },
+  { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80", alt: "Aerial view of planned development" },
   { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80", alt: "Modern plot layout" },
   { src: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&q=80", alt: "Investment property" },
   { src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80", alt: "Smart city development" },
@@ -46,9 +46,9 @@ export default function Hero() {
             transition={{ duration: 1.2, ease: "easeInOut" }}
           />
         ))}
-        {/* Rich layered overlay — stronger left side for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/98 via-black/85 to-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
+        {/* Soft balanced overlay — keeps image visible while protecting text */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
         {/* Breathing glow orb */}
         <motion.div
           className="absolute -bottom-20 -left-20 w-[500px] h-[500px] rounded-full bg-primary/25 blur-[120px] pointer-events-none"
@@ -66,7 +66,7 @@ export default function Hero() {
             animate="visible"
             variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } } }}
           >
-            <motion.span variants={fadeUp} transition={{ duration: 0.6 }} className="pill-badge border-white/40 text-white/90">
+            <motion.span variants={fadeUp} transition={{ duration: 0.6 }} className="pill-badge border-white/40 text-white/90 backdrop-blur-md bg-black/30">
               <ShieldCheck className="size-3.5" aria-hidden /> Verified Real Estate Advisory
             </motion.span>
 
@@ -74,7 +74,7 @@ export default function Hero() {
 
             <div aria-hidden="true" className="mt-6 max-w-4xl font-display text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold leading-[1.0] tracking-[-0.03em] sm:mt-7">
               <motion.span
-                className="block text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
+                className="block text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]"
                 initial="hidden"
                 animate="visible"
                 variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.05, delayChildren: 0.4 } } }}
@@ -86,7 +86,7 @@ export default function Hero() {
                 ))}
               </motion.span>
               <motion.span
-                className="block text-white"
+                className="block text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]"
                 initial="hidden"
                 animate="visible"
                 variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.07, delayChildren: 0.9 } } }}
@@ -102,7 +102,7 @@ export default function Hero() {
             </div>
 
             <motion.p variants={fadeUp} transition={{ duration: 0.7, delay: 0.8 }}
-              className="mt-5 max-w-xl text-base leading-relaxed text-white sm:mt-6 sm:text-lg drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)]"
+              className="mt-5 max-w-xl text-base leading-relaxed text-white/95 sm:mt-6 sm:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]"
             >
               Every plot we promote is government-approved, title-verified and priced without hidden margins, so you can hold, build or exit with complete confidence.
             </motion.p>
@@ -118,13 +118,13 @@ export default function Hero() {
                 {/* Shimmer effect */}
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
               </Link>
-              <Link href="/projects" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/15 hover:border-white/60 hover:scale-105 active:scale-95 sm:px-7 sm:py-4">
+              <Link href="/projects" className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/40 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md bg-black/20 transition-all hover:bg-white/15 hover:border-white/60 hover:scale-105 active:scale-95 sm:px-7 sm:py-4">
                 Explore Live Projects
               </Link>
             </motion.div>
 
             <motion.ul variants={fadeUp} transition={{ duration: 0.6, delay: 1.2 }}
-              className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/80 sm:mt-14 sm:gap-x-10"
+              className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/90 sm:mt-14 sm:gap-x-10 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
             >
               {[
                 { text: "100% title-verified", gold: false },
@@ -157,12 +157,12 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right: Lead form */}
+          {/* Right: Lead form with original curtain reveal animation & aligned bottom */}
           <motion.div
             initial={{ opacity: 0, clipPath: "inset(0% 0% 100% 0% round 16px)" }}
             animate={{ opacity: 1, clipPath: "inset(0% 0% 0% 0% round 16px)" }}
             transition={{ duration: 0.8, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden w-full rounded-2xl border border-white/25 bg-black/70 p-6 shadow-2xl shadow-black/60 backdrop-blur-2xl xl:block"
+            className="hidden w-full rounded-2xl border border-white/25 bg-black/70 p-6 shadow-2xl shadow-black/60 backdrop-blur-2xl xl:block sm:mb-14"
           >
             <motion.div
               className="flex items-center gap-2.5"
@@ -196,7 +196,7 @@ export default function Hero() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.45, delay: 1.7 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <span className="mb-1 block text-xs font-medium text-white/80">{field.label}</span>
+                  <span className="mb-1 block text-xs font-medium text-white/90">{field.label}</span>
                   <input
                     type={field.type}
                     autoComplete={field.autoComplete}
@@ -204,7 +204,7 @@ export default function Hero() {
                     placeholder={field.placeholder}
                     name={field.name}
                     {...(field.inputMode ? { inputMode: field.inputMode } : {})}
-                    className="w-full rounded-full border border-white/30 bg-white/10 px-3.5 py-2.5 text-sm text-white outline-none placeholder:text-white/60 focus:ring-2 focus:ring-white/60 transition-all duration-200"
+                    className="w-full rounded-full border border-white/30 bg-white/10 px-3.5 py-2.5 text-sm text-white outline-none placeholder:text-white/50 focus:ring-2 focus:ring-white/60 transition-all duration-200"
                   />
                 </motion.label>
               ))}
