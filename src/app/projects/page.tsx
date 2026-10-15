@@ -29,7 +29,7 @@ const projectsData = [
     type: "Ongoing",
     statusCategory: "Ongoing",
     price: "On request",
-    image: "/images/kesar1.png",
+    image: "/images/FloraMaster.png",
     description:
       "Residential plots in Dholera, Gujarat's planned greenfield smart city, close to the upcoming international airport and the Ahmedabad-Dholera expressway.",
     city: "Ahmedabad",
@@ -91,7 +91,7 @@ export default function ProjectsPage() {
         <section className="relative isolate flex min-h-[520px] items-center overflow-hidden bg-black text-white">
           <div className="absolute inset-0 -z-20 overflow-hidden">
             <img
-              src="/images/kesar2.png"
+              src="/images/FloraMaster.png"
               alt="Land background"
               className="h-full w-full object-cover brightness-75"
             />

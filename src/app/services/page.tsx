@@ -28,10 +28,10 @@ import {
 export default function ServicesPage() {
   // Hero Background Carousel Images
   const heroImages = [
-    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1541888086925-0c1bb6789c26?q=80&w=2000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2000&auto=format&fit=crop",
+    "/images/developer.jpeg",
+    "/images/builder.jpeg",
+    "/images/invester.jpeg",
+    "/images/for_all.jpeg",
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -209,7 +209,7 @@ export default function ServicesPage() {
                   className="inline-flex items-center gap-2.5 rounded-full border border-rose-200 bg-rose-50/90 px-4 py-2 text-xs font-bold text-[#8D0102] shadow-xs backdrop-blur-md"
                 >
                   <Sparkles className="size-4 text-[#8D0102] animate-pulse" />
-                  <span>Dholera SIR Land Advisory Services</span>
+                  <span> Land Advisory Services</span>
                 </motion.div>
 
                 <motion.h1
@@ -308,7 +308,7 @@ export default function ServicesPage() {
                           </div>
                           <div>
                             <p className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-                              <span>Dholera SIR Master Plan</span>
+                              <span>Masterplan Advisory</span>
                               <BadgeCheck className="size-3.5 text-[#8D0102]" />
                             </p>
                             <p className="text-[11px] text-slate-500 mt-0.5">

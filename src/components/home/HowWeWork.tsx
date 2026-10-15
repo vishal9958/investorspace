@@ -12,7 +12,7 @@ const steps = [
     title: "Discovery Call",
     subtitle: "We listen before we recommend",
     desc: "Tell us your budget, your timeline and what you want from a property. It is a conversation, not a sales pitch.",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=900&q=80",
+    image: "/images/call.png",
     alt: "Advisor on a phone call with a client",
     tag: "Step 01",
   },
@@ -22,7 +22,7 @@ const steps = [
     title: "Legal Verification",
     subtitle: "Title & approvals first",
     desc: "We check the title, legal status and approvals against official records and share the findings before you commit.",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66cb85?w=900&q=80",
+    image: "/images/verification.png",
     alt: "Document verification and legal check",
     tag: "Step 02",
   },
@@ -32,7 +32,7 @@ const steps = [
     title: "Site Visit",
     subtitle: "See it before you sign it",
     desc: "Visit the property with us and see the plot, the access roads and the surroundings yourself. Pickup can be arranged.",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80",
+    image: "/images/visit.png",
     alt: "Clients visiting a property site",
     tag: "Step 03",
   },
@@ -42,7 +42,7 @@ const steps = [
     title: "Booking & Paperwork",
     subtitle: "Clause by clause, no surprises",
     desc: "The allotment letter, payment schedule and sale agreement are explained clause by clause before you sign.",
-    image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=900&q=80",
+    image: "/images/papper.png",
     alt: "Signing agreement paperwork",
     tag: "Step 04",
   },
@@ -52,7 +52,7 @@ const steps = [
     title: "Post-Sale Support",
     subtitle: "One advisor, start to finish",
     desc: "Help with registration follow-up and ownership questions after the deal closes. We stay with you after the keys.",
-    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80",
+    image: "/images/sale.png",
     alt: "Advisor providing post-sale support",
     tag: "Step 05",
   },
@@ -121,7 +121,7 @@ export default function HowWeWork() {
                 }`}
                 aria-expanded={isActive}
               >
-                {/* Bg image — only in active card */}
+                {/* Bg image — only in active card with optimized high contrast overlay */}
                 <motion.div
                   className="absolute inset-0"
                   animate={{ opacity: isActive ? 1 : 0 }}
@@ -130,10 +130,10 @@ export default function HowWeWork() {
                   <img
                     src={step.image}
                     alt={step.alt}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover brightness-95"
                   />
-                  {/* dark gradient so text is readable */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/50 to-slate-900/20" />
+                  {/* Multi-stop refined gradient overlay to guarantee 100% text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20" />
                 </motion.div>
 
                 {/* ── COLLAPSED content ─────────────────── */}
@@ -183,21 +183,21 @@ export default function HowWeWork() {
                     >
                       {/* Num + tag */}
                       <div className="flex items-center gap-3 mb-4">
-                        <span className="font-display text-5xl font-bold leading-none text-white">
+                        <span className="font-display text-5xl font-bold leading-none text-white drop-shadow-md">
                           {step.num}
                         </span>
-                        <span className="rounded-full bg-primary/80 backdrop-blur-sm px-3 py-1 text-[0.62rem] font-bold uppercase tracking-widest text-white border border-white/20">
+                        <span className="rounded-full bg-primary/90 backdrop-blur-md px-3.5 py-1 text-[0.65rem] font-extrabold uppercase tracking-widest text-white border border-white/30 shadow-lg">
                           {step.tag}
                         </span>
                       </div>
 
-                      <h3 className="font-display text-2xl font-bold text-white leading-tight">
+                      <h3 className="font-display text-2xl font-bold text-white leading-tight drop-shadow-md">
                         {step.title}
                       </h3>
-                      <p className="mt-1 text-xs font-semibold text-primary/80 uppercase tracking-wide">
+                      <p className="mt-1 text-xs font-bold text-rose-300 uppercase tracking-wider drop-shadow">
                         — {step.subtitle}
                       </p>
-                      <p className="mt-3 text-sm leading-relaxed text-white/80 max-w-[360px]">
+                      <p className="mt-3 text-sm leading-relaxed text-white/95 max-w-[380px] drop-shadow font-medium">
                         {step.desc}
                       </p>
                     </motion.div>
@@ -269,12 +269,12 @@ export default function HowWeWork() {
                             alt={step.alt}
                             className="h-full w-full object-cover"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                         </div>
-                        <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">
+                        <p className="text-xs font-bold text-rose-300 uppercase tracking-wide mb-2">
                           — {step.subtitle}
                         </p>
-                        <p className="text-sm leading-relaxed text-white/75">
+                        <p className="text-sm leading-relaxed text-white/90 font-medium">
                           {step.desc}
                         </p>
                       </div>

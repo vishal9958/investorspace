@@ -64,7 +64,7 @@ export default function AboutPage() {
       stat: "100%",
       statLabel: "Title Clear Legal Guarantee",
       icon: ShieldCheck,
-      image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800&auto=format&fit=crop",
+      image: "/images/2015.png",
     },
     {
       year: "2018",
@@ -74,7 +74,7 @@ export default function AboutPage() {
       stat: "6-Lane",
       statLabel: "Highway Touch Corridor Focus",
       icon: Award,
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop",
+      image: "/images/2018.png",
     },
     {
       year: "2021",
@@ -84,7 +84,7 @@ export default function AboutPage() {
       stat: "2-10 Min",
       statLabel: "Proximity to Mega Infra",
       icon: Building,
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
+      image: "/images/2021.png",
     },
     {
       year: "2024",
@@ -94,7 +94,7 @@ export default function AboutPage() {
       stat: "100+",
       statLabel: "Sq. Yards Plot Size Options",
       icon: TrendingUp,
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop",
+      image: "/images/2024.png",
     },
     {
       year: "2026",
@@ -104,7 +104,7 @@ export default function AboutPage() {
       stat: "920 Sq Km",
       statLabel: "Dholera SIR Planned Region",
       icon: CheckCircle,
-      image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop",
+      image: "/images/2026.png",
     },
   ];
 
@@ -137,15 +137,15 @@ export default function AboutPage() {
         "Every document in Kesar Green Flora was 100% NA and clear title before we booked. The location right on the 6-lane highway gave us complete peace of mind.",
       name: "Aditya Sharma",
       role: "Plot Buyer, Ahmedabad",
-      bgImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920&auto=format&fit=crop",
+      bgImage: "/images/Sunset Skyline Property Showcase.png",
       personImage: "/images/Aditya Sharma.png",
     },
     {
       quote:
-        "Investing in Dholera SIR remotely felt daunting, but Investor Space provided digitized layout plans and 100% government approvals before booking.",
+        "Investing in Investorspace remotely felt daunting, but Investor Space provided digitized layout plans and 100% government approvals before booking.",
       name: "Priya Mehta",
       role: "Investor, Dholera SIR",
-      bgImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1920&auto=format&fit=crop",
+      bgImage: "/images/Luxury Property Development Studio.png",
       personImage: "/images/Priya Mehta.png",
     },
   ];
