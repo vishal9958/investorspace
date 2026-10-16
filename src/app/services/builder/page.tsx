@@ -10,19 +10,15 @@ import {
     ArrowRight,
     CheckCircle2,
     ShieldCheck,
-    Building2,
-    FileText,
     Check,
     X,
     PhoneCall,
     Sparkles,
     Layers,
-    MapPin,
     ArrowUpRight,
     ChevronRight,
     Compass,
     HardHat,
-    Ruler,
     TrendingUp,
     LayoutGrid,
 } from "lucide-react";
@@ -35,24 +31,33 @@ export default function BuilderServicesPage() {
 
     // Hero Background Slides for Builder Services
     const heroSlides = [
-        "https://images.unsplash.com/photo-1541888086925-0c1bb6789c26?q=80&w=2000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop",
+        "/images/build.png",
+        "/images/build1.png",
+        "/images/build2.png",
     ];
 
+    // Fast 3000ms Slide Transition Timer
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-        }, 4000);
+        }, 3000);
         return () => clearInterval(timer);
     }, [heroSlides.length]);
 
     const fadeInUp = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+            transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+        },
+    };
+
+    const staggerContainer = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1 },
         },
     };
 
@@ -129,7 +134,7 @@ export default function BuilderServicesPage() {
             tagline: "Land Sourcing & Large Scale Project Advisory",
             desc: "Strategic land sourcing, title checks, and government liasioning for mega real estate developers.",
             link: "/services/developer",
-            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
+            image: "/images/developer.jpeg",
             highlights: ["Contiguous Land Parcels", "DSIRDA Approval Liasion", "Comprehensive Title Verification"],
         },
         {
@@ -138,7 +143,7 @@ export default function BuilderServicesPage() {
             tagline: "High Growth Strategic Land Assets",
             desc: "Land can be a steady asset when the paperwork is clean. We share the documents so you can verify them yourself.",
             link: "/services/investor",
-            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+            image: "/images/invester.jpeg",
             highlights: ["High Appreciation Zones", "Complete Paperwork", "Exit Strategy Assistance"],
         },
         {
@@ -147,7 +152,7 @@ export default function BuilderServicesPage() {
             tagline: "Transparent Land Buying Guidance",
             desc: "You do not need to be an expert to buy land safely. We explain every single step with zero jargon.",
             link: "/services/all",
-            image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop",
+            image: "/images/for_all.jpeg",
             highlights: ["Step-by-step Guidance", "Legal Assistance", "Direct Owner Connection"],
         },
     ];
@@ -176,74 +181,72 @@ export default function BuilderServicesPage() {
             <PageTitle title="Builder Services" />
             <main className="bg-white font-sans text-slate-900 overflow-hidden">
 
-                {/* ================= 1. SCREEN-FIT HERO SECTION WITH MULTI-IMAGE SLIDER ================= */}
+                {/* ================= 1. BRIGHT HERO SECTION WITH BLURRED BACKGROUND SLIDES ================= */}
                 <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-slate-950">
-                    <AnimatePresence mode="wait">
+                    <AnimatePresence mode="popLayout">
                         <motion.div
                             key={currentSlide}
                             initial={{ opacity: 0, scale: 1.08 }}
-                            animate={{ opacity: 1, scale: 1 }}
+                            animate={{ opacity: 1, scale: 1.05 }}
                             exit={{ opacity: 0 }}
-                            transition={{ duration: 1.2, ease: "easeInOut" }}
+                            transition={{ duration: 0.8, ease: "easeInOut" }}
                             className="absolute inset-0 z-0"
                         >
                             <img
                                 src={heroSlides[currentSlide]}
-                                alt="Builder Services Dholera SIR"
-                                className="w-full h-full object-cover"
+                                alt="Builder Services Enterprise"
+                                className="w-full h-full object-cover filter blur-sm brightness-[0.75] contrast-[1.05]"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/70 to-slate-950/40"></div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50"></div>
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30"></div>
                         </motion.div>
                     </AnimatePresence>
 
                     <div className="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-16 pt-20">
-                        <motion.div initial="hidden" animate="visible" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.12 } } }} className="max-w-3xl">
-                            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 rounded-full border border-rose-500/30 bg-rose-950/60 backdrop-blur-md px-4 py-1.5 text-xs font-bold text-rose-300">
-                                <Sparkles className="size-3.5 text-rose-400" />
-                                <span>BUILDER & PLOTTING SOLUTIONS</span>
+                        <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl">
+                            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2.5 rounded-full border border-white/40 bg-black/40 backdrop-blur-md px-5 py-2 text-xs sm:text-sm font-extrabold text-white shadow-md">
+                                <Sparkles className="size-4 text-rose-300" />
+                                <span className="tracking-wider">BUILDER & PLOTTING SOLUTIONS</span>
                             </motion.div>
 
-                            <motion.h1 variants={fadeInUp} className="mt-5 font-display text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.06]">
+                            <motion.h1 variants={fadeInUp} className="mt-6 font-display text-5xl sm:text-7xl lg:text-8xl font-black text-white tracking-tight leading-[1.02] drop-shadow-lg">
                                 Builder <span className="text-[#E02424] drop-shadow-md">Services</span>
                             </motion.h1>
 
-                            <motion.p variants={fadeInUp} className="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-xl">
+                            <motion.p variants={fadeInUp} className="mt-6 text-lg sm:text-xl lg:text-2xl text-white/95 leading-relaxed font-normal max-w-2xl drop-shadow">
                                 At InvestorSpace, we help builders create a strong presence in the real estate market — turning projects into trusted, recognizable brands through branding, promotion, marketing strategy, and sales execution.
                             </motion.p>
 
-                            <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-4">
+                            <motion.div variants={fadeInUp} className="mt-10 flex flex-wrap items-center gap-5">
                                 <a
                                     href="#contact-form"
-                                    className="inline-flex items-center gap-2 rounded-full bg-[#8D0102] px-8 py-4 text-xs sm:text-sm font-extrabold text-white shadow-xl hover:bg-rose-700 transition-all duration-300 hover:-translate-y-0.5"
+                                    className="inline-flex items-center gap-2.5 rounded-full bg-[#8D0102] px-9 py-4.5 text-sm sm:text-base font-extrabold text-white shadow-2xl hover:bg-rose-700 transition-all duration-300 hover:-translate-y-0.5 active:scale-95"
                                 >
                                     <span>Discuss Builder Services</span>
-                                    <ArrowRight className="size-4" />
+                                    <ArrowRight className="size-5" />
                                 </a>
 
                                 <a
                                     href="#service-breakdown"
-                                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-7 py-4 text-xs sm:text-sm font-bold text-white hover:bg-white/20 transition-all"
+                                    className="inline-flex items-center gap-2.5 rounded-full border border-white/40 bg-white/20 backdrop-blur-md px-8 py-4.5 text-sm sm:text-base font-bold text-white hover:bg-white/30 transition-all active:scale-95"
                                 >
                                     <span>See what's included</span>
-                                    <ArrowRight className="size-4 text-slate-300" />
+                                    <ArrowRight className="size-5 text-white" />
                                 </a>
                             </motion.div>
 
-                            <div className="mt-12 flex items-center gap-2">
+                            <div className="mt-14 flex items-center gap-2.5">
                                 {heroSlides.map((_, idx) => (
                                     <button
                                         key={idx}
                                         onClick={() => setCurrentSlide(idx)}
-                                        className={`h-1.5 rounded-full transition-all duration-500 ${currentSlide === idx ? "w-8 bg-[#8D0102]" : "w-2 bg-white/30"
-                                            }`}
+                                        className={`h-2 rounded-full transition-all duration-300 ${currentSlide === idx ? "w-10 bg-[#8D0102]" : "w-3 bg-white/60 hover:bg-white"}`}
                                     />
                                 ))}
                             </div>
                         </motion.div>
                     </div>
                 </section>
-
 
                 {/* ================= 2. OUR PROMISE BANNER ================= */}
                 <section className="py-10 px-6 sm:px-10 lg:px-16 bg-white border-b border-slate-100">
@@ -269,151 +272,195 @@ export default function BuilderServicesPage() {
                     </div>
                 </section>
 
-
-                {/* ================= 3. THE SERVICE, BROKEN DOWN ================= */}
-                <section id="service-breakdown" className="py-24 px-6 sm:px-10 lg:px-16 bg-slate-50/50">
+                {/* ================= 3. THE SERVICE, BROKEN DOWN (Brand Red Accent & Interactive Panel) ================= */}
+                <section id="service-breakdown" className="py-24 px-6 sm:px-10 lg:px-16 bg-white">
                     <div className="max-w-7xl mx-auto">
-
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
                             <span className="text-xs font-extrabold uppercase tracking-widest text-[#8D0102]">WHAT'S INCLUDED</span>
                             <h2 className="mt-2 text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">
                                 The service, <span className="text-[#8D0102]">broken down</span>
                             </h2>
+                            <p className="mt-2 text-sm text-slate-600 font-medium">Select a core service pillar to examine deliverables and execution strategy.</p>
                         </motion.div>
 
-                        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
-                            {/* Left Side: Modern Asymmetrical Glass Cards */}
-                            <div className="lg:col-span-6 space-y-4">
+                        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+                            {/* Left Side: Brand Color Selector */}
+                            <div className="lg:col-span-6 flex flex-col justify-between space-y-3">
                                 {featuresBreakdown.map((item, index) => {
                                     const Icon = item.icon;
                                     const isActive = activeTab === index;
 
                                     return (
-                                        <motion.div
+                                        <div
                                             key={item.id}
                                             onClick={() => setActiveTab(index)}
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: index * 0.1 }}
-                                            className={`group cursor-pointer rounded-2xl p-6 transition-all duration-300 relative overflow-hidden border ${isActive
-                                                    ? "bg-white border-[#8D0102] shadow-2xl ring-2 ring-[#8D0102]/20 scale-[1.01]"
-                                                    : "bg-white/80 border-slate-200/80 hover:border-slate-300 hover:bg-white"
-                                                }`}
+                                            className={`group cursor-pointer rounded-2xl p-5 sm:p-6 transition-all duration-300 border flex items-center justify-between ${
+                                                isActive
+                                                    ? "bg-[#8D0102] text-white border-[#8D0102] shadow-xl scale-[1.01]"
+                                                    : "bg-white text-slate-900 border-slate-200/90 hover:border-slate-300 hover:bg-slate-50/60"
+                                            }`}
                                         >
-                                            {isActive && (
-                                                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#8D0102] via-rose-500 to-[#8D0102]"></div>
-                                            )}
-
-                                            <div className="flex items-start gap-4">
-                                                <div
-                                                    className={`size-11 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 ${isActive
-                                                            ? "bg-[#8D0102] text-white shadow-md shadow-rose-900/30"
-                                                            : "bg-rose-50 text-[#8D0102] group-hover:bg-[#8D0102] group-hover:text-white"
-                                                        }`}
-                                                >
+                                            <div className="flex items-center gap-4">
+                                                <div className={`size-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                                                    isActive ? "bg-white text-[#8D0102]" : "bg-rose-50 text-[#8D0102]"
+                                                }`}>
                                                     <Icon className="size-5" />
                                                 </div>
-
-                                                <div className="flex-1">
-                                                    <div className="flex items-center justify-between gap-2">
-                                                        <h3 className="text-base font-extrabold text-slate-900">{item.title}</h3>
-                                                        <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
-                                                            {item.badge}
-                                                        </span>
-                                                    </div>
-
-                                                    <p className="mt-1.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">{item.desc}</p>
-
-                                                    {isActive && (
-                                                        <motion.div
-                                                            initial={{ opacity: 0, height: 0 }}
-                                                            animate={{ opacity: 1, height: "auto" }}
-                                                            className="mt-4 pt-4 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-2"
-                                                        >
-                                                            {item.details.map((detail, dIdx) => (
-                                                                <div key={dIdx} className="flex items-center gap-2">
-                                                                    <CheckCircle2 className="size-3.5 text-[#8D0102] shrink-0" />
-                                                                    <span className="text-xs font-semibold text-slate-700">{detail}</span>
-                                                                </div>
-                                                            ))}
-                                                        </motion.div>
-                                                    )}
+                                                <div>
+                                                    <span className={`text-[10px] font-bold uppercase tracking-wider ${isActive ? "text-rose-200" : "text-slate-400"}`}>
+                                                        {item.badge}
+                                                    </span>
+                                                    <h3 className="text-base font-bold tracking-tight">{item.title}</h3>
                                                 </div>
                                             </div>
-                                        </motion.div>
+                                            <ChevronRight className={`size-5 transition-transform duration-300 ${isActive ? "text-white translate-x-1" : "text-slate-300"}`} />
+                                        </div>
                                     );
                                 })}
                             </div>
 
-                            {/* Right Side: Comparison Card */}
+                            {/* Right Side: Active Service Showcase Panel */}
                             <div className="lg:col-span-6">
-                                <div className="rounded-3xl bg-slate-950 p-6 sm:p-8 text-white shadow-2xl relative overflow-hidden border border-slate-800">
-                                    <div className="absolute top-0 right-0 -mr-20 -mt-20 size-60 bg-[#8D0102]/20 rounded-full blur-3xl pointer-events-none"></div>
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={activeTab}
+                                        initial={{ opacity: 0, x: 15 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -15 }}
+                                        transition={{ duration: 0.25 }}
+                                        className="h-full rounded-3xl bg-slate-50 p-8 sm:p-10 border border-slate-200/80 shadow-md flex flex-col justify-between relative overflow-hidden"
+                                    >
+                                        <div>
+                                            <div className="flex items-center justify-between">
+                                                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 text-[#8D0102] text-xs font-extrabold uppercase tracking-widest border border-rose-200">
+                                                    {featuresBreakdown[activeTab].badge}
+                                                </span>
+                                                <span className="text-xs font-bold text-slate-400">0{activeTab + 1} / 04</span>
+                                            </div>
 
-                                    <div className="flex items-center justify-between pb-6 border-b border-slate-800">
-                                        <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                                            <Layers className="size-5 text-[#E02424]" />
-                                            <span>How we compare with other options</span>
-                                        </h3>
-                                    </div>
+                                            <h3 className="mt-6 text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
+                                                {featuresBreakdown[activeTab].title}
+                                            </h3>
 
-                                    <div className="mt-6 overflow-x-auto">
-                                        <table className="w-full text-left text-xs sm:text-sm">
-                                            <thead>
-                                                <tr className="border-b border-slate-800 text-slate-400">
-                                                    <th className="pb-4 font-bold">Feature</th>
-                                                    <th className="pb-4 font-bold text-center bg-[#8D0102] text-white rounded-t-xl px-3 py-2">Investor Space</th>
-                                                    <th className="pb-4 font-bold text-center px-2">Local Broker</th>
-                                                    <th className="pb-4 font-bold text-center px-2">Going Direct</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody className="divide-y divide-slate-800/60">
-                                                {comparisonRows.map((row, rIdx) => (
-                                                    <tr key={rIdx} className="hover:bg-slate-900/50 transition-colors">
-                                                        <td className="py-4 font-medium text-slate-200 pr-2">{row.name}</td>
-                                                        <td className="py-4 text-center bg-[#8D0102]/20 border-x border-[#8D0102]/30 px-3">
-                                                            <Check className="size-5 text-emerald-400 mx-auto" />
-                                                        </td>
-                                                        <td className="py-4 text-center">
-                                                            {row.broker ? (
-                                                                <Check className="size-4 text-slate-400 mx-auto" />
-                                                            ) : (
-                                                                <X className="size-4 text-slate-600 mx-auto" />
-                                                            )}
-                                                        </td>
-                                                        <td className="py-4 text-center">
-                                                            {row.direct ? (
-                                                                <Check className="size-4 text-slate-400 mx-auto" />
-                                                            ) : (
-                                                                <X className="size-4 text-slate-600 mx-auto" />
-                                                            )}
-                                                        </td>
-                                                    </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                            <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                                                {featuresBreakdown[activeTab].desc}
+                                            </p>
 
-                                    <div className="mt-6 pt-4 border-t border-slate-800/80 text-[11px] text-slate-400 flex items-center justify-between">
-                                        <span>Complete Layout Execution Support</span>
-                                        <span className="font-bold text-rose-400">Zero Legal Delays</span>
-                                    </div>
+                                            <div className="mt-8 pt-6 border-t border-slate-200/80">
+                                                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Key Deliverables</h4>
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                                    {featuresBreakdown[activeTab].details.map((detail, dIdx) => (
+                                                        <div key={dIdx} className="flex items-center gap-2.5">
+                                                            <div className="size-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                                                                <Check className="size-3" />
+                                                            </div>
+                                                            <span className="text-xs sm:text-sm font-semibold text-slate-800">{detail}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                </div>
+                                        <div className="mt-10 pt-6 border-t border-slate-200/80 flex items-center justify-between">
+                                            <span className="text-xs font-medium text-slate-500">Execution Timeline: On-Demand</span>
+                                            <a href="#contact-form" className="text-xs font-extrabold text-[#8D0102] hover:underline inline-flex items-center gap-1">
+                                                Inquire Service <ArrowRight className="size-3.5" />
+                                            </a>
+                                        </div>
+                                    </motion.div>
+                                </AnimatePresence>
                             </div>
-
                         </div>
 
+                        {/* ================= ANIMATED COMPARISON MATRIX BOX ================= */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
+                            className="mt-16 rounded-3xl bg-gradient-to-b from-slate-50 via-white to-slate-50 p-6 sm:p-10 border border-slate-200 shadow-xl relative overflow-hidden group"
+                        >
+                            <div className="absolute top-0 right-0 w-80 h-80 bg-rose-100/50 rounded-full blur-3xl pointer-events-none group-hover:bg-rose-200/50 transition-colors duration-700"></div>
+
+                            <div className="flex items-center justify-between pb-6 border-b border-slate-200/90 relative z-10">
+                                <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2.5">
+                                    <div className="size-8 rounded-lg bg-rose-100 text-[#8D0102] flex items-center justify-center">
+                                        <Layers className="size-4" />
+                                    </div>
+                                    <span>How we compare with other options</span>
+                                </h3>
+                                <span className="hidden sm:inline-block text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                                    Verified Market Advantage
+                                </span>
+                            </div>
+
+                            <div className="mt-6 overflow-x-auto relative z-10">
+                                <table className="w-full text-left text-xs sm:text-sm">
+                                    <thead>
+                                        <tr className="border-b border-slate-200 text-slate-500">
+                                            <th className="pb-4 font-bold">Feature</th>
+                                            <th className="pb-4 font-bold text-center bg-[#8D0102] text-white rounded-t-2xl px-4 py-3 shadow-md relative overflow-hidden">
+                                                <span className="relative z-10">Investor Space</span>
+                                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full animate-[shimmer_2.5s_infinite]"></div>
+                                            </th>
+                                            <th className="pb-4 font-bold text-center px-3">Local Broker</th>
+                                            <th className="pb-4 font-bold text-center px-3">Going Direct</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-slate-200/80">
+                                        {comparisonRows.map((row, rIdx) => (
+                                            <motion.tr
+                                                key={rIdx}
+                                                initial={{ opacity: 0, x: -10 }}
+                                                whileInView={{ opacity: 1, x: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ delay: rIdx * 0.08 }}
+                                                className="hover:bg-rose-50/40 transition-all duration-200"
+                                            >
+                                                <td className="py-4 font-semibold text-slate-800 pr-2">{row.name}</td>
+                                                <td className="py-4 text-center bg-rose-50/80 border-x border-rose-100/90 px-4 font-bold">
+                                                    <motion.div
+                                                        initial={{ scale: 0 }}
+                                                        whileInView={{ scale: 1 }}
+                                                        viewport={{ once: true }}
+                                                        transition={{ type: "spring", stiffness: 300, delay: 0.1 + rIdx * 0.1 }}
+                                                    >
+                                                        <Check className="size-5 text-[#8D0102] mx-auto stroke-[2.5]" />
+                                                    </motion.div>
+                                                </td>
+                                                <td className="py-4 text-center">
+                                                    {row.broker ? (
+                                                        <Check className="size-4 text-slate-500 mx-auto" />
+                                                    ) : (
+                                                        <X className="size-4 text-slate-300 mx-auto" />
+                                                    )}
+                                                </td>
+                                                <td className="py-4 text-center">
+                                                    {row.direct ? (
+                                                        <Check className="size-4 text-slate-500 mx-auto" />
+                                                    ) : (
+                                                        <X className="size-4 text-slate-300 mx-auto" />
+                                                    )}
+                                                </td>
+                                            </motion.tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div className="mt-6 pt-4 border-t border-slate-200 text-[11px] text-slate-500 flex items-center justify-between relative z-10">
+                                <span>Complete Layout Execution Support</span>
+                                <span className="font-extrabold text-[#8D0102] flex items-center gap-1">
+                                    <ShieldCheck className="size-3.5" /> Zero Legal Delays
+                                </span>
+                            </div>
+                        </motion.div>
                     </div>
                 </section>
 
-
-                {/* ================= 4. FOUR STEPS (HORIZONTAL PIPELINE / NODE CONNECTOR FLOW) ================= */}
-                <section className="py-24 px-6 sm:px-10 lg:px-16 bg-white border-y border-slate-200/80 overflow-hidden">
+                {/* ================= 4. FOUR STEPS (Light Clean Card View) ================= */}
+                <section className="py-24 px-6 sm:px-10 lg:px-16 bg-slate-50/80 border-y border-slate-200/80 overflow-hidden">
                     <div className="max-w-7xl mx-auto">
-
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="text-center max-w-2xl mx-auto">
                             <span className="text-xs font-extrabold uppercase tracking-widest text-[#8D0102]">HOW IT WORKS</span>
                             <h2 className="mt-2 text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">
@@ -422,20 +469,16 @@ export default function BuilderServicesPage() {
                             <p className="mt-2 text-xs sm:text-sm text-slate-500 font-medium">Hover over the timeline nodes to activate process stages</p>
                         </motion.div>
 
-                        {/* PIPELINE CONNECTOR FLOW CONTAINER */}
                         <div className="mt-20 relative">
-
-                            {/* Connected Track Bar (Desktop) */}
                             <div className="hidden lg:block absolute top-[28px] left-[10%] right-[10%] h-[3px] bg-slate-200 z-0">
                                 <motion.div
-                                    className="h-full bg-gradient-to-r from-[#8D0102] via-rose-600 to-[#8D0102] transition-all duration-500"
+                                    className="h-full bg-gradient-to-r from-[#8D0102] via-rose-600 to-[#8D0102] transition-all duration-300"
                                     style={{
                                         width: hoveredStep !== null ? `${((hoveredStep + 1) / steps.length) * 100}%` : "25%",
                                     }}
                                 ></motion.div>
                             </div>
 
-                            {/* Steps Nodes */}
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
                                 {steps.map((step, idx) => {
                                     const isHovered = hoveredStep === idx;
@@ -446,52 +489,39 @@ export default function BuilderServicesPage() {
                                             key={idx}
                                             onMouseEnter={() => setHoveredStep(idx)}
                                             onMouseLeave={() => setHoveredStep(null)}
-                                            initial={{ opacity: 0, y: 30 }}
+                                            initial={{ opacity: 0, y: 20 }}
                                             whileInView={{ opacity: 1, y: 0 }}
                                             viewport={{ once: true }}
-                                            transition={{ delay: idx * 0.1 }}
+                                            transition={{ delay: idx * 0.08 }}
                                             className="flex flex-col items-center lg:items-start text-center lg:text-left group cursor-pointer"
                                         >
-                                            {/* Node Circle */}
                                             <div className="relative mb-6">
                                                 <div
-                                                    className={`size-14 rounded-full flex items-center justify-center font-black text-sm transition-all duration-500 border-2 ${isHovered || isPast
-                                                            ? "bg-[#8D0102] text-white border-[#8D0102] shadow-xl shadow-rose-900/30 scale-110"
-                                                            : "bg-slate-100 text-slate-400 border-slate-300"
-                                                        }`}
+                                                    className={`size-14 rounded-full flex items-center justify-center font-black text-sm transition-all duration-300 border-2 ${
+                                                        isHovered || isPast
+                                                            ? "bg-[#8D0102] text-white border-[#8D0102] shadow-lg scale-105"
+                                                            : "bg-white text-slate-400 border-slate-300 shadow-sm"
+                                                    }`}
                                                 >
                                                     {step.num}
                                                 </div>
-
-                                                {/* Animated Ripple ring on hover */}
-                                                {isHovered && (
-                                                    <motion.div
-                                                        layoutId="node-glow"
-                                                        className="absolute -inset-2 rounded-full border-2 border-rose-500/50 animate-ping pointer-events-none"
-                                                    ></motion.div>
-                                                )}
                                             </div>
 
-                                            {/* Content Card Panel */}
                                             <div
-                                                className={`w-full rounded-2xl p-6 transition-all duration-500 border ${isHovered
-                                                        ? "bg-slate-950 text-white border-slate-800 shadow-2xl -translate-y-2"
-                                                        : "bg-slate-50 text-slate-900 border-slate-200/80 hover:border-slate-300"
-                                                    }`}
+                                                className={`w-full rounded-2xl p-6 transition-all duration-300 border ${
+                                                    isHovered
+                                                        ? "bg-white border-[#8D0102] shadow-xl ring-2 ring-[#8D0102]/20 -translate-y-1"
+                                                        : "bg-white text-slate-900 border-slate-200/90 shadow-sm"
+                                                }`}
                                             >
-                                                <span
-                                                    className={`text-[10px] font-extrabold uppercase tracking-widest ${isHovered ? "text-rose-400" : "text-[#8D0102]"
-                                                        }`}
-                                                >
+                                                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#8D0102]">
                                                     {step.tag}
                                                 </span>
-
                                                 <h3 className="mt-1 text-base font-black tracking-tight">{step.title}</h3>
-                                                <p className={`text-xs font-bold mt-0.5 ${isHovered ? "text-slate-400" : "text-slate-400"}`}>
+                                                <p className="text-xs font-bold mt-0.5 text-slate-400">
                                                     {step.subtitle}
                                                 </p>
-
-                                                <p className={`mt-3 text-xs leading-relaxed ${isHovered ? "text-slate-300" : "text-slate-600"}`}>
+                                                <p className="mt-3 text-xs leading-relaxed text-slate-600">
                                                     {step.desc}
                                                 </p>
                                             </div>
@@ -499,20 +529,14 @@ export default function BuilderServicesPage() {
                                     );
                                 })}
                             </div>
-
                         </div>
-
                     </div>
                 </section>
-
 
                 {/* ================= 5. DISCUSS BUILDER SERVICES (LEAD FORM SECTION) ================= */}
                 <section id="contact-form" className="py-24 px-6 sm:px-10 lg:px-16 bg-slate-50">
                     <div className="max-w-7xl mx-auto">
-
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-
-                            {/* Left Column */}
                             <div className="lg:col-span-5 space-y-6">
                                 <div>
                                     <span className="text-xs font-extrabold uppercase tracking-widest text-[#8D0102]">GET STARTED</span>
@@ -520,7 +544,7 @@ export default function BuilderServicesPage() {
                                         Discuss Builder <span className="text-[#8D0102]">Services</span>
                                     </h2>
                                     <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                                        Looking to launch a plotting scheme or residential venture in Dholera SIR? Connect with our project advisors for end-to-end guidance.
+                                        Looking to launch your project or scale sales in Dholera SIR? Connect with our project advisors today.
                                     </p>
                                 </div>
 
@@ -529,11 +553,7 @@ export default function BuilderServicesPage() {
                                     <div className="grid grid-cols-2 gap-3 text-xs font-bold text-slate-700">
                                         <div className="flex items-center gap-2">
                                             <CheckCircle2 className="size-4 text-[#8D0102]" />
-                                            <span>Project Land Area (Sq Yd / Acres)</span>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <CheckCircle2 className="size-4 text-[#8D0102]" />
-                                            <span>Preferred TP Scheme Zone</span>
+                                            <span>Project Scale & Scope</span>
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <CheckCircle2 className="size-4 text-[#8D0102]" />
@@ -541,12 +561,15 @@ export default function BuilderServicesPage() {
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <CheckCircle2 className="size-4 text-[#8D0102]" />
-                                            <span>Planned Infrastructure Setup</span>
+                                            <span>Marketing Requirements</span>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <CheckCircle2 className="size-4 text-[#8D0102]" />
+                                            <span>Sales Enablement Goals</span>
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* Direct Contact Red Box */}
                                 <div className="rounded-3xl bg-gradient-to-br from-[#8D0102] to-rose-950 p-7 text-white shadow-xl relative overflow-hidden">
                                     <h3 className="text-lg font-extrabold text-white">Prefer to talk directly?</h3>
                                     <p className="mt-1 text-xs text-rose-100 font-medium">
@@ -562,54 +585,52 @@ export default function BuilderServicesPage() {
                                 </div>
                             </div>
 
-                            {/* Right Column: Form */}
                             <div className="lg:col-span-7 bg-white p-7 sm:p-10 rounded-3xl border border-slate-200/80 shadow-xl">
-                                <form className="space-y-4" onSubmit={handleSubmit}>
+                                <form onSubmit={handleSubmit} className="space-y-4">
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
                                             <label className="block text-xs font-bold text-slate-700 mb-1">Full Name</label>
                                             <input
                                                 type="text"
-                                                name="name" placeholder="John Doe" required
-                                                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
+                                                name="name"
+                                                placeholder="John Doe"
+                                                required
+                                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none"
                                             />
                                         </div>
-                                        <div>
-                                            <label className="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
-                                            <input
-                                                type="email"
-                                                name="email" placeholder="john@example.com"
-                                                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
                                             <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
                                             <input
                                                 type="tel"
-                                                name="phone" placeholder="+91 98765 43210" required
-                                                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
+                                                name="phone"
+                                                placeholder="+91 98765 43210"
+                                                required
+                                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none"
                                             />
-                                        </div>
-                                        <div>
-                                            <label className="block text-xs font-bold text-slate-700 mb-1">I'm interested in...</label>
-                                            <select name="interest" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]">
-                                                <option>Residential Plotting Land Acquisition</option>
-                                                <option>DSIRDA Layout & NA Approvals</option>
-                                                <option>On-Site Infrastructure Setup Support</option>
-                                                <option>Investor Tie-ups & Marketing</option>
-                                            </select>
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label className="block text-xs font-bold text-slate-700 mb-1">Tell us what you're looking for</label>
+                                        <label className="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            placeholder="john@example.com"
+                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none"
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-xs font-bold text-slate-700 mb-1">Project Details / Message</label>
                                         <textarea
                                             rows={4}
-                                            name="message" placeholder="Share your project details (e.g. branding, marketing strategy, sales support)..."
-                                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
+                                            name="message"
+                                            placeholder="Tell us about your project requirements..."
+                                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none"
                                         ></textarea>
                                     </div>
 
@@ -617,25 +638,17 @@ export default function BuilderServicesPage() {
                                         type="submit"
                                         className="w-full rounded-full bg-[#8D0102] py-4 text-xs sm:text-sm font-extrabold text-white shadow-xl hover:bg-rose-800 transition-colors"
                                     >
-                                        Request a Call Back
+                                        Submit Builder Consultation Request
                                     </button>
-
-                                    <p className="text-[11px] text-center text-slate-400 mt-2">
-                                        We reply within one working day. Your details are never shared with third parties.
-                                    </p>
                                 </form>
                             </div>
-
                         </div>
-
                     </div>
                 </section>
 
-
-                {/* ================= 6. EXPLORE ANOTHER SERVICE (INTERACTIVE EXPANDABLE ACCORDION SLIDER) ================= */}
+                {/* ================= 6. EXPLORE ANOTHER SERVICE ================= */}
                 <section className="py-24 px-6 sm:px-10 lg:px-16 bg-white border-t border-slate-200/80">
                     <div className="max-w-7xl mx-auto">
-
                         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                             <div>
                                 <span className="text-xs font-extrabold uppercase tracking-widest text-[#8D0102]">MORE SERVICES</span>
@@ -648,22 +661,19 @@ export default function BuilderServicesPage() {
                             </p>
                         </div>
 
-                        {/* EXPANDABLE INTERACTIVE PANEL */}
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-
-                            {/* Left Selector Tabs */}
                             <div className="lg:col-span-4 space-y-3">
                                 {otherServices.map((service, sIdx) => {
                                     const isSelected = activeService === sIdx;
-
                                     return (
                                         <div
                                             key={service.id}
                                             onClick={() => setActiveService(sIdx)}
-                                            className={`cursor-pointer rounded-2xl p-5 transition-all duration-300 border ${isSelected
+                                            className={`cursor-pointer rounded-2xl p-5 transition-all duration-300 border ${
+                                                isSelected
                                                     ? "bg-[#8D0102] text-white border-[#8D0102] shadow-xl shadow-rose-900/20"
                                                     : "bg-slate-50 text-slate-800 border-slate-200/80 hover:bg-slate-100"
-                                                }`}
+                                            }`}
                                         >
                                             <div className="flex items-center justify-between">
                                                 <h3 className="font-bold text-base">{service.title}</h3>
@@ -677,7 +687,6 @@ export default function BuilderServicesPage() {
                                 })}
                             </div>
 
-                            {/* Right Hero Preview Card */}
                             <div className="lg:col-span-8">
                                 <AnimatePresence mode="wait">
                                     <motion.div
@@ -688,7 +697,6 @@ export default function BuilderServicesPage() {
                                         transition={{ duration: 0.4 }}
                                         className="relative rounded-3xl overflow-hidden min-h-[380px] flex flex-col justify-end p-8 text-white border border-slate-800 shadow-2xl bg-slate-950"
                                     >
-                                        {/* Background Image */}
                                         <img
                                             src={otherServices[activeService].image}
                                             alt={otherServices[activeService].title}
@@ -696,7 +704,6 @@ export default function BuilderServicesPage() {
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
 
-                                        {/* Content Layer */}
                                         <div className="relative z-10 max-w-xl">
                                             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-[10px] font-extrabold uppercase tracking-widest text-rose-300 border border-white/20 mb-3">
                                                 <Compass className="size-3" />
@@ -728,16 +735,12 @@ export default function BuilderServicesPage() {
                                     </motion.div>
                                 </AnimatePresence>
                             </div>
-
                         </div>
-
                     </div>
                 </section>
 
-                {/* TESTIMONIALS */}
                 <Testimonials />
             </main>
-
             <Footer />
         </>
     );

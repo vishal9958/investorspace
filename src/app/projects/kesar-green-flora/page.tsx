@@ -23,6 +23,10 @@ import {
     Sparkles,
     MapPin,
     ExternalLink,
+    FileText,
+    Presentation,
+    Navigation,
+    Route,
 } from "lucide-react";
 
 export default function KesarGreenFloraDetailPage() {
@@ -67,6 +71,9 @@ export default function KesarGreenFloraDetailPage() {
 
     const plotSizes = ["100 Sq. Yards", "150 Sq. Yards", "300 Sq. Yards", "600 Sq. Yards"];
 
+    // Exact Google Maps Directions URL pointing to exact plot coordinates (22.44075, 72.132611)
+    const exactGoogleMapUrl = "https://www.google.com/maps/dir/?api=1&destination=22.44075,72.132611";
+
     // Animation Variants
     const fadeInUp = {
         hidden: { opacity: 0, y: 25 },
@@ -99,15 +106,17 @@ export default function KesarGreenFloraDetailPage() {
                 </div>
 
                 {/* HERO SECTION WITH VIDEO BACKGROUND */}
-                <section className="relative min-h-[580px] lg:min-h-[640px] flex items-center justify-center overflow-hidden bg-black text-white px-6 sm:px-10 lg:px-16">
+                <section className="relative min-h-[580px] lg:min-h-[660px] flex items-center justify-center overflow-hidden bg-black text-white px-6 sm:px-10 lg:px-16">
                     <video
                         autoPlay
                         loop
                         muted
                         playsInline
-                        className="absolute inset-0 w-full h-full object-cover scale-105 opacity-60"
+                        preload="auto"
+                        className="absolute inset-0 w-full h-full object-cover scale-105 opacity-60 pointer-events-none"
                     >
                         <source src="/images/kesar_green.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
                     </video>
 
                     <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
@@ -148,26 +157,51 @@ export default function KesarGreenFloraDetailPage() {
                                 Premium residential plots in Dholera SIR directly touch main 6-Lane Highway. Positioned right beside mega anchors: TATA Semiconductor Fab (₹91,000 Cr), International Airport, and Expressways.
                             </motion.p>
 
-                            <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap gap-4">
+                            {/* 3 Download & Action Options */}
+                            <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap gap-3">
                                 <motion.a
-                                    whileHover={{ scale: 1.04 }}
-                                    whileTap={{ scale: 0.96 }}
+                                    whileHover={{ scale: 1.03 }}
+                                    whileTap={{ scale: 0.97 }}
                                     href="tel:+919818581518"
-                                    className="inline-flex items-center gap-2 rounded-full bg-[#8D0102] px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-xl hover:bg-[#a80203] transition-colors"
+                                    className="inline-flex items-center gap-2 rounded-full bg-[#8D0102] px-6 py-3.5 text-xs sm:text-sm font-extrabold text-white shadow-xl hover:bg-[#a80203] transition-colors"
                                 >
-                                    <Phone className="size-4" /> Book Site Visit (+91 9818-581-518)
+                                    <Phone className="size-4" /> Book Site Visit
                                 </motion.a>
 
                                 <motion.a
-                                    whileHover={{ scale: 1.04 }}
-                                    whileTap={{ scale: 0.96 }}
-                                    href="/kesar-green-flora-brochure.pdf"
-                                    download="Kesar-Green-Flora-Brochure.pdf"
+                                    whileHover={{ scale: 1.03 }}
+                                    whileTap={{ scale: 0.97 }}
+                                    href="/Dholera Master Plan.pdff"
+                                    download="Dholera Master Plan.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-7 py-3.5 text-xs sm:text-sm font-bold text-white backdrop-blur hover:bg-white/30 transition-colors shadow-lg"
+                                    className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-5 py-3.5 text-xs sm:text-sm font-bold text-white backdrop-blur hover:bg-white/30 transition-colors shadow-lg"
                                 >
-                                    Download Layout PDF <Download className="size-4" />
+                                    <FileText className="size-4 text-rose-300" />Dholera Master Plan  <Download className="size-3.5" />
+                                </motion.a>
+
+                                <motion.a
+                                    whileHover={{ scale: 1.03 }}
+                                    whileTap={{ scale: 0.97 }}
+                                    href="/Approved Layout.pdf"
+                                    download="Approved Layout.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-5 py-3.5 text-xs sm:text-sm font-bold text-white backdrop-blur hover:bg-white/30 transition-colors shadow-lg"
+                                >
+                                    <Download className="size-4 text-rose-300" /> Approved Layout 
+                                </motion.a>
+
+                                <motion.a
+                                    whileHover={{ scale: 1.03 }}
+                                    whileTap={{ scale: 0.97 }}
+                                    href="/Dholera (Ispace).pptx"
+                                    download="Brochure.pptx"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-5 py-3.5 text-xs sm:text-sm font-bold text-white backdrop-blur hover:bg-white/30 transition-colors shadow-lg"
+                                >
+                                    <Presentation className="size-4 text-rose-300" /> Brochure <Download className="size-3.5" />
                                 </motion.a>
                             </motion.div>
                         </motion.div>
@@ -200,7 +234,7 @@ export default function KesarGreenFloraDetailPage() {
                                 </li>
                                 <li className="flex justify-between border-b border-slate-100 pb-2.5">
                                     <span className="text-slate-500 font-medium">Promoter:</span>
-                                    <span className="font-bold text-slate-900">Investor Space Promoters</span>
+                                    <span className="font-bold text-slate-900">Authorized Channel Partner</span>
                                 </li>
                                 <li className="flex justify-between items-center pt-1">
                                     <span className="text-slate-500 font-medium">Pricing:</span>
@@ -211,7 +245,7 @@ export default function KesarGreenFloraDetailPage() {
                     </div>
                 </section>
 
-                {/* MEDIA GALLERY SECTION - BALANCED HIGH-IMPACT LAYOUT */}
+                {/* MEDIA GALLERY SECTION */}
                 <section className="py-14 px-6 sm:px-10 lg:px-16 bg-slate-50 border-b border-slate-100">
                     <div className="max-w-7xl mx-auto">
                         <motion.div
@@ -227,7 +261,7 @@ export default function KesarGreenFloraDetailPage() {
                         </motion.div>
 
                         <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-                            {/* Main Display Box (Big Box) */}
+                            {/* Main Display Box */}
                             <div className="lg:col-span-7 rounded-3xl overflow-hidden bg-slate-900 border border-slate-200 shadow-xl min-h-[380px] sm:min-h-[480px] relative group flex flex-col justify-end">
                                 <AnimatePresence mode="wait">
                                     <motion.img
@@ -252,7 +286,7 @@ export default function KesarGreenFloraDetailPage() {
                                 </div>
                             </div>
 
-                            {/* Side Cards (Bade Dabba Grid) */}
+                            {/* Side Cards Grid */}
                             <div className="lg:col-span-5 grid grid-cols-2 gap-4 h-full">
                                 {projectImages.map((img, idx) => (
                                     <motion.button
@@ -450,7 +484,7 @@ export default function KesarGreenFloraDetailPage() {
                     </div>
                 </section>
 
-                {/* PROJECT LOCATION & MAP SECTION (Added exactly like Contact page) */}
+                {/* ENHANCED PROJECT LOCATION & MAP SECTION */}
                 <section className="py-16 px-6 sm:px-10 lg:px-16 bg-slate-50 border-t border-slate-200">
                     <div className="max-w-7xl mx-auto">
                         <motion.div
@@ -460,10 +494,13 @@ export default function KesarGreenFloraDetailPage() {
                             variants={fadeInUp}
                             className="mb-10"
                         >
-                            <span className="text-xs font-bold uppercase tracking-widest text-[#8D0102]">FIND US</span>
-                            <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-slate-950">
-                                Kesar Green Flora Site Location & Map.
+                            <span className="text-xs font-bold uppercase tracking-widest text-[#8D0102]">EXACT SITE LOCATION</span>
+                            <h2 className="mt-2 text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
+                                Kesar Green Flora Site Location & Route.
                             </h2>
+                            <p className="mt-1 text-xs sm:text-sm text-slate-500">
+                                Directly pinpointed on the main 6-Lane Expressway Corridor in Dholera SIR.
+                            </p>
                         </motion.div>
 
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
@@ -473,25 +510,46 @@ export default function KesarGreenFloraDetailPage() {
                                 whileInView="visible"
                                 viewport={{ once: true }}
                                 variants={fadeInUp}
-                                className="lg:col-span-4 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xl flex flex-col justify-between"
+                                className="lg:col-span-4 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-xl flex flex-col justify-between"
                             >
                                 <div>
-                                    <div className="inline-flex items-center gap-2 rounded-full bg-rose-50 px-3.5 py-1.5 text-xs font-bold text-[#8D0102] border border-rose-100 mb-5">
-                                        <MapPin className="size-4" /> SITE VISIT DESK
+                                    <div className="flex items-center gap-2 mb-5">
+                                        <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-50 px-3.5 py-1.5 text-xs font-bold text-[#8D0102] border border-rose-100">
+                                            <MapPin className="size-3.5" /> SITE VISIT DESK
+                                        </span>
+                                        <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-[10px] font-extrabold text-emerald-700 border border-emerald-100">
+                                            GPS Pinpoint Verified
+                                        </span>
                                     </div>
-                                    <h3 className="text-xl font-bold text-slate-900">Direct Corridor Walkthrough</h3>
-                                    <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+
+                                    <h3 className="text-xl font-black text-slate-950 tracking-tight">Direct Corridor Walkthrough</h3>
+                                    <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                                         Want to physically inspect the 6-Lane highway touch plot, master layout maps, and government RERA documents? Visit our project site or book a guided cab from Ahmedabad/Dholera.
                                     </p>
 
-                                    <div className="mt-6 space-y-3 text-xs text-slate-700">
-                                        <div className="flex items-start gap-2.5">
+                                    <div className="mt-6 space-y-3.5 text-xs text-slate-700">
+                                        <div className="flex items-start gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100">
                                             <MapPin className="size-4 text-[#8D0102] shrink-0 mt-0.5" />
-                                            <span><strong>Location:</strong> Kesar Green Flora, Dholera SIR, Main 6-Lane Highway Corridor, Gujarat - 382455</span>
+                                            <div>
+                                                <span className="font-bold text-slate-900 block">Exact Plot Pinpoint:</span>
+                                                <span className="text-slate-600 font-medium text-[11px]">Kesar Green Flora, Dholera SIR, Main 6-Lane Highway, Gujarat — 22°26&apos;26.7&quot;N 72°07&apos;57.4&quot;E</span>
+                                            </div>
                                         </div>
-                                        <div className="flex items-center gap-2.5">
+
+                                        <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                                            <Route className="size-4 text-[#8D0102] shrink-0" />
+                                            <div>
+                                                <span className="font-bold text-slate-900 block">Highway Connectivity:</span>
+                                                <span className="text-slate-600 font-medium text-[11px]">Touches Main 6-Lane Expressway Corridor</span>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100">
                                             <Phone className="size-4 text-[#8D0102] shrink-0" />
-                                            <span><strong>Helpline:</strong> +91 9818-581-518</span>
+                                            <div>
+                                                <span className="font-bold text-slate-900 block">Direct Site Helpline:</span>
+                                                <span className="text-[#8D0102] font-black">+91 9818-581-518</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -499,51 +557,56 @@ export default function KesarGreenFloraDetailPage() {
                                 <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
                                     <a
                                         href="tel:+919818581518"
-                                        className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#8D0102] px-5 py-3 text-xs font-bold text-white shadow-md hover:bg-[#a80203] transition-colors"
+                                        className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#8D0102] px-5 py-3.5 text-xs font-bold text-white shadow-md hover:bg-[#a80203] active:scale-95 transition-all"
                                     >
                                         <Phone className="size-3.5" /> Call Advisor
                                     </a>
                                     <a
-                                        href="https://maps.google.com/?q=Dholera+SIR+Gujarat"
+                                        href={exactGoogleMapUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex-1 inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-xs font-bold text-slate-800 hover:bg-slate-50 transition-colors shadow-xs"
+                                        className="flex-1 inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3.5 text-xs font-bold text-slate-800 hover:bg-slate-100 active:scale-95 transition-all shadow-xs"
                                     >
-                                        Get Directions <ExternalLink className="size-3.5" />
+                                        <Navigation className="size-3.5 text-[#8D0102]" /> Get Directions <ExternalLink className="size-3.5 opacity-60" />
                                     </a>
                                 </div>
                             </motion.div>
 
-                            {/* Right Map Embed Box */}
+                            {/* Right Detailed Map Embed Box */}
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.98 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5 }}
-                                className="lg:col-span-8 bg-white p-3 rounded-3xl border border-slate-200 shadow-xl flex flex-col"
+                                className="lg:col-span-8 bg-white p-3 rounded-3xl border border-slate-200 shadow-xl flex flex-col justify-between"
                             >
-                                <div className="relative w-full h-[350px] sm:h-[420px] rounded-2xl overflow-hidden bg-slate-100">
+                                <div className="relative w-full h-[360px] sm:h-[440px] rounded-2xl overflow-hidden bg-slate-100">
                                     <iframe
-                                        title="Kesar Green Flora Map Location"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118147.68200502123!2d72.1923!3d22.2587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395a51c4b1234567%3A0x123456789abcdef!2sDholera%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+                                        title="Kesar Green Flora Exact Map Location"
+                                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3687.688427498016!2d72.13261109999999!3d22.44075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDI2JzI2LjciTiA3MsKwMDcnNTcuNCJF!5e0!3m2!1sen!2sin!4v1792152761387!5m2!1sen!2sin"
                                         width="100%"
                                         height="100%"
                                         style={{ border: 0 }}
-                                        allowFullScreen=""
+                                        allowFullScreen={true}
                                         loading="lazy"
-                                        referrerPolicy="no-referrer-when-downgrade"
+                                        referrerPolicy="strict-origin-when-cross-origin"
                                         className="absolute inset-0 size-full"
                                     ></iframe>
                                 </div>
-                                <div className="p-4 flex items-center justify-between text-xs text-slate-600">
-                                    <span className="font-bold text-slate-900">Kesar Green Flora — Project Location Map</span>
+
+                                <div className="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-600 bg-slate-50/70 rounded-2xl mt-3 border border-slate-100">
+                                    <div className="flex items-center gap-2">
+                                        <span className="size-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                        <span className="font-bold text-slate-900">Kesar Green Flora — Exact Plot Coordinates Pinpointed</span>
+                                    </div>
                                     <a
-                                        href="https://maps.google.com/?q=Dholera+SIR+Gujarat"
+                                        href={exactGoogleMapUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-[#8D0102] font-semibold hover:underline flex items-center gap-1"
+                                        className="text-[#8D0102] font-extrabold hover:underline flex items-center gap-1.5 transition-all"
                                     >
-                                        Open in Google Maps <ExternalLink className="size-3" />
+                                        <span>Open Exact Location in Google Maps</span>
+                                        <ExternalLink className="size-3.5" />
                                     </a>
                                 </div>
                             </motion.div>

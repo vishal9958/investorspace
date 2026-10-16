@@ -14,19 +14,14 @@ import {
   TrendingUp,
   UserCheck,
   ShieldCheck,
-  CheckCircle2,
   Sparkles,
   ChevronRight,
   FileCheck,
   BadgeCheck,
-  MapPin,
   Compass,
-  FileText,
-  Layers,
 } from "lucide-react";
 
 export default function ServicesPage() {
-  // Hero Background Carousel Images
   const heroImages = [
     "/images/developer.jpeg",
     "/images/builder.jpeg",
@@ -69,21 +64,8 @@ export default function ServicesPage() {
       badge: "TP SANCTION & MEGA LAND",
       title: "Developer Services",
       shortDesc:
-        "End-to-end mega parcel sourcing, TP layout sanctions, NA/NOC verification, and legal infrastructure roadmap for top real estate developers.",
-      features: [
-        "Town Planning (TP 1 to TP 6) Sanctions & Clearances",
-        "5 to 100+ Acre Single-Owner Mega Sourcing",
-        "Complete Non-Agricultural (NA) & Title Direct Search",
-        "Industrial & Logistics Corridor Alignment",
-      ],
-      details: {
-        parcelSize: "5 - 150+ Acres",
-        target: "Mega Builders & Infrastructure Firms",
-        approvals: "DSIRDA & Town Planning Dept",
-        primeZones: "Activation Area, TP2 East & Expressway",
-      },
-      image:
-        "/images/developer.jpeg",
+        "Building a real estate development is a complicated task requiring both deep understanding...",
+      image: "/images/developer.jpeg",
       icon: Building2,
     },
     {
@@ -92,44 +74,18 @@ export default function ServicesPage() {
       badge: "JOINT VENTURE & PLOT LAYOUTS",
       title: "Builder Services",
       shortDesc:
-        "Structured Joint Development (JD) models, layout approvals, sub-plot mapping, and construction clearance tracking for residential & commercial builders.",
-      features: [
-        "Verified Joint Development (JD / JDA) Matchmaking",
-        "Sub-Plot Demarcation & Layout Approval",
-        "Utility, Drainage & Access Road Connectivity Verification",
-        "Legal & Authority File Processing Support",
-      ],
-      details: {
-        parcelSize: "1 - 10 Acres Sub-Plots",
-        target: "Commercial & Residential Developers",
-        approvals: "Govt. Gujarat & GIDC / DSIRDA",
-        primeZones: "High Density Residential & Commercial Hubs",
-      },
-      image:
-        "/images/builder.jpeg",
+        "We believe good architecture is a crucial foundation that influences the overall performance of a real estate...",
+      image: "/images/builder.jpeg",
       icon: HardHat,
     },
     {
       id: "investor",
       slug: "/services/investor",
       badge: "HIGH YIELD LAND PORTFOLIOS",
-      title: "Investor Advisory",
+      title: "Investor Services",
       shortDesc:
-        "Data-driven land acquisition along the 10-Lane Expressway, Dholera International Airport, and Solar Park corridors with ROI projections.",
-      features: [
-        "10-Lane Expressway & Airport Corridor Sourcing",
-        "10-Year Appreciation Yield & Exit Horizon Modeling",
-        "Full Title Verification & Legal Clearance Certificate",
-        "Hassle-Free Resale & Secondary Market Management",
-      ],
-      details: {
-        parcelSize: "500 Sq. Yards to 5+ Acres",
-        target: "HNIs, NRI Investors & Wealth Funds",
-        approvals: "100% Freehold & Direct Title",
-        primeZones: "Expressway Frontage & TP1 Core",
-      },
-      image:
-         "/images/invester.jpeg",
+        "From design to operations, we love to solve complex challenges and exceed expectations.",
+      image: "/images/invester.jpeg",
       icon: TrendingUp,
     },
     {
@@ -138,21 +94,8 @@ export default function ServicesPage() {
       badge: "100% TITLE CLEAR SUB-PLOTS",
       title: "Service for All",
       shortDesc:
-        "Safe, transparent, and completely verified plot purchasing and advisory experience for every buyer, site tours, registry support, and immediate possession handover.",
-      features: [
-        "100% Govt Approved Sub-Plots in Prime TP Zones",
-        "End-to-End Legal Paperwork & Sub-Registrar Filing",
-        "Guided On-Site Dholera Infrastructure Tours",
-        "Transparent Direct Landowner Pricing (No Hidden Fees)",
-      ],
-      details: {
-        parcelSize: "200 to 1000 Sq. Yards",
-        target: "Individual Home Builders & Plot Buyers",
-        approvals: "NA Residentially Sanctioned",
-        primeZones: "Smart City City Center & TP2 Sector A",
-      },
-      image:
-         "/images/for_all.jpeg",
+        "Safe, transparent, and completely verified plot purchasing and advisory experience for every buyer.",
+      image: "/images/for_all.jpeg",
       icon: UserCheck,
     },
   ];
@@ -247,24 +190,6 @@ export default function ServicesPage() {
                     <ChevronRight className="size-4 text-slate-400" />
                   </a>
                 </motion.div>
-
-                <motion.div
-                  variants={fadeInUp}
-                  className="mt-12 pt-8 border-t border-slate-200/90 grid grid-cols-3 gap-6"
-                >
-                  <div>
-                    <p className="text-2xl sm:text-3xl font-black text-slate-900">100%</p>
-                    <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider mt-1">Title Clear</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl sm:text-3xl font-black text-[#8D0102]">4 Tracks</p>
-                    <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider mt-1">Specialized</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl sm:text-3xl font-black text-slate-900">Govt</p>
-                    <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider mt-1">Approved</p>
-                  </div>
-                </motion.div>
               </motion.div>
 
               <motion.div
@@ -291,16 +216,6 @@ export default function ServicesPage() {
 
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
 
-                      <div className="absolute top-4 right-4 flex gap-1.5 bg-white/80 p-2 rounded-full backdrop-blur-md shadow-xs">
-                        {heroImages.map((_, idx) => (
-                          <div
-                            key={idx}
-                            className={`h-1.5 rounded-full transition-all duration-500 ${idx === currentImageIndex ? "w-6 bg-[#8D0102]" : "w-1.5 bg-slate-300"
-                              }`}
-                          />
-                        ))}
-                      </div>
-
                       <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-white/95 backdrop-blur-md border border-slate-100 shadow-xl">
                         <div className="flex items-center gap-3">
                           <div className="size-10 rounded-lg bg-[#8D0102] flex items-center justify-center text-white shrink-0 shadow-md">
@@ -317,7 +232,6 @@ export default function ServicesPage() {
                           </div>
                         </div>
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -326,7 +240,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* ================= 4 SERVICE TRACKS CARDS ================= */}
+        {/* ================= 2x2 GRID SERVICE TRACKS (EXACT DESIGN MATCH) ================= */}
         <section id="service-tracks" className="py-24 px-6 sm:px-10 lg:px-16 bg-white relative">
           <div className="max-w-7xl mx-auto">
             <motion.div
@@ -334,7 +248,7 @@ export default function ServicesPage() {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
-              className="text-center max-w-3xl mx-auto"
+              className="text-center max-w-3xl mx-auto mb-16"
             >
               <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest bg-rose-50 text-[#8D0102] border border-rose-100">
                 <Compass className="size-3.5" /> CHOOSE YOUR SPECIALIZED TRACK
@@ -347,126 +261,76 @@ export default function ServicesPage() {
               </p>
             </motion.div>
 
-            <div className="mt-16 space-y-16">
-              {services.map((service, index) => {
-                const Icon = service.icon;
-                const isEven = index % 2 === 0;
-
+            {/* 2x2 Grid Layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+              {services.map((service) => {
                 return (
                   <motion.div
                     key={service.id}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-80px" }}
+                    viewport={{ once: true, margin: "-50px" }}
                     variants={fadeInUp}
                     whileHover={{ y: -6 }}
-                    transition={{ duration: 0.4 }}
-                    className="relative rounded-3xl bg-slate-50/70 border border-slate-200/80 hover:border-[#8D0102]/30 hover:shadow-2xl transition-all duration-300 overflow-hidden p-6 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+                    transition={{ duration: 0.3 }}
+                    className="group relative rounded-[2.5rem] bg-white border border-slate-200/80 hover:border-[#8D0102]/30 hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col justify-between p-6 sm:p-7 shadow-xs"
                   >
-                    {/* Image Box - Clickable Link */}
-                    <div className={`lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
-                      <Link href={service.slug} className="block group">
-                        <div className="relative h-[300px] sm:h-[380px] w-full rounded-2xl overflow-hidden shadow-md">
+                    <div>
+                      {/* Clickable Image Box */}
+                      <Link href={service.slug} className="block relative">
+                        <div className="relative h-64 sm:h-72 w-full overflow-hidden rounded-[2rem] bg-slate-100">
+                          {/* Image with smooth zoom */}
                           <motion.img
-                            whileHover={{ scale: 1.08 }}
+                            whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.6 }}
                             src={service.image}
                             alt={service.title}
                             className="h-full w-full object-cover"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
 
-                          <div className="absolute top-4 left-4">
-                            <span className="bg-white/95 backdrop-blur-md text-[#8D0102] text-[10px] font-extrabold uppercase tracking-widest px-3.5 py-1.5 rounded-full shadow-xs">
+                          {/* Badge Pill Top-Left */}
+                          <div className="absolute top-4 left-4 z-10">
+                            <span className="bg-white/95 backdrop-blur-md text-[#8D0102] text-[10px] font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full shadow-sm">
                               {service.badge}
                             </span>
                           </div>
 
-                          <div className="absolute bottom-4 left-4 size-14 rounded-2xl bg-[#8D0102] text-white flex items-center justify-center shadow-lg">
-                            <Icon className="size-7" />
+                          {/* EXACT SMOOTH INVERTED CURVED CORNER NOTCH AT BOTTOM RIGHT */}
+                          <div className="absolute bottom-0 right-0 w-24 h-24 bg-white pointer-events-none rounded-tl-[2rem]">
+                            {/* Inner smooth inverted SVG curves for natural cut effect */}
+                            <svg className="absolute -top-6 right-0 size-6 text-white fill-current pointer-events-none" viewBox="0 0 24 24">
+                              <path d="M24 24C24 10.7452 13.2548 0 0 0H24V24Z" />
+                            </svg>
+                            <svg className="absolute bottom-0 -left-6 size-6 text-white fill-current pointer-events-none" viewBox="0 0 24 24">
+                              <path d="M24 24C24 10.7452 13.2548 0 0 0H24V24Z" />
+                            </svg>
+                          </div>
+
+                          {/* FLOATING RED CIRCLE BUTTON WITH DIRECTIONAL LOOPING ARROW */}
+                          <div className="absolute bottom-2 right-2 size-14 rounded-full bg-[#8D0102] group-hover:bg-slate-950 text-white flex items-center justify-center shadow-lg transition-colors duration-300 z-20 overflow-hidden">
+                            <div className="relative size-6 overflow-hidden">
+                              {/* Arrow 1 (Moving out to Top-Right) */}
+                              <ArrowUpRight className="size-6 absolute inset-0 transition-transform duration-500 ease-out group-hover:translate-x-full group-hover:-translate-y-full" />
+                              {/* Arrow 2 (Coming in from Bottom-Left) */}
+                              <ArrowUpRight className="size-6 absolute inset-0 transition-transform duration-500 ease-out -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0" />
+                            </div>
                           </div>
                         </div>
                       </Link>
-                    </div>
 
-                    {/* Content Column */}
-                    <div className={`lg:col-span-7 ${isEven ? "lg:order-2" : "lg:order-1"} flex flex-col justify-between`}>
-                      <div>
-                        <div className="flex items-center gap-2 text-[#8D0102] text-xs font-bold uppercase tracking-wider">
-                          <Layers className="size-4" />
-                          <span>Track 0{index + 1}</span>
-                        </div>
-
-                        {/* Title Link */}
-                        <Link href={service.slug} className="hover:text-[#8D0102] transition-colors">
-                          <h3 className="text-2xl sm:text-3xl font-black text-slate-950 mt-1.5 tracking-tight">
+                      {/* Content Section */}
+                      <div className="mt-7">
+                        <Link href={service.slug} className="group-hover:text-[#8D0102] transition-colors">
+                          <h3 className="text-3xl font-black text-slate-950 tracking-tight leading-tight">
                             {service.title}
                           </h3>
                         </Link>
 
-                        <p className="mt-3 text-sm text-slate-600 leading-relaxed font-normal">
-                          {service.shortDesc}
-                        </p>
-
-                        {/* Light Detail Spec Grid */}
-                        <div className="mt-6 grid grid-cols-2 gap-3 p-4 rounded-xl bg-white border border-slate-200/80 text-xs shadow-xs">
-                          <div className="flex items-start gap-2">
-                            <MapPin className="size-4 text-[#8D0102] shrink-0 mt-0.5" />
-                            <div>
-                              <p className="text-[10px] uppercase font-bold text-slate-400">Prime Locations</p>
-                              <p className="font-semibold text-slate-800">{service.details.primeZones}</p>
-                            </div>
-                          </div>
-
-                          <div className="flex items-start gap-2">
-                            <FileText className="size-4 text-amber-600 shrink-0 mt-0.5" />
-                            <div>
-                              <p className="text-[10px] uppercase font-bold text-slate-400">Approvals</p>
-                              <p className="font-semibold text-slate-800">{service.details.approvals}</p>
-                            </div>
-                          </div>
-
-                          <div className="flex items-start gap-2">
-                            <Compass className="size-4 text-emerald-600 shrink-0 mt-0.5" />
-                            <div>
-                              <p className="text-[10px] uppercase font-bold text-slate-400">Parcel Scope</p>
-                              <p className="font-semibold text-slate-800">{service.details.parcelSize}</p>
-                            </div>
-                          </div>
-
-                          <div className="flex items-start gap-2">
-                            <ShieldCheck className="size-4 text-blue-600 shrink-0 mt-0.5" />
-                            <div>
-                              <p className="text-[10px] uppercase font-bold text-slate-400">Target Segment</p>
-                              <p className="font-semibold text-slate-800">{service.details.target}</p>
-                            </div>
-                          </div>
+                        <div className="mt-4 pt-4 border-t border-slate-100">
+                          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                            {service.shortDesc}
+                          </p>
                         </div>
-
-                        {/* Feature Checklist */}
-                        <div className="mt-6 space-y-2">
-                          <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Key Deliverables:</p>
-                          {service.features.map((feat, fIdx) => (
-                            <div key={fIdx} className="flex items-center gap-2.5">
-                              <CheckCircle2 className="size-4 text-[#8D0102] shrink-0" />
-                              <span className="text-xs sm:text-sm font-medium text-slate-700">{feat}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* CTA Bar */}
-                      <div className="mt-8 pt-5 border-t border-slate-200 flex items-center justify-between">
-                        <span className="text-xs font-semibold text-slate-400">Direct Consultancy Available</span>
-
-                        {/* Direct Button Link */}
-                        <Link
-                          href={service.slug}
-                          className="inline-flex items-center gap-2 rounded-full bg-[#8D0102] hover:bg-rose-800 px-6 py-3 text-xs font-bold text-white shadow-md transition-all duration-300 hover:scale-[1.02]"
-                        >
-                          <span>Explore Track Details</span>
-                          <ArrowUpRight className="size-4" />
-                        </Link>
                       </div>
                     </div>
                   </motion.div>

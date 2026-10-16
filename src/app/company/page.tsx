@@ -240,24 +240,24 @@ export default function CompanyPage() {
     // 3. Compliance Documents Data
     const documents = [
         {
-            title: "Government Approvals",
-            desc: "Verify government sanction orders, layout approvals, and authority clearances.",
+            title: "Government Approvals & Sanctions",
+            desc: "Verify all regional authority sanctions and official masterplan compliance certificates before committing.",
         },
         {
-            title: "Title and Mutation Records",
-            desc: "The 7/12 extract and the ownership chain, reviewed by your own lawyer.",
+            title: "Title & Ownership Chain",
+            desc: "30-year ownership history and clear mutation records, audited directly by certified legal experts.",
         },
         {
-            title: "NA Order and Layout Sanction",
-            desc: "Proof that the land is non-agricultural and the layout plan is approved.",
+            title: "Layout Sanction",
+            desc: "Approved TP scheme alignment, masterplan compliance, and precise infrastructure corridor buffer zones.",
         },
         {
-            title: "TP Scheme and DSIRDA Status",
-            desc: "Confirm which TP scheme the plot falls under and its approval status.",
+            title: "NA Order(CLU)",
+            desc: "Change of Land Use (CLU) official government order proving legal land status and sub-plot allocation clearance.",
         },
         {
-            title: "Encumbrance Certificate",
-            desc: "Shows loans or legal claims on the plot.",
+            title: "Zone & Authority Clearance",
+            desc: "Official government document certifying the land is completely free from active loans or disputes.",
         },
     ];
 

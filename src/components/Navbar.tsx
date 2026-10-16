@@ -91,7 +91,7 @@ export default function Navbar() {
               alt="Investor Space"
               width={130}
               height={44}
-              className={`w-auto object-contain origin-left scale-[1.7] transition-all duration-500 ${scrolled ? "h-12" : "h-14"
+              className={`w-auto object-contain origin-left scale-[1.7] transition-all duration-500 ${scrolled ? "h-16" : "h-18"
                 }`}
               priority
             />

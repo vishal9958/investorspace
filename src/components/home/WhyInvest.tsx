@@ -85,16 +85,16 @@ export default function WhyInvest() {
               <div className="mt-4">
                 <p className="text-[11px] font-extrabold tracking-wider text-primary uppercase">Verification</p>
                 <h3 className="mt-1 text-xl font-bold text-slate-900">Checks You Can Verify Yourself</h3>
-                <p className="mt-1.5 text-xs sm:text-sm text-slate-500">Ask for these documents for any plot in Dholera SIR:</p>
+                <p className="mt-1.5 text-xs sm:text-sm text-slate-500">Ask for these documents for any plot.:</p>
               </div>
 
               <ul className="mt-4 space-y-2">
                 {[
                   "Government approvals verified",
                   "Title and mutation records",
-                  "NA order and layout sanction",
+                  " Layout sanction",
                   "Authority scheme status",
-                  "Encumbrance certificate"
+                  "CLU Certificate"
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700">
                     <Check className="size-4 shrink-0 text-emerald-600 stroke-[3]" /> {item}
