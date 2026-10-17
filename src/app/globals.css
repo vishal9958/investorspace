@@ -537,3 +537,11 @@ img { image-rendering: -webkit-optimize-contrast; }
   background: #dc2626;
   color: white;
 }
+@keyframes marquee-vertical {
+  from { transform: translateY(0%); }
+  to { transform: translateY(-50%); }
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration, 40s) linear infinite;
+}
