@@ -29,21 +29,21 @@
     --card: #ffffff;
   }
 
-  /* PREMIUM DARK THEME: Rich Wine / Deep Maroon Base */
+  /* LUXURY DARK THEME: Obsidian Wine & Crimson Glow */
   .dark {
-    --bg: #120304;
-    /* Deepest Crimson Black */
-    --fg: #fcf8f8;
-    /* Warm Crisp Off-White */
-    --muted-fg: #d1b8ba;
-    /* Subtle Warm Muted Text */
-    --border: #3d1417;
-    /* Deep Crimson Border */
-    --surface-dark: #0a0102;
-    /* Contrast Dark Base */
-    --ink: #fcf8f8;
-    --card: #1c090b;
-    /* Rich Wine Card Surface */
+    --bg: #0B0708;
+    /* Deep Obsidian with faint Crimson Wine tone */
+    --fg: #FBFBFC;
+    /* Crisp Off-White */
+    --muted-fg: #A0A5B5;
+    /* Warm Muted Text */
+    --border: #2A1518;
+    /* Subtle Crimson Border */
+    --surface-dark: #070304;
+    /* Deepest Base Layer */
+    --ink: #FBFBFC;
+    --card: #150B0D;
+    /* Sleek Deep Wine Card Surface */
   }
 
   *,
@@ -235,70 +235,130 @@
 /* GLOBAL DARK MODE OVERRIDES FOR HARDCODED CLASSES */
 html.dark body,
 html.dark main {
-  background-color: #120304 !important;
-  color: #fcf8f8 !important;
+  background-color: #0B0708 !important;
+  color: #FBFBFC !important;
 }
 
-/* Cards & Surfaces */
+/* Dark Mode Ambient Atmosphere */
+html.dark body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle 800px at 50% -100px, rgba(141, 1, 2, 0.16), transparent 70%);
+}
+
+/* Cards & Surfaces - Elevation Level 1: Sleek Deep Charcoal-Wine */
 html.dark .bg-white,
 html.dark .bg-card {
-  background-color: #1c090b !important;
-  color: #fcf8f8 !important;
+  background-color: #140C0E !important;
+  color: #FBFBFC !important;
 }
 
+/* Secondary Surfaces - Soft Deep Obsidian */
 html.dark .bg-slate-50,
 html.dark .bg-slate-100,
 html.dark .bg-slate-200,
 html.dark .bg-neutral-100,
 html.dark .bg-neutral-50,
-html.dark .bg-\[\#F8F6F4\] {
-  background-color: #180608 !important;
-  color: #fcf8f8 !important;
+html.dark .bg-\[\#F8F6F4\],
+html.dark .bg-\[\#FBFBFA\] {
+  background-color: #0F080A !important;
+  color: #FBFBFC !important;
 }
 
-/* Headings & Text Visibility */
+/* Headings & High Contrast Text - Razor Sharp Bright White */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6,
 html.dark .text-slate-900,
 html.dark .text-slate-800,
 html.dark .text-slate-700,
 html.dark .text-foreground,
 html.dark .text-black,
 html.dark .text-neutral-900,
-html.dark .text-neutral-800 {
-  color: #fcf8f8 !important;
+html.dark .text-neutral-800,
+html.dark .text-\[\#121212\] {
+  color: #FFFFFF !important;
 }
 
-/* Subtext & Muted Text */
+/* Subtext & Descriptions - Crisp High-Readability Light Slate */
+html.dark p,
+html.dark span:not(.text-white):not(.text-primary):not(.bg-primary *),
 html.dark .text-slate-600,
 html.dark .text-slate-500,
+html.dark .text-slate-400,
 html.dark .text-neutral-600,
 html.dark .text-neutral-500,
+html.dark .text-neutral-400,
 html.dark .text-muted-foreground {
-  color: #d1b8ba !important;
+  color: #CBD5E1 !important; /* Tailwind slate-300: crystal clear readability */
 }
 
-/* Borders */
+/* Specific elements that need secondary contrast */
+html.dark .text-slate-400 {
+  color: #94A3B8 !important; /* Tailwind slate-400 */
+}
+
+/* Subtle highlights in dark mode */
+html.dark .text-emerald-600 {
+  color: #34D399 !important;
+}
+html.dark .text-amber-500,
+html.dark .text-amber-600 {
+  color: #FBBF24 !important;
+}
+
+/* Borders - Subtle Crimson Wine Hairline */
 html.dark .border-slate-200,
 html.dark .border-slate-100,
 html.dark .border-neutral-300,
 html.dark .border-neutral-200,
+html.dark .border-black\/5,
 html.dark .border-black\/10,
 html.dark .border-black\/15,
-html.dark .border-border {
-  border-color: #3d1417 !important;
+html.dark .border-border,
+html.dark .ring-black\/5,
+html.dark .ring-black\/10 {
+  border-color: rgba(141, 1, 2, 0.22) !important;
 }
 
-/* Red Elements White Contrast Lock */
+/* Premium Primary Red Vibrancy in Dark Mode */
 html.dark .bg-primary,
 html.dark .bg-red-600,
 html.dark .bg-\[\#8D0102\] {
   background-color: #8D0102 !important;
   color: #ffffff !important;
+  box-shadow: 0 4px 22px -2px rgba(141, 1, 2, 0.5);
 }
 
 html.dark .bg-primary *,
 html.dark .bg-red-600 *,
 html.dark .bg-\[\#8D0102\] * {
   color: #ffffff !important;
+}
+
+/* Navbar in Dark Mode */
+html.dark header nav {
+  background-color: rgba(14, 8, 10, 0.88) !important;
+  border-color: rgba(141, 1, 2, 0.25) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Logo enhancement in Dark Mode */
+html.dark header img[alt="Investor Space"],
+html.dark footer img[alt="Investor Space"] {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15));
+}
+
+/* Blog Modal in Dark Mode */
+html.dark [data-lenis-prevent] {
+  background-color: #11141B !important;
 }
 
 /* ─── Fresh Visual Utilities ──────────────────────────────────── */

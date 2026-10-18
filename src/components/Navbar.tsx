@@ -41,29 +41,26 @@ export default function Navbar() {
     setMobileOpen(false);
 
     if (href === "/") {
-      e.preventDefault();
-
       if (pathname === "/") {
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: "smooth",
-        });
-      } else {
-        router.push("/");
+        e.preventDefault();
+        const lenis = (window as any).lenis;
+        if (lenis && typeof lenis.scrollTo === "function") {
+          lenis.scrollTo(0, { immediate: false });
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
       }
-
       return;
     }
 
     if (pathname === href) {
       e.preventDefault();
-
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
+      const lenis = (window as any).lenis;
+      if (lenis && typeof lenis.scrollTo === "function") {
+        lenis.scrollTo(0, { immediate: false });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }
   };
 
@@ -135,30 +132,30 @@ export default function Navbar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="relative grid size-10 shrink-0 place-items-center rounded-full text-foreground transition-colors hover:bg-black/5 active:bg-black/10 lg:hidden"
           >
-            <AnimatePresence mode="wait" initial={false}>
-              {mobileOpen ? (
-                <motion.span
-                  key="x"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.18 }}
-                >
-                  <X className="size-5" />
-                </motion.span>
-              ) : (
-                <motion.span
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.18 }}
-                >
-                  <Menu className="size-5" />
-                </motion.span>
-              )}
-            </AnimatePresence>
-          </button>
+              <AnimatePresence mode="wait" initial={false}>
+                {mobileOpen ? (
+                  <motion.span
+                    key="x"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.18 }}
+                  >
+                    <X className="size-5" />
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.18 }}
+                  >
+                    <Menu className="size-5" />
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </button>
         </nav>
       </header>
 

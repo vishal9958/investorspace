@@ -53,17 +53,27 @@ export default function FloatingContactWidget() {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
-        if (document.documentElement.classList.contains("dark")) {
-            setIsDarkMode(true);
-        }
+        const updateDark = () => {
+            setIsDarkMode(document.documentElement.classList.contains("dark"));
+        };
+        updateDark();
+
+        const observer = new MutationObserver(updateDark);
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["class"],
+        });
+        return () => observer.disconnect();
     }, []);
 
     const toggleTheme = () => {
         if (isDarkMode) {
             document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
             setIsDarkMode(false);
         } else {
             document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
             setIsDarkMode(true);
         }
     };

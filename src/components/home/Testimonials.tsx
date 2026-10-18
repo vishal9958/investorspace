@@ -64,21 +64,21 @@ function TestimonialCard({
   rating,
 }: (typeof realEstateTestimonials)[number]) {
   return (
-    <div className="w-64 sm:w-72 rounded-2xl bg-[#8D0102] text-white p-4 sm:p-5 shadow-2xl border border-white/10">
+    <div className="w-64 sm:w-72 rounded-2xl bg-gradient-to-br from-[#8D0102] via-[#750102] to-[#550001] dark:from-[#170507] dark:via-[#1c080b] dark:to-[#120305] text-white p-4 sm:p-5 shadow-xl border border-white/10 dark:border-[#8D0102]/30 dark:shadow-[0_8px_30px_rgba(141,1,2,0.15)] transition-all duration-300 hover:scale-[1.02]">
       {/* Card Header */}
-      <div className="flex items-center justify-between gap-2 border-b border-white/15 pb-3 mb-3">
+      <div className="flex items-center justify-between gap-2 border-b border-white/15 dark:border-white/10 pb-3 mb-3">
         <div className="flex items-center gap-2.5">
-          <span className="size-9 rounded-full bg-white text-[#8D0102] font-black text-xs flex items-center justify-center shrink-0 shadow-sm">
+          <span className="size-9 rounded-full bg-white dark:bg-[#8D0102] text-[#8D0102] dark:text-white font-black text-xs flex items-center justify-center shrink-0 shadow-sm border border-transparent dark:border-white/20">
             {avatar}
           </span>
           <div className="min-w-0">
             <h4 className="text-xs sm:text-sm font-bold text-white truncate">
               {name}
             </h4>
-            <p className="text-[10px] sm:text-xs text-white/80 truncate">{role}</p>
+            <p className="text-[10px] sm:text-xs text-white/80 dark:text-slate-400 truncate">{role}</p>
           </div>
         </div>
-        <span className="text-[9px] font-bold uppercase tracking-wider text-white bg-white/20 px-2 py-0.5 rounded-full shrink-0">
+        <span className="text-[9px] font-bold uppercase tracking-wider text-white bg-white/20 dark:bg-[#8D0102]/40 dark:border dark:border-[#8D0102]/50 px-2 py-0.5 rounded-full shrink-0">
           {tag}
         </span>
       </div>
@@ -91,16 +91,16 @@ function TestimonialCard({
       </div>
 
       {/* Quote */}
-      <blockquote className="text-xs sm:text-sm text-white/95 leading-relaxed font-normal italic">
+      <blockquote className="text-xs sm:text-sm text-white/95 dark:text-slate-200 leading-relaxed font-normal italic">
         "{body}"
       </blockquote>
 
       {/* Footer Stamp */}
-      <div className="mt-3 pt-2 border-t border-white/15 flex items-center justify-between text-[10px] text-white/80">
-        <span className="flex items-center gap-1 text-emerald-300 font-semibold">
+      <div className="mt-3 pt-2 border-t border-white/15 dark:border-white/10 flex items-center justify-between text-[10px] text-white/80 dark:text-slate-400">
+        <span className="flex items-center gap-1 text-emerald-300 dark:text-emerald-400 font-semibold">
           <CheckCircle2 className="size-3" /> Verified Review
         </span>
-        <span className="font-mono text-white/70">Investor Space</span>
+        <span className="font-mono text-white/70 dark:text-[#8D0102]">Investor Space</span>
       </div>
     </div>
   );
@@ -116,16 +116,16 @@ export default function Testimonials3D() {
   if (!mounted) return null;
 
   return (
-    <section className="relative w-full overflow-hidden bg-white text-slate-900 py-16 sm:py-24">
+    <section className="relative w-full overflow-hidden bg-white dark:bg-[#090B0E] text-slate-900 dark:text-[#F4F6F9] py-16 sm:py-24">
       {/* Header Container */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-20 text-center mb-8">
         <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider bg-[#8D0102]/10 text-[#8D0102] border border-[#8D0102]/20">
           <ShieldCheck className="size-4" /> Client Testimonials
         </span>
-        <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+        <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
           Trusted by Investors <span className="text-[#8D0102]">Across India</span>
         </h2>
-        <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+        <p className="mt-3 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
           Real feedback and verified deal experiences from plot buyers, NRI investors, and developers.
         </p>
       </div>
@@ -168,11 +168,11 @@ export default function Testimonials3D() {
           </Marquee>
         </div>
 
-        {/* Soft Outer Edges Fading into White Background */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-28 bg-gradient-to-l from-white to-transparent z-10" />
+        {/* Soft Outer Edges Fading - Light & Dark adaptive */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white dark:from-[#090B0E] to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white dark:from-[#090B0E] to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-white dark:from-[#090B0E] to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-28 bg-gradient-to-l from-white dark:from-[#090B0E] to-transparent z-10" />
       </div>
     </section>
   );
