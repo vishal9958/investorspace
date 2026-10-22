@@ -30,20 +30,25 @@ import {
 } from "lucide-react";
 
 export default function KesarGreenFloraDetailPage() {
-    const videoRef = useRef<HTMLVideoElement>(null);
+    // Working HD Real Estate & Infrastructure Images for Hero Slideshow & Gallery
+    const heroSlides = [
+        { src: "/images/FloraMaster.png", title: "Master Sub-Plot Layout Plan" },
+        { src: "/images/kesar1.png", title: "Highway Entrance & Corridor" },
+        { src: "/images/kesar2.png", title: "Kesar Green Flora Plots" },
+        { src: "/images/kesar3.png", title: "TATA Semiconductor Fab Zone" },
+        { src: "/images/kesar4.png", title: "International Airport Expressway" },
+    ];
 
-    // Ensure video autoplays reliably on production / mobile browsers
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    // Auto-advance hero background slideshow every 5 seconds
     useEffect(() => {
-        if (videoRef.current) {
-            videoRef.current.defaultMuted = true;
-            videoRef.current.muted = true;
-            videoRef.current.play().catch((err) => {
-                console.warn("Video autoplay prevented by browser policy:", err);
-            });
-        }
-    }, []);
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, [heroSlides.length]);
 
-    // Working HD Real Estate & Infrastructure Images with Full CDN Links
     const projectImages = [
         {
             src: "/images/kesar1.png",
@@ -118,24 +123,43 @@ export default function KesarGreenFloraDetailPage() {
                     </div>
                 </div>
 
-                {/* HERO SECTION WITH VIDEO BACKGROUND */}
-                <section className="relative min-h-[580px] lg:min-h-[660px] flex items-center justify-center overflow-hidden bg-black text-white px-6 sm:px-10 lg:px-16">
-                    <video
-                        ref={videoRef}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="metadata"
-                        poster="/images/kesar1.png"
-                        className="absolute inset-0 w-full h-full object-cover scale-105 opacity-60 pointer-events-none"
-                    >
-                        <source src="/images/kesar_green.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
+                {/* HERO SECTION WITH ANIMATED SLIDESHOW BACKGROUND */}
+                <section className="relative min-h-[600px] lg:min-h-[680px] flex items-center justify-center overflow-hidden bg-slate-950 text-white px-6 sm:px-10 lg:px-16">
+                    {/* Animated Crossfading Slide Background */}
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                        <AnimatePresence mode="popLayout">
+                            <motion.div
+                                key={currentSlide}
+                                initial={{ opacity: 0, scale: 1.08 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 1.4, ease: "easeInOut" }}
+                                className="absolute inset-0 bg-cover bg-center"
+                                style={{ backgroundImage: `url('${heroSlides[currentSlide].src}')` }}
+                            />
+                        </AnimatePresence>
 
-                    <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-black/40"></div>
+                        {/* Luxury Dark Glass Overlay & Subtle Blur for Crisp Text Contrast */}
+                        <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[3px]"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/70"></div>
+                    </div>
+
+                    {/* Slide Indicator Dots */}
+                    <div className="absolute bottom-4 left-6 sm:left-10 lg:left-16 z-20 flex items-center gap-2">
+                        {heroSlides.map((slide, idx) => (
+                            <button
+                                key={slide.src}
+                                type="button"
+                                onClick={() => setCurrentSlide(idx)}
+                                aria-label={`View slide ${idx + 1}: ${slide.title}`}
+                                className={`transition-all duration-300 rounded-full ${
+                                    idx === currentSlide
+                                        ? "w-7 h-2 bg-[#8D0102]"
+                                        : "w-2 h-2 bg-white/40 hover:bg-white/70"
+                                }`}
+                            />
+                        ))}
+                    </div>
 
                     <div className="relative z-10 max-w-7xl mx-auto w-full py-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                         <motion.div
@@ -186,31 +210,31 @@ export default function KesarGreenFloraDetailPage() {
                                 <motion.a
                                     whileHover={{ scale: 1.03 }}
                                     whileTap={{ scale: 0.97 }}
-                                    href="/Dholera Master Plan.pdff"
+                                    href="/Dholera%20Master%20Plan.pdf"
                                     download="Dholera Master Plan.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-5 py-3.5 text-xs sm:text-sm font-bold text-white backdrop-blur hover:bg-white/30 transition-colors shadow-lg"
                                 >
-                                    <FileText className="size-4 text-rose-300" />Dholera Master Plan  <Download className="size-3.5" />
+                                    <FileText className="size-4 text-rose-300" /> Dholera Master Plan <Download className="size-3.5" />
                                 </motion.a>
 
                                 <motion.a
                                     whileHover={{ scale: 1.03 }}
                                     whileTap={{ scale: 0.97 }}
-                                    href="/Approved Layout.pdf"
+                                    href="/Approved%20Layout.pdf"
                                     download="Approved Layout.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-5 py-3.5 text-xs sm:text-sm font-bold text-white backdrop-blur hover:bg-white/30 transition-colors shadow-lg"
                                 >
-                                    <Download className="size-4 text-rose-300" /> Approved Layout 
+                                    <Download className="size-4 text-rose-300" /> Approved Layout
                                 </motion.a>
 
                                 <motion.a
                                     whileHover={{ scale: 1.03 }}
                                     whileTap={{ scale: 0.97 }}
-                                    href="/Dholera (Ispace).pptx"
+                                    href="/Dholera%20(Ispace).pptx"
                                     download="Brochure.pptx"
                                     target="_blank"
                                     rel="noopener noreferrer"
