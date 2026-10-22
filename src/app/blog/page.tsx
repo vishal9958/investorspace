@@ -342,7 +342,7 @@ export default function BlogPage() {
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col justify-between overflow-x-hidden">
       <PageTitle title="Blog" />
 
-      <main className="pb-16 pt-20 sm:pt-28 md:pt-32">
+      <main className="pb-16 pt-28 sm:pt-28 md:pt-32">
         {/* HERO SECTION */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}

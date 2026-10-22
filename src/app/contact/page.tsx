@@ -131,7 +131,7 @@ export default function ContactPage() {
   return (
     <>
       <PageTitle title="Contact" />
-      <main className="pt-20 bg-white text-slate-900 overflow-hidden">
+      <main className="pt-28 bg-white text-slate-900 overflow-hidden">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-slate-50/70 py-12 sm:py-16 lg:py-20 text-slate-900 border-b border-slate-200">
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />

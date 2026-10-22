@@ -46,13 +46,13 @@ const initialCities = [
 export default function ProjectsPage() {
     const [heroTab, setHeroTab] = useState<"all" | "ready">("all");
     const [searchQuery, setSearchQuery] = useState("");
-    const [selectedCity, setSelectedCity] = useState("Ahmedabad");
+    const [selectedCity, setSelectedCity] = useState("All");
     const [statusFilter, setStatusFilter] = useState<"Upcoming" | "Ongoing" | "Completed" | "All">("All");
-    const [zoomLevel, setZoomLevel] = useState(2.2);
+    const [zoomLevel, setZoomLevel] = useState(1);
     const [hoveredCity, setHoveredCity] = useState<string | null>(null);
 
     const currentCityData = useMemo(() => {
-        return initialCities.find((c) => c.name === selectedCity) || initialCities[1];
+        return initialCities.find((c) => c.name === selectedCity) || initialCities[0];
     }, [selectedCity]);
 
     const handleCitySelect = (cityName: string) => {
@@ -64,10 +64,10 @@ export default function ProjectsPage() {
     };
 
     const resetAllFilters = () => {
-        setSelectedCity("Ahmedabad");
+        setSelectedCity("All");
         setStatusFilter("All");
         setSearchQuery("");
-        setZoomLevel(2.2);
+        setZoomLevel(1);
     };
 
     const currentCount = currentCityData.count;
@@ -406,8 +406,8 @@ export default function ProjectsPage() {
                                         <button
                                             type="button"
                                             onClick={() => {
-                                                setZoomLevel(2.2);
-                                                setSelectedCity("Ahmedabad");
+                                                setZoomLevel(1);
+                                                setSelectedCity("All");
                                             }}
                                             className="p-3 hover:bg-slate-50 transition-colors"
                                         >
@@ -444,14 +444,14 @@ export default function ProjectsPage() {
                                                         onMouseLeave={() => setHoveredCity(null)}
                                                         style={{ left: `${city.coords.x}%`, top: `${city.coords.y}%` }}
                                                         className={`absolute -translate-x-1/2 -translate-y-full transition-all duration-300 ${
-                                                            isSelected ? "scale-125 z-30" : "scale-100 hover:scale-125 z-10"
+                                                            isSelected ? "scale-100 sm:scale-125 z-30" : "scale-90 sm:scale-100 hover:scale-125 z-10"
                                                         }`}
                                                     >
                                                         <div className="relative flex flex-col items-center group">
-                                                            <MapPin className="size-9 text-[#8D0102] fill-[#8D0102] drop-shadow-xl" />
+                                                            <MapPin className="size-7 sm:size-9 text-[#8D0102] fill-[#8D0102] drop-shadow-xl" />
 
                                                             {(isSelected || hoveredCity === city.name) && (
-                                                                <div className="absolute bottom-full mb-2 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap shadow-xl pointer-events-none border border-slate-800 z-40">
+                                                                <div className="absolute bottom-full mb-1 sm:mb-2 bg-slate-900 text-white text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl whitespace-nowrap shadow-xl pointer-events-none border border-slate-800 z-40 scale-[0.55] sm:scale-100 origin-bottom">
                                                                     {city.name} ({city.count})
                                                                 </div>
                                                             )}

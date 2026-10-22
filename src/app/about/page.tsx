@@ -182,7 +182,7 @@ export default function AboutPage() {
   return (
     <>
       <PageTitle title="About" />
-      <main className="pt-20 font-sans text-slate-900 bg-white">
+      <main className="pt-28 font-sans text-slate-900 bg-white">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-white">
           <div className="relative">

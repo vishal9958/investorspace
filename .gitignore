@@ -43,3 +43,6 @@ next-env.d.ts
 # large media files (exceed GitHub 50MB limit)
 public/images/kesar_green.mp4
 public/images/dholera_view.mp4
+
+# zip archives
+*.zip

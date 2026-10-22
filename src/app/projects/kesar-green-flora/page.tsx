@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from "@/components/Footer";
@@ -30,6 +30,19 @@ import {
 } from "lucide-react";
 
 export default function KesarGreenFloraDetailPage() {
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    // Ensure video autoplays reliably on production / mobile browsers
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.defaultMuted = true;
+            videoRef.current.muted = true;
+            videoRef.current.play().catch((err) => {
+                console.warn("Video autoplay prevented by browser policy:", err);
+            });
+        }
+    }, []);
+
     // Working HD Real Estate & Infrastructure Images with Full CDN Links
     const projectImages = [
         {
@@ -93,7 +106,7 @@ export default function KesarGreenFloraDetailPage() {
     return (
         <>
             <PageTitle title="Kesar Green Flora" />
-            <main className="pt-20 bg-white text-slate-900 font-sans overflow-hidden">
+            <main className="pt-28 bg-white text-slate-900 font-sans overflow-hidden">
                 {/* Breadcrumb Navigation */}
                 <div className="bg-slate-50 border-b border-slate-200 py-3 px-6 sm:px-10 lg:px-16">
                     <div className="max-w-7xl mx-auto flex items-center gap-2 text-xs text-slate-500">
@@ -108,11 +121,13 @@ export default function KesarGreenFloraDetailPage() {
                 {/* HERO SECTION WITH VIDEO BACKGROUND */}
                 <section className="relative min-h-[580px] lg:min-h-[660px] flex items-center justify-center overflow-hidden bg-black text-white px-6 sm:px-10 lg:px-16">
                     <video
+                        ref={videoRef}
                         autoPlay
                         loop
                         muted
                         playsInline
-                        preload="auto"
+                        preload="metadata"
+                        poster="/images/kesar1.png"
                         className="absolute inset-0 w-full h-full object-cover scale-105 opacity-60 pointer-events-none"
                     >
                         <source src="/images/kesar_green.mp4" type="video/mp4" />

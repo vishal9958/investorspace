@@ -2,18 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+  output: "export",
 
   // Build ke time TypeScript errors ignore karne ke liye:
   typescript: {
     ignoreBuildErrors: true,
   },
 
-  // Build ke time ESLint warnings/errors ignore karne ke liye:
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

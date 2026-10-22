@@ -15,7 +15,7 @@ import {
     Users,
     Compass,
     FileText,
-    DollarSign,
+    IndianRupee,
     Map,
     UserCheck,
     TrendingUp,
@@ -271,7 +271,7 @@ export default function CompanyPage() {
         {
             title: "Clear Pricing",
             desc: "One rate card with every charge listed upfront, so the final amount matches the quote.",
-            icon: DollarSign,
+            icon: IndianRupee,
         },
         {
             title: "Site Visits With Our Team",
@@ -298,7 +298,7 @@ export default function CompanyPage() {
     return (
         <div className="min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col justify-between overflow-x-hidden">
             <PageTitle title="Company" />
-            <main className="pb-16 pt-20 sm:pt-28 md:pt-32">
+            <main className="pb-16 pt-28 sm:pt-28 md:pt-32">
                 {/* 1. HERO & AT A GLANCE SECTION */}
                 <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">

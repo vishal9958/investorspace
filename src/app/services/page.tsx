@@ -118,7 +118,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageTitle title="Services" />
-      <main className="pt-20 bg-white font-sans text-slate-900 overflow-hidden">
+      <main className="pt-28 bg-white font-sans text-slate-900 overflow-hidden">
         {/* ================= HERO SECTION ================= */}
         <section className="relative min-h-[720px] lg:min-h-[780px] flex items-center justify-center overflow-hidden border-b border-slate-200/80 px-6 sm:px-10 lg:px-16 bg-slate-50">
           <div className="absolute inset-0 z-0 overflow-hidden bg-slate-100">
