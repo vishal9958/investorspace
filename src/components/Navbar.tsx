@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import HeaderActionTrigger from "@/components/HeaderActionTrigger";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -141,25 +142,30 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* CTA */}
-          <div className="hidden lg:block">
-            <Link
-              href="/contact#callback"
-              className="inline-flex min-h-10 items-center rounded-full bg-primary px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-sm transition-all hover:bg-primary-dark hover:shadow-red active:scale-95"
-            >
-              Book a Site Visit
-            </Link>
-          </div>
+          {/* Right Header Actions (Interactive Home Trigger + CTA + Mobile Toggle) */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Desktop CTA */}
+            <div className="hidden lg:block">
+              <Link
+                href="/contact#callback"
+                className="inline-flex min-h-10 items-center rounded-full bg-primary px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-sm transition-all hover:bg-primary-dark hover:shadow-red active:scale-95"
+              >
+                Book a Site Visit
+              </Link>
+            </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            type="button"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-menu"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="relative grid size-10 shrink-0 place-items-center rounded-full text-foreground transition-colors hover:bg-black/5 active:bg-black/10 lg:hidden"
-          >
+            {/* Interactive Trigger Button (YouTube-style Home Icon with 360 Rotation & Slide-Out Badges) */}
+            <HeaderActionTrigger />
+
+            {/* Mobile Menu Button */}
+            <button
+              type="button"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="relative grid size-10 shrink-0 place-items-center rounded-full text-foreground transition-colors hover:bg-black/5 active:bg-black/10 lg:hidden"
+            >
               <AnimatePresence mode="wait" initial={false}>
                 {mobileOpen ? (
                   <motion.span
@@ -184,6 +190,7 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </button>
+          </div>
         </nav>
       </header>
 
