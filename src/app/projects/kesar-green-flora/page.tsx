@@ -131,9 +131,9 @@ export default function KesarGreenFloraDetailPage() {
     return (
         <>
             <PageTitle title="Kesar Green Flora" />
-            <main className="pt-20 lg:pt-24 bg-white text-slate-900 font-sans overflow-hidden">
+            <main className="pt-20 lg:pt-24 bg-white dark:bg-[#0A0607] text-slate-900 dark:text-white font-sans overflow-hidden">
                 {/* Breadcrumb Navigation */}
-                <div className="bg-slate-50/80 border-b border-slate-200/80 py-2 px-6 sm:px-10 lg:px-16">
+                <div className="bg-slate-50/80 dark:bg-[#0A0607] border-b border-slate-200/80 dark:border-white/5 py-2 px-6 sm:px-10 lg:px-16">
                     <div className="max-w-7xl mx-auto flex items-center gap-2 text-xs text-slate-500">
                         <Link href="/" className="hover:text-[#8D0102] transition">Home</Link>
                         <ChevronRight className="size-3" />
@@ -144,7 +144,7 @@ export default function KesarGreenFloraDetailPage() {
                 </div>
 
                 {/* HERO SECTION WITH ANIMATED SLIDESHOW BACKGROUND (LIGHT THEME) */}
-                <section className="relative min-h-[500px] lg:min-h-[560px] flex items-center justify-center overflow-hidden bg-slate-100 text-slate-900 px-6 sm:px-10 lg:px-16 border-b border-slate-200/80">
+                <section className="relative min-h-[500px] lg:min-h-[560px] flex items-center justify-center overflow-hidden bg-slate-100 dark:bg-[#0A0607] text-slate-900 dark:text-white px-6 sm:px-10 lg:px-16 border-b border-slate-200/80 dark:border-white/5">
                     {/* Animated Crossfading Slide Background */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
                         <AnimatePresence mode="popLayout">
@@ -160,8 +160,8 @@ export default function KesarGreenFloraDetailPage() {
                         </AnimatePresence>
 
                         {/* Directional Light Overlay: Solid readable white on left, transparent on right to showcase vivid project layout */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 sm:via-white/70 to-white/20 sm:to-transparent"></div>
-                        <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-white/30"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 sm:via-white/70 to-white/20 sm:to-transparent dark:from-[#0A0607] dark:via-[#0A0607]/80 dark:sm:via-[#0A0607]/60 dark:to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-white/30 dark:from-[#0A0607]/90 dark:via-transparent dark:to-[#0A0607]/20"></div>
                     </div>
 
                     {/* Slide Indicator Dots */}
@@ -183,7 +183,7 @@ export default function KesarGreenFloraDetailPage() {
 
                     <div className="relative z-10 max-w-7xl mx-auto w-full pt-4 pb-10 sm:pt-6 sm:pb-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                         <motion.div
-                            className="lg:col-span-7 bg-white/75 lg:bg-white/50 backdrop-blur-[2px] p-5 sm:p-7 rounded-3xl border border-white/80 shadow-xs"
+                            className="lg:col-span-7 bg-white/75 dark:bg-[#0A0607]/85 lg:bg-white/50 dark:lg:bg-[#0A0607]/70 backdrop-blur-[2px] p-5 sm:p-7 rounded-3xl border border-white/80 dark:border-white/10 shadow-xs"
                             initial="hidden"
                             animate="visible"
                             variants={staggerContainer}
@@ -197,21 +197,21 @@ export default function KesarGreenFloraDetailPage() {
 
                             <motion.h1
                                 variants={fadeInUp}
-                                className="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-slate-950 tracking-tight leading-tight"
+                                className="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-slate-950 dark:text-white tracking-tight leading-tight"
                             >
                                 Kesar Green Flora
                             </motion.h1>
 
                             <motion.p
                                 variants={fadeInUp}
-                                className="mt-3 text-sm sm:text-base text-[#8D0102] font-black uppercase tracking-wider flex items-center gap-2"
+                                className="mt-3 text-sm sm:text-base text-[#8D0102] dark:text-[#FF4D4F] font-black uppercase tracking-wider flex items-center gap-2"
                             >
-                                <Sparkles className="size-4 text-[#8D0102] inline" /> &quot;Truth Is Our Ornament&quot; • Investor Space Promoters
+                                <Sparkles className="size-4 text-[#8D0102] dark:text-[#FF4D4F] inline" /> &quot;Truth Is Our Ornament&quot; • Investor Space Promoters
                             </motion.p>
 
                             <motion.p
                                 variants={fadeInUp}
-                                className="mt-4 text-xs sm:text-base text-slate-600 font-medium leading-relaxed max-w-2xl"
+                                className="mt-4 text-xs sm:text-base text-slate-600 dark:text-slate-300 font-medium leading-relaxed max-w-2xl"
                             >
                                 Premium residential plots in Dholera SIR directly touch main 6-Lane Highway. Positioned right beside mega anchors: TATA Semiconductor Fab (₹91,000 Cr), International Airport, and Expressways.
                             </motion.p>
@@ -234,9 +234,9 @@ export default function KesarGreenFloraDetailPage() {
                                     download="Dholera Master Plan.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3.5 text-xs sm:text-sm font-bold text-slate-800 hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-xs"
+                                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-white/15 bg-white dark:bg-[#14090B] px-5 py-3.5 text-xs sm:text-sm font-bold text-slate-800 dark:text-white hover:bg-slate-50 dark:hover:bg-[#1F0D10] hover:border-slate-300 transition-colors shadow-xs"
                                 >
-                                    <FileText className="size-4 text-[#8D0102]" /> Dholera Master Plan <Download className="size-3.5 text-slate-500" />
+                                    <FileText className="size-4 text-[#8D0102] dark:text-[#FF4D4F]" /> Dholera Master Plan <Download className="size-3.5 text-slate-500 dark:text-slate-400" />
                                 </motion.a>
 
                                 <motion.a
@@ -246,9 +246,9 @@ export default function KesarGreenFloraDetailPage() {
                                     download="Approved Layout.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3.5 text-xs sm:text-sm font-bold text-slate-800 hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-xs"
+                                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-white/15 bg-white dark:bg-[#14090B] px-5 py-3.5 text-xs sm:text-sm font-bold text-slate-800 dark:text-white hover:bg-slate-50 dark:hover:bg-[#1F0D10] hover:border-slate-300 transition-colors shadow-xs"
                                 >
-                                    <Download className="size-4 text-[#8D0102]" /> Approved Layout
+                                    <Download className="size-4 text-[#8D0102] dark:text-[#FF4D4F]" /> Approved Layout
                                 </motion.a>
 
                                 <motion.a
@@ -258,9 +258,9 @@ export default function KesarGreenFloraDetailPage() {
                                     download="Brochure.pptx"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3.5 text-xs sm:text-sm font-bold text-slate-800 hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-xs"
+                                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-white/15 bg-white dark:bg-[#14090B] px-5 py-3.5 text-xs sm:text-sm font-bold text-slate-800 dark:text-white hover:bg-slate-50 dark:hover:bg-[#1F0D10] hover:border-slate-300 transition-colors shadow-xs"
                                 >
-                                    <Presentation className="size-4 text-[#8D0102]" /> Brochure <Download className="size-3.5 text-slate-500" />
+                                    <Presentation className="size-4 text-[#8D0102] dark:text-[#FF4D4F]" /> Brochure <Download className="size-3.5 text-slate-500 dark:text-slate-400" />
                                 </motion.a>
                             </motion.div>
                         </motion.div>
@@ -270,34 +270,34 @@ export default function KesarGreenFloraDetailPage() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                             whileHover={{ y: -5 }}
-                            className="lg:col-span-5 bg-white/95 backdrop-blur-md text-slate-900 p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-100/80 transition-all duration-300"
+                            className="lg:col-span-5 bg-white/95 dark:bg-[#14090B] backdrop-blur-md text-slate-900 dark:text-white p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-100/80 dark:border-white/10 transition-all duration-300"
                         >
-                            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                                <h3 className="text-lg font-bold text-slate-900">Project Specs</h3>
-                                <span className="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-xs">
+                            <div className="flex items-center justify-between border-b border-slate-100 dark:border-white/10 pb-3">
+                                <h3 className="text-lg font-bold text-slate-900 dark:text-white">Project Specs</h3>
+                                <span className="bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 dark:border dark:border-emerald-500/30 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-xs">
                                     100% Govt Approved
                                 </span>
                             </div>
                             <ul className="mt-4 space-y-3.5 text-xs">
-                                <li className="flex justify-between border-b border-slate-100 pb-2.5">
-                                    <span className="text-slate-500 font-medium">Location Touch:</span>
-                                    <span className="font-bold text-slate-900">Main 6-Lane Highway</span>
+                                <li className="flex justify-between border-b border-slate-100 dark:border-white/10 pb-2.5">
+                                    <span className="text-slate-500 dark:text-slate-400 font-medium">Location Touch:</span>
+                                    <span className="font-bold text-slate-900 dark:text-white">Main 6-Lane Highway</span>
                                 </li>
-                                <li className="flex justify-between border-b border-slate-100 pb-2.5">
-                                    <span className="text-slate-500 font-medium">Legal Status:</span>
-                                    <span className="font-bold text-emerald-700">All NA, NOC, Title Clear</span>
+                                <li className="flex justify-between border-b border-slate-100 dark:border-white/10 pb-2.5">
+                                    <span className="text-slate-500 dark:text-slate-400 font-medium">Legal Status:</span>
+                                    <span className="font-bold text-emerald-700 dark:text-emerald-400">All NA, NOC, Title Clear</span>
                                 </li>
-                                <li className="flex justify-between border-b border-slate-100 pb-2.5">
-                                    <span className="text-slate-500 font-medium">Plot Options:</span>
-                                    <span className="font-bold text-slate-900">100, 150, 300, 600 Sq. Yds</span>
+                                <li className="flex justify-between border-b border-slate-100 dark:border-white/10 pb-2.5">
+                                    <span className="text-slate-500 dark:text-slate-400 font-medium">Plot Options:</span>
+                                    <span className="font-bold text-slate-900 dark:text-white">100, 150, 300, 600 Sq. Yds</span>
                                 </li>
-                                <li className="flex justify-between border-b border-slate-100 pb-2.5">
-                                    <span className="text-slate-500 font-medium">Promoter:</span>
-                                    <span className="font-bold text-slate-900">Authorized Channel Partner</span>
+                                <li className="flex justify-between border-b border-slate-100 dark:border-white/10 pb-2.5">
+                                    <span className="text-slate-500 dark:text-slate-400 font-medium">Promoter:</span>
+                                    <span className="font-bold text-slate-900 dark:text-white">Authorized Channel Partner</span>
                                 </li>
                                 <li className="flex justify-between items-center pt-1">
-                                    <span className="text-slate-500 font-medium">Pricing:</span>
-                                    <span className="font-black text-[#8D0102] text-base">On Request</span>
+                                    <span className="text-slate-500 dark:text-slate-400 font-medium">Pricing:</span>
+                                    <span className="font-black text-[#8D0102] dark:text-[#FF4D4F] text-base">On Request</span>
                                 </li>
                             </ul>
                         </motion.div>

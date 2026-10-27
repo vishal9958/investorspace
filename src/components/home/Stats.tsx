@@ -159,7 +159,7 @@ export default function Stats() {
   };
 
   return (
-    <section ref={sectionRef} className="section-pad bg-[#FBFBFA] overflow-hidden py-20 lg:py-28" aria-labelledby="stats-heading">
+    <section ref={sectionRef} className="section-pad bg-[#FBFBFA] dark:bg-[#0A0607] overflow-hidden py-20 lg:py-28" aria-labelledby="stats-heading">
       <div className="shell max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 items-end mb-12">
           

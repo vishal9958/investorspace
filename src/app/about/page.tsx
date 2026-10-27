@@ -182,7 +182,7 @@ export default function AboutPage() {
   return (
     <>
       <PageTitle title="About" />
-      <main className="pt-28 font-sans text-slate-900 bg-white">
+      <main className="pt-28 font-sans text-slate-900 dark:text-white bg-white dark:bg-[#0A0607]">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-white">
           <div className="relative">
@@ -271,7 +271,7 @@ export default function AboutPage() {
         </section>
 
         {/* Verified Documentation Section */}
-        <section className="bg-slate-50/60 py-12 px-6 sm:px-10 lg:px-16 border-b border-slate-100">
+        <section className="bg-slate-50/60 dark:bg-[#0A0607] py-12 px-6 sm:px-10 lg:px-16 border-b border-slate-100 dark:border-white/5">
           <div className="mx-auto max-w-7xl">
             <div className="mb-6 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-red-600">
               <span className="size-2 rounded-full bg-red-600 inline-block"></span> OUR 4-POINT LEGAL GUARANTEE
@@ -302,7 +302,7 @@ export default function AboutPage() {
         </section>
 
         {/* Story Section */}
-        <section className="overflow-hidden bg-white py-14 sm:py-20">
+        <section className="overflow-hidden bg-white dark:bg-[#0A0607] py-14 sm:py-20">
           <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
             <div className="grid gap-6 sm:grid-cols-[1.3fr_1fr] sm:gap-10 lg:gap-16">
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={sv}>
@@ -594,14 +594,14 @@ export default function AboutPage() {
         </section>
 
         {/* Team Section */}
-        <section className="bg-[#FAF8F8] py-16 sm:py-20">
+        <section className="bg-[#FAF8F8] dark:bg-[#0A0607] py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div>
                 <div className="flex items-center gap-2 text-xs text-slate-500 font-medium mb-3">
                   <Users className="size-3.5" /> Team
                 </div>
-                <h2 className="font-display text-3xl font-bold text-slate-950 sm:text-5xl lg:text-6xl tracking-tight">
+                <h2 className="font-display text-3xl font-bold text-slate-950 dark:text-white sm:text-5xl lg:text-6xl tracking-tight">
                   Meet the team behind <span className="text-red-600">Investor Space</span>
                 </h2>
                 <div className="mt-5">
@@ -615,11 +615,11 @@ export default function AboutPage() {
               </div>
 
               <div className="flex flex-col items-start lg:items-end gap-3">
-                <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 border border-slate-200/80 shadow-2xs">
-                  <ShieldCheck className="size-4 text-slate-700" />
+                <div className="inline-flex items-center gap-2 rounded-full bg-white dark:bg-[#1A0D0F] px-4 py-2 border border-slate-200/80 dark:border-white/10 shadow-2xs">
+                  <ShieldCheck className="size-4 text-slate-700 dark:text-slate-300" />
                   <div>
-                    <p className="text-[0.7rem] font-bold text-slate-900 leading-none">RERA Registered Promoters</p>
-                    <p className="text-[0.6rem] text-slate-400 leading-none mt-0.5">Real Estate Regulatory Authority Compliant</p>
+                    <p className="text-[0.7rem] font-bold text-slate-900 dark:text-white leading-none">RERA Registered Promoters</p>
+                    <p className="text-[0.6rem] text-slate-400 dark:text-slate-400 leading-none mt-0.5">Real Estate Regulatory Authority Compliant</p>
                   </div>
                 </div>
               </div>
@@ -635,7 +635,7 @@ export default function AboutPage() {
             </div>
 
             <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
-              <div className="rounded-2xl bg-white p-6 shadow-2xs border border-slate-100 flex flex-col justify-between">
+              <div className="rounded-2xl bg-white dark:bg-[#14090B] dark:border-white/10 p-6 shadow-2xs border border-slate-100 flex flex-col justify-between">
                 <div>
                   <div className="flex justify-between items-center">
                     <h3 className="font-display text-xl font-bold text-slate-900">Investor Space Promoters</h3>
@@ -650,7 +650,7 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl bg-white p-6 shadow-2xs border border-slate-100 flex flex-col justify-between">
+              <div className="rounded-2xl bg-white dark:bg-[#14090B] dark:border-white/10 p-6 shadow-2xs border border-slate-100 flex flex-col justify-between">
                 <div>
                   <div className="flex justify-between items-center">
                     <h3 className="font-display text-xl font-bold text-slate-900">20+ Specialists</h3>
@@ -715,7 +715,7 @@ export default function AboutPage() {
         </section>
 
         {/* TESTIMONIALS */}
-        <section className="relative overflow-hidden bg-white py-12 sm:py-16">
+        <section className="relative overflow-hidden bg-white dark:bg-[#0A0607] py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
             <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-red-600">
               TESTIMONIALS

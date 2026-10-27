@@ -131,9 +131,9 @@ export default function ContactPage() {
   return (
     <>
       <PageTitle title="Contact" />
-      <main className="pt-28 bg-white text-slate-900 overflow-hidden">
+      <main className="pt-28 bg-white dark:bg-[#0A0607] text-slate-900 dark:text-white overflow-hidden">
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-slate-50/70 py-12 sm:py-16 lg:py-20 text-slate-900 border-b border-slate-200">
+        <section className="relative overflow-hidden bg-slate-50/70 dark:bg-[#0A0607] py-12 sm:py-16 lg:py-20 text-slate-900 border-b border-slate-200 dark:border-white/5">
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
           <div className="shell grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12 px-4 sm:px-8 max-w-7xl mx-auto relative z-10">
             <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
@@ -226,7 +226,7 @@ export default function ContactPage() {
         </section>
 
         {/* Stats Section */}
-        <section className="py-16 bg-white text-slate-900 border-b border-slate-200">
+        <section className="py-16 bg-white dark:bg-[#0A0607] text-slate-900 border-b border-slate-200 dark:border-white/5">
           <div className="shell max-w-7xl mx-auto px-4 sm:px-8">
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-10">
               <div className="max-w-2xl">
@@ -290,10 +290,10 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Grid Section */}
-        <section className="py-16 bg-slate-50/60">
+        <section className="py-16 bg-slate-50/60 dark:bg-[#0A0607]">
           <div className="shell max-w-7xl mx-auto px-4 sm:px-8 flex flex-col gap-6">
             <motion.div
-              className="grid gap-6 rounded-3xl bg-white p-6 lg:p-8 border border-slate-200 lg:grid-cols-[1.2fr_1fr_1fr] text-slate-900 shadow-lg relative overflow-hidden"
+              className="grid gap-6 rounded-3xl bg-white dark:bg-[#14090B] p-6 lg:p-8 border border-slate-200 dark:border-white/8 lg:grid-cols-[1.2fr_1fr_1fr] text-slate-900 shadow-lg relative overflow-hidden"
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -314,7 +314,7 @@ export default function ContactPage() {
 
               <a
                 href="tel:+919818581518"
-                className="group relative flex flex-col justify-between p-6 rounded-2xl bg-slate-50 hover:bg-white text-slate-900 transition-all duration-300 hover:-translate-y-1 hover:border-primary border border-slate-200 shadow-sm hover:shadow-md"
+                className="group relative flex flex-col justify-between p-6 rounded-2xl bg-slate-50 dark:bg-[#0A0607] hover:bg-white dark:hover:bg-[#0A0607] text-slate-900 transition-all duration-300 hover:-translate-y-1 hover:border-primary border border-slate-200 dark:border-white/8 shadow-sm hover:shadow-md"
               >
                 <div className="flex justify-between items-start">
                   <div className="h-12 w-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
@@ -336,7 +336,7 @@ export default function ContactPage() {
                 href="https://wa.me/919818581518"
                 target="_blank"
                 rel="noreferrer"
-                className="group relative flex flex-col justify-between p-6 rounded-2xl bg-slate-50 hover:bg-white text-slate-900 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500 border border-slate-200 shadow-sm hover:shadow-md"
+                className="group relative flex flex-col justify-between p-6 rounded-2xl bg-slate-50 dark:bg-[#0A0607] hover:bg-white dark:hover:bg-[#0A0607] text-slate-900 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500 border border-slate-200 dark:border-white/8 shadow-sm hover:shadow-md"
               >
                 <div className="flex justify-between items-start">
                   <div className="h-12 w-12 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
@@ -364,7 +364,7 @@ export default function ContactPage() {
             >
               <motion.div
                 variants={{ hidden: { opacity: 0, y: 28, scale: 0.97 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } } }}
-                className="p-6 rounded-2xl bg-white border border-slate-200 flex flex-col justify-between min-h-[160px] shadow-sm relative overflow-hidden group hover:border-primary hover:-translate-y-1 transition-all duration-300"
+                className="p-6 rounded-2xl bg-white dark:bg-[#14090B] border border-slate-200 dark:border-white/8 flex flex-col justify-between min-h-[160px] shadow-sm relative overflow-hidden group hover:border-primary hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-xl" />
                 <div>
@@ -379,7 +379,7 @@ export default function ContactPage() {
               <motion.a
                 href="#map"
                 variants={{ hidden: { opacity: 0, y: 28, scale: 0.97 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } } }}
-                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-primary flex items-center gap-4 transition-all shadow-sm group hover:-translate-y-1 duration-300"
+                className="p-6 rounded-2xl bg-white dark:bg-[#14090B] border border-slate-200 dark:border-white/8 hover:border-primary flex items-center gap-4 transition-all shadow-sm group hover:-translate-y-1 duration-300"
               >
                 <div className="h-14 w-14 rounded-2xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <MapPin className="h-7 w-7 text-primary" />
@@ -394,7 +394,7 @@ export default function ContactPage() {
               <motion.a
                 href="mailto:sales@investorspace.co"
                 variants={{ hidden: { opacity: 0, y: 28, scale: 0.97 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } } }}
-                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-primary flex items-center gap-4 transition-all shadow-sm group sm:col-span-2 lg:col-span-1 hover:-translate-y-1 duration-300"
+                className="p-6 rounded-2xl bg-white dark:bg-[#14090B] border border-slate-200 dark:border-white/8 hover:border-primary flex items-center gap-4 transition-all shadow-sm group sm:col-span-2 lg:col-span-1 hover:-translate-y-1 duration-300"
               >
                 <div className="h-14 w-14 rounded-2xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <Mail className="h-7 w-7 text-primary" />
@@ -410,13 +410,13 @@ export default function ContactPage() {
         </section>
 
         {/* Callback Form & Feature Carousel */}
-        <section id="callback" className="py-16 bg-white text-slate-900 border-t border-slate-200">
+        <section id="callback" className="py-16 bg-white dark:bg-[#0A0607] text-slate-900 border-t border-slate-200 dark:border-white/5">
           <div className="shell max-w-7xl mx-auto px-4 sm:px-8 grid gap-10 lg:grid-cols-2 lg:items-center">
-            <div className="rounded-3xl bg-slate-50/80 p-6 sm:p-8 text-slate-900 shadow-xl border border-slate-200">
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
-                Request <span className="text-primary">Callback</span>
+            <div className="rounded-3xl bg-slate-50/80 dark:bg-[#14090B] p-6 sm:p-8 text-slate-900 dark:text-white shadow-xl border border-slate-200 dark:border-white/10">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+                Request <span className="text-primary dark:text-[#FF4D4F]">Callback</span>
               </h2>
-              <p className="mt-2 text-sm text-slate-600">
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
                 Share a few details and an advisor will reach out within one working day.
               </p>
 
@@ -428,10 +428,10 @@ export default function ContactPage() {
                   onChange={handleChange}
                   placeholder="Your name"
                   required
-                  className="w-full border-b border-slate-300 py-2.5 text-sm outline-none focus:border-primary transition-colors bg-transparent text-slate-900 placeholder:text-slate-400"
+                  className="w-full border-b border-slate-300 dark:border-white/20 py-2.5 text-sm outline-none focus:border-primary transition-colors bg-transparent text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/60"
                 />
                 <div className="flex gap-2">
-                  <span className="border-b border-slate-300 py-2.5 text-sm text-slate-500">+91</span>
+                  <span className="border-b border-slate-300 dark:border-white/20 py-2.5 text-sm text-slate-500 dark:text-slate-300">+91</span>
                   <input
                     type="tel"
                     name="phone"
@@ -439,7 +439,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Phone number"
                     required
-                    className="w-full border-b border-slate-300 py-2.5 text-sm outline-none focus:border-primary transition-colors bg-transparent text-slate-900 placeholder:text-slate-400"
+                    className="w-full border-b border-slate-300 dark:border-white/20 py-2.5 text-sm outline-none focus:border-primary transition-colors bg-transparent text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/60"
                   />
                 </div>
                 <input
@@ -448,7 +448,7 @@ export default function ContactPage() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email address (optional)"
-                  className="w-full border-b border-slate-300 py-2.5 text-sm outline-none focus:border-primary transition-colors bg-transparent text-slate-900 placeholder:text-slate-400"
+                  className="w-full border-b border-slate-300 dark:border-white/20 py-2.5 text-sm outline-none focus:border-primary transition-colors bg-transparent text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/50"
                 />
 
                 <div className="grid grid-cols-2 gap-4 pt-2">
@@ -456,7 +456,7 @@ export default function ContactPage() {
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
-                    className="border-b border-slate-300 py-2 text-xs text-slate-600 outline-none focus:border-primary bg-transparent"
+                    className="border-b border-slate-300 dark:border-white/20 py-2 text-xs text-slate-600 dark:text-white/70 outline-none focus:border-primary bg-transparent dark:bg-transparent"
                   >
                     <option value="">Budget option (optional)</option>
                     <option value="10-25">₹10L - ₹25L</option>
@@ -467,7 +467,7 @@ export default function ContactPage() {
                     name="preferredTime"
                     value={formData.preferredTime}
                     onChange={handleChange}
-                    className="border-b border-slate-300 py-2 text-xs text-slate-600 outline-none focus:border-primary bg-transparent"
+                    className="border-b border-slate-300 dark:border-white/20 py-2 text-xs text-slate-600 dark:text-white/70 outline-none focus:border-primary bg-transparent dark:bg-transparent"
                   >
                     <option value="">Best time to call (optional)</option>
                     <option value="morning">Morning (9 AM - 12 PM)</option>
@@ -482,7 +482,7 @@ export default function ContactPage() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Anything else we should know?"
-                  className="w-full border-b border-slate-300 py-2.5 text-sm outline-none focus:border-primary resize-none transition-colors bg-transparent text-slate-900 placeholder:text-slate-400"
+                  className="w-full border-b border-slate-300 dark:border-white/20 py-2.5 text-sm outline-none focus:border-primary resize-none transition-colors bg-transparent text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/50"
                 />
 
                 <label className="flex items-center gap-2 pt-2 cursor-pointer text-xs text-slate-600">

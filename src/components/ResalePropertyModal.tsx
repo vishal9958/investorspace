@@ -194,10 +194,10 @@ export default function ResalePropertyModal({ isOpen, onClose }: ResalePropertyM
                         animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20, rotateX: -6 }}
                         transition={{ type: "spring", stiffness: 380, damping: 28 }}
-                        className="relative z-10 w-full max-w-2xl bg-white rounded-3xl sm:rounded-[32px] shadow-2xl border border-slate-200/90 overflow-hidden flex flex-col my-auto max-h-[90vh]"
+                        className="relative z-10 w-full max-w-2xl bg-white dark:bg-[#14090B] rounded-3xl sm:rounded-[32px] shadow-2xl border border-slate-200/90 dark:border-white/10 overflow-hidden flex flex-col my-auto max-h-[90vh]"
                     >
                         {/* Clean Light Header Banner */}
-                        <div className="relative bg-gradient-to-b from-rose-50/60 via-white to-white text-slate-900 p-5 sm:p-7 border-b border-slate-100">
+                        <div className="relative bg-gradient-to-b from-rose-50/60 via-white to-white dark:from-[#1A0D0F] dark:via-[#14090B] dark:to-[#14090B] text-slate-900 dark:text-white p-5 sm:p-7 border-b border-slate-100 dark:border-white/10">
                             <div className="flex items-start justify-between relative z-10">
                                 <div>
                                     <div className="inline-flex items-center gap-1.5 rounded-full bg-rose-50 border border-rose-200 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-[#8D0102] mb-2">

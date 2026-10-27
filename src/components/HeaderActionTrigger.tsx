@@ -76,13 +76,13 @@ export default function HeaderActionTrigger() {
                             animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
                             exit={{ opacity: 0, y: 10, scale: 0.94, filter: "blur(4px)" }}
                             transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                            className="absolute right-0 top-full mt-3 w-72 sm:w-80 rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-xl p-3 shadow-2xl border border-slate-200/90 z-50 overflow-hidden"
+                            className="absolute right-0 top-full mt-3 w-72 sm:w-80 rounded-2xl sm:rounded-3xl bg-white/95 dark:bg-[#111726]/95 backdrop-blur-xl p-3 shadow-2xl border border-slate-200/90 dark:border-primary/30 z-50 overflow-hidden"
                         >
-                            <div className="px-3 py-2 border-b border-slate-100 flex items-center justify-between">
-                                <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+                            <div className="px-3 py-2 border-b border-slate-100 dark:border-white/10 flex items-center justify-between">
+                                <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-400">
                                     Quick Actions
                                 </span>
-                                <span className="inline-flex items-center gap-1 text-[10px] font-extrabold text-red-600 bg-red-50 px-2 py-0.5 rounded-full border border-red-100">
+                                <span className="inline-flex items-center gap-1 text-[10px] font-extrabold text-red-600 dark:text-primary-light bg-red-50 dark:bg-primary/20 px-2 py-0.5 rounded-full border border-red-100 dark:border-primary/40">
                                     <Sparkles className="size-2.5" /> Instant Desk
                                 </span>
                             </div>
@@ -97,22 +97,22 @@ export default function HeaderActionTrigger() {
                                     <Link
                                         href="/contact#callback"
                                         onClick={() => setIsOpen(false)}
-                                        className="group flex items-center justify-between p-3 rounded-2xl bg-slate-50 hover:bg-red-50/80 border border-slate-100 hover:border-red-200 transition-all duration-300 cursor-pointer"
+                                        className="group flex items-center justify-between p-3 rounded-2xl bg-slate-50 dark:bg-white/5 hover:bg-red-50/80 dark:hover:bg-primary/20 border border-slate-100 dark:border-white/10 hover:border-red-200 dark:hover:border-primary/40 transition-all duration-300 cursor-pointer"
                                     >
                                         <div className="flex items-center gap-3">
                                             <div className="size-10 rounded-xl bg-red-600 text-white flex items-center justify-center shadow-md shadow-red-600/20 group-hover:scale-110 transition-transform">
                                                 <Calendar className="size-5" />
                                             </div>
                                             <div className="text-left">
-                                                <div className="text-xs sm:text-sm font-extrabold text-slate-900 group-hover:text-red-700 transition-colors">
+                                                <div className="text-xs sm:text-sm font-extrabold text-slate-900 dark:text-white group-hover:text-red-700 dark:group-hover:text-primary-light transition-colors">
                                                     Book a Site Visit
                                                 </div>
-                                                <div className="text-[11px] text-slate-500 font-medium">
+                                                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                                                     Guided Tour & Cab Assistance
                                                 </div>
                                             </div>
                                         </div>
-                                        <ChevronRight className="size-4 text-slate-400 group-hover:text-red-600 group-hover:translate-x-1 transition-all" />
+                                        <ChevronRight className="size-4 text-slate-400 group-hover:text-red-600 dark:group-hover:text-primary-light group-hover:translate-x-1 transition-all" />
                                     </Link>
                                 </motion.div>
 
@@ -125,22 +125,22 @@ export default function HeaderActionTrigger() {
                                     <button
                                         type="button"
                                         onClick={handleOpenResale}
-                                        className="w-full group flex items-center justify-between p-3 rounded-2xl bg-slate-50 hover:bg-rose-50/80 border border-slate-100 hover:border-red-200 transition-all duration-300 cursor-pointer"
+                                        className="w-full group flex items-center justify-between p-3 rounded-2xl bg-slate-50 dark:bg-white/5 hover:bg-rose-50/80 dark:hover:bg-primary/20 border border-slate-100 dark:border-white/10 hover:border-red-200 dark:hover:border-primary/40 transition-all duration-300 cursor-pointer"
                                     >
                                         <div className="flex items-center gap-3">
-                                            <div className="size-10 rounded-xl bg-slate-900 group-hover:bg-red-600 text-white flex items-center justify-center transition-all group-hover:scale-110 shadow-sm">
+                                            <div className="size-10 rounded-xl bg-slate-900 dark:bg-primary/30 group-hover:bg-red-600 text-white flex items-center justify-center transition-all group-hover:scale-110 shadow-sm">
                                                 <KeyRound className="size-5" />
                                             </div>
                                             <div className="text-left">
-                                                <div className="text-xs sm:text-sm font-extrabold text-slate-900 group-hover:text-red-700 transition-colors">
+                                                <div className="text-xs sm:text-sm font-extrabold text-slate-900 dark:text-white group-hover:text-red-700 dark:group-hover:text-primary-light transition-colors">
                                                     Resale Property / Sell Land
                                                 </div>
-                                                <div className="text-[11px] text-slate-500 font-medium">
+                                                <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                                                     Direct Valuation & 2-Step Listing
                                                 </div>
                                             </div>
                                         </div>
-                                        <ChevronRight className="size-4 text-slate-400 group-hover:text-red-600 group-hover:translate-x-1 transition-all" />
+                                        <ChevronRight className="size-4 text-slate-400 group-hover:text-red-600 dark:group-hover:text-primary-light group-hover:translate-x-1 transition-all" />
                                     </button>
                                 </motion.div>
                             </div>

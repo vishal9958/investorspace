@@ -296,7 +296,7 @@ export default function CompanyPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col justify-between overflow-x-hidden">
+        <div className="min-h-screen bg-slate-50 dark:bg-[#0A0607] text-slate-800 dark:text-white font-sans flex flex-col justify-between overflow-x-hidden">
             <PageTitle title="Company" />
             <main className="pb-16 pt-28 sm:pt-28 md:pt-32">
                 {/* 1. HERO & AT A GLANCE SECTION */}
@@ -340,7 +340,7 @@ export default function CompanyPage() {
                         </div>
 
                         {/* Right Card: Investor Space At A Glance */}
-                        <div className="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100/80 relative overflow-hidden group hover:shadow-2xl hover:border-red-100 transition-all duration-500">
+                        <div className="lg:col-span-5 bg-white dark:bg-[#14090B] rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100/80 dark:border-white/8 relative overflow-hidden group hover:shadow-2xl hover:border-red-100 dark:hover:border-red-900/40 transition-all duration-500">
                             <div className="absolute top-0 right-0 w-36 h-36 bg-red-500/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none group-hover:scale-150 transition-transform duration-700"></div>
 
                             <h2 className="text-xl font-bold text-slate-900 mb-1">
@@ -351,7 +351,7 @@ export default function CompanyPage() {
                             </p>
 
                             <div className="space-y-3.5 text-sm text-slate-700">
-                                <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-50/80 border border-slate-100 group-hover:bg-slate-50 transition-colors">
+                                <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-50/80 dark:bg-[#0A0607] border border-slate-100 dark:border-white/5 group-hover:bg-slate-50 dark:group-hover:bg-[#0A0607] transition-colors">
                                     <Calendar className="size-5 text-red-600 shrink-0 mt-0.5" />
                                     <div>
                                         <span className="text-xs text-slate-400 font-medium block">

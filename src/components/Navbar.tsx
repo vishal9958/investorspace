@@ -101,10 +101,9 @@ export default function Navbar() {
         <nav
           aria-label="Main"
           className={`pointer-events-auto flex w-full items-center justify-between border transition-all duration-500 ${scrolled && !mobileOpen
-            ? "rounded-2xl border-border/60 bg-white/96 px-4 py-2.5 shadow-lg shadow-black/5 sm:px-5 backdrop-blur-md"
+            ? "rounded-2xl border-border/60 bg-white px-4 py-2.5 shadow-lg shadow-black/5 sm:px-5 backdrop-blur-md"
             : "rounded-none border-x-transparent border-t-transparent border-b-border/40 bg-white px-4 py-3 sm:px-6 lg:px-10 backdrop-blur-sm"
-            }`}
-          style={mobileOpen ? { backgroundColor: '#ffffff' } : undefined}
+            } ${mobileOpen ? "bg-white" : ""}`}
         >
           {/* Logo */}
           <Link
@@ -117,7 +116,7 @@ export default function Navbar() {
               alt="Investor Space"
               width={130}
               height={44}
-              className={`w-auto object-contain origin-left scale-[1.7] transition-all duration-500 ${scrolled ? "h-16" : "h-18"
+              className={`w-auto object-contain origin-left scale-[2.05] transition-all duration-500 ${scrolled ? "h-16" : "h-18"
                 }`}
               priority
             />
@@ -132,8 +131,8 @@ export default function Navbar() {
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`relative rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-wide transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${pathname === link.href ||
                     (link.href !== "/" && pathname.startsWith(link.href))
-                    ? "bg-primary/10 text-primary"
-                    : "text-muted-foreground hover:bg-primary hover:text-white"
+                    ? "bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-light"
+                    : "text-muted-foreground hover:bg-primary hover:text-white dark:text-slate-300 dark:hover:text-white"
                     }`}
                 >
                   {link.label}
@@ -154,7 +153,7 @@ export default function Navbar() {
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="relative grid size-10 shrink-0 place-items-center rounded-full text-foreground transition-colors hover:bg-black/5 active:bg-black/10 lg:hidden"
+              className="relative grid size-10 shrink-0 place-items-center rounded-full text-foreground transition-colors hover:bg-black/5 dark:hover:bg-white/10 active:bg-black/10 lg:hidden"
             >
               <AnimatePresence mode="wait" initial={false}>
                 {mobileOpen ? (
@@ -194,8 +193,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 overflow-y-auto backdrop-blur-xl pt-28 pb-10 px-5 shadow-2xl lg:hidden flex flex-col"
-            style={{ backgroundColor: '#ffffff' }}
+            className="fixed inset-0 z-40 overflow-y-auto backdrop-blur-xl pt-28 pb-10 px-5 shadow-2xl lg:hidden flex flex-col bg-white dark:bg-[#090D16]"
           >
             <ul className="flex flex-col gap-1.5 max-w-sm mx-auto w-full">
               {navLinks.map((link, i) => (
@@ -210,19 +208,20 @@ export default function Navbar() {
                     onClick={(e) => handleNavClick(e, link.href)}
                     className={`block rounded-xl px-4 py-3 text-sm font-bold uppercase tracking-wider transition-colors ${pathname === link.href ||
                       (link.href !== "/" && pathname.startsWith(link.href))
-                      ? "bg-primary/10 text-primary"
-                      : "text-slate-800 hover:bg-slate-100 active:bg-slate-200"
+                      ? "bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-light"
+                      : "text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10 active:bg-slate-200"
                       }`}
                   >
                     {link.label}
                   </Link>
                 </motion.li>
               ))}
+
               <motion.li
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.04, duration: 0.2 }}
-                className="mt-4 pt-4 border-t border-slate-200"
+                className="mt-4 pt-4 border-t border-slate-200 dark:border-white/10"
               >
                 <Link
                   href="/contact#callback"

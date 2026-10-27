@@ -118,10 +118,10 @@ export default function ServicesPage() {
   return (
     <>
       <PageTitle title="Services" />
-      <main className="pt-28 bg-white font-sans text-slate-900 overflow-hidden">
+      <main className="pt-28 bg-white dark:bg-[#0A0607] font-sans text-slate-900 dark:text-white overflow-hidden">
         {/* ================= HERO SECTION ================= */}
-        <section className="relative min-h-[720px] lg:min-h-[780px] flex items-center justify-center overflow-hidden border-b border-slate-200/80 px-6 sm:px-10 lg:px-16 bg-slate-50">
-          <div className="absolute inset-0 z-0 overflow-hidden bg-slate-100">
+        <section className="relative min-h-[720px] lg:min-h-[780px] flex items-center justify-center overflow-hidden border-b border-slate-200/80 dark:border-white/5 px-6 sm:px-10 lg:px-16 bg-slate-50 dark:bg-[#0A0607]">
+          <div className="absolute inset-0 z-0 overflow-hidden bg-slate-100 dark:bg-[#0A0607]">
             <AnimatePresence mode="wait">
               <motion.img
                 key={currentImageIndex}
@@ -135,8 +135,8 @@ export default function ServicesPage() {
               />
             </AnimatePresence>
 
-            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/70"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-white"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/70 dark:from-[#0A0607] dark:via-[#0A0607]/90 dark:to-[#0A0607]/40"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-white dark:from-[#0A0607]/60 dark:via-transparent dark:to-[#0A0607]"></div>
           </div>
 
           <div className="relative z-10 max-w-7xl mx-auto w-full py-16 lg:py-24">
@@ -149,23 +149,23 @@ export default function ServicesPage() {
               >
                 <motion.div
                   variants={fadeInUp}
-                  className="inline-flex items-center gap-2.5 rounded-full border border-rose-200 bg-rose-50/90 px-4 py-2 text-xs font-bold text-[#8D0102] shadow-xs backdrop-blur-md"
+                  className="inline-flex items-center gap-2.5 rounded-full border border-rose-200 dark:border-primary/40 bg-rose-50/90 dark:bg-primary/20 px-4 py-2 text-xs font-bold text-[#8D0102] dark:text-[#FF6B6B] shadow-xs backdrop-blur-md"
                 >
-                  <Sparkles className="size-4 text-[#8D0102] animate-pulse" />
+                  <Sparkles className="size-4 text-[#8D0102] dark:text-[#FF4D4F] animate-pulse" />
                   <span> Land Advisory Services</span>
                 </motion.div>
 
                 <motion.h1
                   variants={fadeInUp}
-                  className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-slate-950 tracking-tight leading-[1.08]"
+                  className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-slate-950 dark:text-white tracking-tight leading-[1.08]"
                 >
                   Four Tracks. <br />
-                  One <span className="text-[#8D0102]">Verification</span> Standard.
+                  One <span className="text-[#8D0102] dark:text-[#FF4D4F]">Verification</span> Standard.
                 </motion.h1>
 
                 <motion.p
                   variants={fadeInUp}
-                  className="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal"
+                  className="mt-6 text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-normal"
                 >
                   Developers, builders, investors, and first-time buyers have unique requirements. We provide end-to-end verified certainty across every land transaction in Dholera SIR.
                 </motion.p>
@@ -216,7 +216,7 @@ export default function ServicesPage() {
 
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
 
-                      <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-white/95 backdrop-blur-md border border-slate-100 shadow-xl">
+                      <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-white/95 dark:bg-[#14090B]/95 backdrop-blur-md border border-slate-100 dark:border-white/10 shadow-xl">
                         <div className="flex items-center gap-3">
                           <div className="size-10 rounded-lg bg-[#8D0102] flex items-center justify-center text-white shrink-0 shadow-md">
                             <ShieldCheck className="size-5" />
@@ -241,7 +241,7 @@ export default function ServicesPage() {
         </section>
 
         {/* ================= 2x2 GRID SERVICE TRACKS (EXACT DESIGN MATCH) ================= */}
-        <section id="service-tracks" className="py-24 px-6 sm:px-10 lg:px-16 bg-white relative">
+        <section id="service-tracks" className="py-24 px-6 sm:px-10 lg:px-16 bg-white dark:bg-[#0A0607] relative">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial="hidden"
@@ -273,7 +273,7 @@ export default function ServicesPage() {
                     variants={fadeInUp}
                     whileHover={{ y: -6 }}
                     transition={{ duration: 0.3 }}
-                    className="group relative rounded-[2.5rem] bg-white border border-slate-200/80 hover:border-[#8D0102]/30 hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col justify-between p-6 sm:p-7 shadow-xs"
+                    className="group relative rounded-[2.5rem] bg-white dark:bg-[#14090B] border border-slate-200/80 dark:border-white/8 hover:border-[#8D0102]/30 hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col justify-between p-6 sm:p-7 shadow-xs"
                   >
                     <div>
                       {/* Clickable Image Box */}
@@ -296,12 +296,12 @@ export default function ServicesPage() {
                           </div>
 
                           {/* EXACT SMOOTH INVERTED CURVED CORNER NOTCH AT BOTTOM RIGHT */}
-                          <div className="absolute bottom-0 right-0 w-24 h-24 bg-white pointer-events-none rounded-tl-[2rem]">
+                          <div className="absolute bottom-0 right-0 w-24 h-24 bg-white dark:bg-[#14090B] pointer-events-none rounded-tl-[2rem]">
                             {/* Inner smooth inverted SVG curves for natural cut effect */}
-                            <svg className="absolute -top-6 right-0 size-6 text-white fill-current pointer-events-none" viewBox="0 0 24 24">
+                            <svg className="absolute -top-6 right-0 size-6 text-white dark:text-[#14090B] fill-current pointer-events-none" viewBox="0 0 24 24">
                               <path d="M24 24C24 10.7452 13.2548 0 0 0H24V24Z" />
                             </svg>
-                            <svg className="absolute bottom-0 -left-6 size-6 text-white fill-current pointer-events-none" viewBox="0 0 24 24">
+                            <svg className="absolute bottom-0 -left-6 size-6 text-white dark:text-[#14090B] fill-current pointer-events-none" viewBox="0 0 24 24">
                               <path d="M24 24C24 10.7452 13.2548 0 0 0H24V24Z" />
                             </svg>
                           </div>

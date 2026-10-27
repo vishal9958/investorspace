@@ -67,7 +67,7 @@ export default function BuyersGuide() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative overflow-hidden bg-[#FBFBFA] text-[#121212] py-28 sm:py-36">
+    <section className="relative overflow-hidden bg-[#FBFBFA] dark:bg-[#0A0607] text-[#121212] dark:text-white py-28 sm:py-36">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
         
         {/* Editorial Header */}

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-primary: #8D0102;
   --color-primary-dark: #6a0101;
@@ -29,21 +31,21 @@
     --card: #ffffff;
   }
 
-  /* LUXURY DARK THEME: Obsidian Wine & Crimson Glow */
+  /* LUXURY DARK THEME: Nocturnal Obsidian, Crimson Wine & Liquid Starlight */
   .dark {
-    --bg: #0B0708;
-    /* Deep Obsidian with faint Crimson Wine tone */
-    --fg: #FBFBFC;
+    --bg: #090D16;
+    /* Deep Nocturnal Obsidian */
+    --fg: #F8FAFC;
     /* Crisp Off-White */
-    --muted-fg: #A0A5B5;
-    /* Warm Muted Text */
-    --border: #2A1518;
-    /* Subtle Crimson Border */
-    --surface-dark: #070304;
-    /* Deepest Base Layer */
-    --ink: #FBFBFC;
-    --card: #150B0D;
-    /* Sleek Deep Wine Card Surface */
+    --muted-fg: #94A3B8;
+    /* Refined Slate-400 */
+    --border: rgba(141, 1, 2, 0.28);
+    /* Subtle Crimson Hairline Border */
+    --surface-dark: #06090F;
+    /* Deepest Nocturnal Base */
+    --ink: #FFFFFF;
+    --card: #111726;
+    /* Midnight Obsidian Card Surface */
   }
 
   *,
@@ -232,43 +234,66 @@
   }
 }
 
-/* GLOBAL DARK MODE OVERRIDES FOR HARDCODED CLASSES */
+/* ================================================================
+   ULTRA-LUXURY OBSIDIAN DARK THEME (INVESTOR SPACE SIGNATURE)
+   Tailored around the Crimson/Burgundy brand identity:
+   Deep Nocturnal Obsidian, Crimson Wine Glows, and Luminous Contrast
+   ================================================================ */
+
 html.dark body,
 html.dark main {
-  background-color: #0B0708 !important;
-  color: #FBFBFC !important;
+  background-color: #0A0607 !important;
+  color: #F8FAFC !important;
 }
 
-/* Dark Mode Ambient Atmosphere */
+/* Luxury Nocturnal Ambient Atmosphere with Brand Crimson Aura */
 html.dark body::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: radial-gradient(circle 800px at 50% -100px, rgba(141, 1, 2, 0.16), transparent 70%);
+  background: 
+    radial-gradient(circle 900px at 50% -120px, rgba(141, 1, 2, 0.28), transparent 75%),
+    radial-gradient(circle 600px at 95% 35%, rgba(141, 1, 2, 0.16), transparent 65%),
+    radial-gradient(circle 700px at 5% 75%, rgba(141, 1, 2, 0.14), transparent 70%);
 }
 
-/* Cards & Surfaces - Elevation Level 1: Sleek Deep Charcoal-Wine */
+/* Cards & Surface Elevation 1: Deep Wine Obsidian Glass matching Navbar Palette */
 html.dark .bg-white,
-html.dark .bg-card {
-  background-color: #140C0E !important;
-  color: #FBFBFC !important;
+html.dark .bg-card,
+html.dark .card-premium,
+html.dark .team-card {
+  background-color: #14090B !important;
+  color: #F8FAFC !important;
+  border-color: rgba(141, 1, 2, 0.3) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(141, 1, 2, 0.25) !important;
 }
 
-/* Secondary Surfaces - Soft Deep Obsidian */
+/* Card Hover Elevation: Radiant Crimson Aura */
+html.dark .card-premium:hover,
+html.dark .team-card:hover,
+html.dark .group:hover .bg-white,
+html.dark .group:hover .card-premium {
+  border-color: rgba(229, 43, 32, 0.6) !important;
+  box-shadow: 0 16px 40px -8px rgba(141, 1, 2, 0.55), 0 0 0 1px rgba(229, 43, 32, 0.4) !important;
+}
+
+/* Secondary Surfaces: Soft Wine-Infused Base */
 html.dark .bg-slate-50,
 html.dark .bg-slate-100,
 html.dark .bg-slate-200,
 html.dark .bg-neutral-100,
 html.dark .bg-neutral-50,
+html.dark .bg-\[\#FAF8F8\],
 html.dark .bg-\[\#F8F6F4\],
-html.dark .bg-\[\#FBFBFA\] {
-  background-color: #0F080A !important;
-  color: #FBFBFC !important;
+html.dark .bg-\[\#FBFBFA\],
+html.dark .bg-gray-50 {
+  background-color: #0E0709 !important;
+  color: #F8FAFC !important;
 }
 
-/* Headings & High Contrast Text - Razor Sharp Bright White */
+/* Headings: Razor-Sharp Pure White - Crisp & High Contrast (No Blurry Glow) */
 html.dark h1,
 html.dark h2,
 html.dark h3,
@@ -284,28 +309,50 @@ html.dark .text-neutral-900,
 html.dark .text-neutral-800,
 html.dark .text-\[\#121212\] {
   color: #FFFFFF !important;
+  text-shadow: none !important;
 }
 
-/* Subtext & Descriptions - Crisp High-Readability Light Slate */
+/* Brand Primary Text in Dark Mode: Crisp Luminous Crimson Red (Highly Legible) */
+html.dark .text-primary,
+html.dark .text-\[\#8D0102\],
+html.dark .text-\[\#8B1D24\] {
+  color: #FF4D4F !important;
+  text-shadow: none !important;
+}
+
+/* Subtext & Descriptions: High-Readability Crisp Slate-300 */
 html.dark p,
-html.dark span:not(.text-white):not(.text-primary):not(.bg-primary *),
 html.dark .text-slate-600,
 html.dark .text-slate-500,
-html.dark .text-slate-400,
 html.dark .text-neutral-600,
 html.dark .text-neutral-500,
-html.dark .text-neutral-400,
 html.dark .text-muted-foreground {
-  color: #CBD5E1 !important; /* Tailwind slate-300: crystal clear readability */
+  color: #CBD5E1 !important;
 }
 
 /* Specific elements that need secondary contrast */
 html.dark .text-slate-400 {
-  color: #94A3B8 !important; /* Tailwind slate-400 */
+  color: #94A3B8 !important;
 }
 
-/* Subtle highlights in dark mode */
-html.dark .text-emerald-600 {
+/* Badges, Pills & Status Chips in Dark Mode */
+html.dark .section-label,
+html.dark .bg-primary\/8,
+html.dark .bg-primary\/10 {
+  background-color: rgba(141, 1, 2, 0.22) !important;
+  color: #FF6B6B !important;
+  border-color: rgba(141, 1, 2, 0.45) !important;
+}
+
+html.dark .pill-badge {
+  background-color: rgba(17, 23, 38, 0.75) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #F8FAFC !important;
+}
+
+/* Vibrant Accent Highlights */
+html.dark .text-emerald-600,
+html.dark .text-emerald-500 {
   color: #34D399 !important;
 }
 html.dark .text-amber-500,
@@ -313,7 +360,7 @@ html.dark .text-amber-600 {
   color: #FBBF24 !important;
 }
 
-/* Borders - Subtle Crimson Wine Hairline */
+/* Borders & Hairline Dividers */
 html.dark .border-slate-200,
 html.dark .border-slate-100,
 html.dark .border-neutral-300,
@@ -324,16 +371,23 @@ html.dark .border-black\/15,
 html.dark .border-border,
 html.dark .ring-black\/5,
 html.dark .ring-black\/10 {
-  border-color: rgba(141, 1, 2, 0.22) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Premium Primary Red Vibrancy in Dark Mode */
+/* Brand Primary Buttons in Dark Mode: Luminous Crimson & Glowing Hover */
 html.dark .bg-primary,
 html.dark .bg-red-600,
 html.dark .bg-\[\#8D0102\] {
   background-color: #8D0102 !important;
   color: #ffffff !important;
-  box-shadow: 0 4px 22px -2px rgba(141, 1, 2, 0.5);
+  box-shadow: 0 4px 22px -2px rgba(229, 43, 32, 0.55);
+}
+
+html.dark .bg-primary:hover,
+html.dark .bg-red-600:hover,
+html.dark .bg-\[\#8D0102\]:hover {
+  background-color: #A30203 !important;
+  box-shadow: 0 6px 30px 0 rgba(229, 43, 32, 0.75);
 }
 
 html.dark .bg-primary *,
@@ -342,23 +396,122 @@ html.dark .bg-\[\#8D0102\] * {
   color: #ffffff !important;
 }
 
-/* Navbar in Dark Mode */
-html.dark header nav {
-  background-color: rgba(14, 8, 10, 0.88) !important;
-  border-color: rgba(141, 1, 2, 0.25) !important;
+/* Inputs, Textareas & Form Controls in Dark Mode */
+html.dark input:not([type="checkbox"]):not([type="radio"]):not(.bg-transparent),
+html.dark textarea:not(.bg-transparent),
+html.dark select:not(.bg-transparent) {
+  background-color: #14090B !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+/* Transparent bg inputs (underline style - used in contact form) */
+html.dark input.bg-transparent,
+html.dark textarea.bg-transparent,
+html.dark select.bg-transparent {
+  background-color: transparent !important;
+  color: #FFFFFF !important;
+}
+
+html.dark option {
+  background-color: #14090B !important;
+  color: #FFFFFF !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+html.dark input:focus,
+html.dark textarea:focus,
+html.dark select:focus {
+  border-color: #FF4D4F !important;
+  box-shadow: 0 0 0 2px rgba(229, 43, 32, 0.3) !important;
+}
+
+/* Footer newsletter input — white text on dark footer background */
+html.dark footer input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+html.dark footer input {
+  background-color: transparent !important;
+  color: #FFFFFF !important;
+}
+
+/* Glass Panels in Dark Mode */
+html.dark .glass {
+  background: rgba(17, 23, 38, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
 
-/* Logo enhancement in Dark Mode */
-html.dark header img[alt="Investor Space"],
-html.dark footer img[alt="Investor Space"] {
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15));
+/* ================================================================
+   Navbar: Light Mode = Pure White | Dark Mode = Main Prime Color (#8D0102)
+   ================================================================ */
+
+/* Light mode header nav stays crisp pure white */
+header nav {
+  background-color: #ffffff;
 }
 
-/* Blog Modal in Dark Mode */
-html.dark [data-lenis-prevent] {
-  background-color: #11141B !important;
+/* Dark mode header nav: Main Brand Prime Color (#8D0102 / Crimson Gradient) */
+html.dark header nav {
+  background: linear-gradient(135deg, rgba(141, 1, 2, 0.96) 0%, rgba(106, 1, 1, 0.98) 100%) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 12px 40px -5px rgba(141, 1, 2, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Desktop nav links on the Prime Red navbar in Dark Mode */
+html.dark header nav ul a {
+  color: #FFFFFF !important;
+}
+
+html.dark header nav ul a:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: #FFFFFF !important;
+}
+
+html.dark header nav ul a[class*="bg-primary/"] {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Logo on Prime Red navbar in Dark Mode: Pure White Luminous Silkscreen */
+html.dark header img[alt="Investor Space"] {
+  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45)) !important;
+}
+
+/* Theme toggle on Prime Red navbar in Dark Mode */
+html.dark header nav button[aria-label*="Theme"] {
+  background-color: rgba(255, 255, 255, 0.18) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #FFFFFF !important;
+}
+
+/* Mobile menu in Dark Mode: Prime Red */
+html.dark #mobile-menu {
+  background: linear-gradient(180deg, #8D0102 0%, #6A0101 100%) !important;
+  color: #FFFFFF !important;
+}
+
+html.dark #mobile-menu a {
+  color: #FFFFFF !important;
+}
+
+html.dark #mobile-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Modal and Popups in Dark Mode */
+html.dark [data-lenis-prevent]:not(#mobile-menu) {
+  background-color: #0E1320 !important;
+  border-color: rgba(141, 1, 2, 0.3) !important;
 }
 
 /* ─── Fresh Visual Utilities ──────────────────────────────────── */
