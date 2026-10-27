@@ -125,22 +125,22 @@ export default function HeaderActionTrigger() {
                                     <button
                                         type="button"
                                         onClick={handleOpenResale}
-                                        className="w-full group flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-950 text-white hover:from-red-600 hover:to-red-700 shadow-md transition-all duration-300 cursor-pointer"
+                                        className="w-full group flex items-center justify-between p-3 rounded-2xl bg-slate-50 hover:bg-rose-50/80 border border-slate-100 hover:border-red-200 transition-all duration-300 cursor-pointer"
                                     >
                                         <div className="flex items-center gap-3">
-                                            <div className="size-10 rounded-xl bg-white/10 text-white flex items-center justify-center group-hover:bg-white group-hover:text-red-600 transition-all">
+                                            <div className="size-10 rounded-xl bg-slate-900 group-hover:bg-red-600 text-white flex items-center justify-center transition-all group-hover:scale-110 shadow-sm">
                                                 <KeyRound className="size-5" />
                                             </div>
                                             <div className="text-left">
-                                                <div className="text-xs sm:text-sm font-extrabold text-white">
+                                                <div className="text-xs sm:text-sm font-extrabold text-slate-900 group-hover:text-red-700 transition-colors">
                                                     Resale Property / Sell Land
                                                 </div>
-                                                <div className="text-[11px] text-slate-300 group-hover:text-white/90 font-medium">
+                                                <div className="text-[11px] text-slate-500 font-medium">
                                                     Direct Valuation & 2-Step Listing
                                                 </div>
                                             </div>
                                         </div>
-                                        <ChevronRight className="size-4 text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-all" />
+                                        <ChevronRight className="size-4 text-slate-400 group-hover:text-red-600 group-hover:translate-x-1 transition-all" />
                                     </button>
                                 </motion.div>
                             </div>

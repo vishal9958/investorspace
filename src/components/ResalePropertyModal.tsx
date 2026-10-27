@@ -39,15 +39,21 @@ export default function ResalePropertyModal({ isOpen, onClose }: ResalePropertyM
         setMounted(true);
     }, []);
 
-    // Lock body scroll when modal is open
+    // Lock body scroll and Lenis when modal is open
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
+            const lenis = (window as any).lenis;
+            if (lenis && typeof lenis.stop === "function") lenis.stop();
         } else {
             document.body.style.overflow = "";
+            const lenis = (window as any).lenis;
+            if (lenis && typeof lenis.start === "function") lenis.start();
         }
         return () => {
             document.body.style.overflow = "";
+            const lenis = (window as any).lenis;
+            if (lenis && typeof lenis.start === "function") lenis.start();
         };
     }, [isOpen]);
 
@@ -168,38 +174,39 @@ export default function ResalePropertyModal({ isOpen, onClose }: ResalePropertyM
     return createPortal(
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-[999999] flex items-center justify-center p-3 sm:p-5 overflow-y-auto pointer-events-auto">
-                    {/* Glassmorphic Backdrop with Smooth Blur */}
+                <div
+                    data-lenis-prevent
+                    className="fixed inset-0 z-[999999] flex items-center justify-center p-3 sm:p-5 overflow-y-auto pointer-events-auto"
+                >
+                    {/* Soft Glassmorphic Backdrop */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.25 }}
                         onClick={onClose}
-                        className="fixed inset-0 bg-slate-950/80 backdrop-blur-md"
+                        className="fixed inset-0 bg-black/40 backdrop-blur-sm"
                     />
 
-                    {/* 3D Spring-Bounce Modal Container */}
+                    {/* 3D Spring-Bounce Modal Container (Clean Light Theme) */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.88, y: 25, rotateX: 10 }}
                         animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20, rotateX: -6 }}
                         transition={{ type: "spring", stiffness: 380, damping: 28 }}
-                        className="relative z-10 w-full max-w-2xl bg-white rounded-3xl sm:rounded-[32px] shadow-2xl border border-slate-200/90 overflow-hidden flex flex-col my-auto max-h-[92vh]"
+                        className="relative z-10 w-full max-w-2xl bg-white rounded-3xl sm:rounded-[32px] shadow-2xl border border-slate-200/90 overflow-hidden flex flex-col my-auto max-h-[90vh]"
                     >
-                        {/* Header Banner */}
-                        <div className="relative bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white p-5 sm:p-7 border-b border-slate-800">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/15 rounded-full blur-3xl pointer-events-none -mr-16 -mt-16" />
-
+                        {/* Clean Light Header Banner */}
+                        <div className="relative bg-gradient-to-b from-rose-50/60 via-white to-white text-slate-900 p-5 sm:p-7 border-b border-slate-100">
                             <div className="flex items-start justify-between relative z-10">
                                 <div>
-                                    <div className="inline-flex items-center gap-1.5 rounded-full bg-red-500/20 border border-red-500/30 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-red-400 mb-2">
-                                        <Sparkles className="size-3 text-red-400" /> DIRECT RESALE & LAND VALUATION
+                                    <div className="inline-flex items-center gap-1.5 rounded-full bg-rose-50 border border-rose-200 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-[#8D0102] mb-2">
+                                        <Sparkles className="size-3 text-[#8D0102]" /> DIRECT RESALE & LAND VALUATION
                                     </div>
-                                    <h3 className="text-xl sm:text-2xl font-black tracking-tight text-white">
+                                    <h3 className="text-xl sm:text-2xl font-black tracking-tight text-slate-950">
                                         List Your Property For Resale
                                     </h3>
-                                    <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                                    <p className="text-xs sm:text-sm text-slate-600 font-medium mt-1">
                                         Connect with verified plot investors and get transparent market price in Dholera SIR.
                                     </p>
                                 </div>
@@ -208,31 +215,33 @@ export default function ResalePropertyModal({ isOpen, onClose }: ResalePropertyM
                                     type="button"
                                     onClick={onClose}
                                     aria-label="Close modal"
-                                    className="size-9 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 hover:rotate-90 shrink-0 cursor-pointer"
+                                    className="size-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-all duration-300 hover:rotate-90 shrink-0 cursor-pointer border border-slate-200/60"
                                 >
                                     <X className="size-4 sm:size-5" />
                                 </button>
                             </div>
 
-                            {/* 2-Step Wizard Indicator */}
+                            {/* 2-Step Wizard Indicator (Light Style) */}
                             {!isSubmitted && (
-                                <div className="mt-5 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                                <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
                                     <button
                                         type="button"
                                         onClick={() => setStep(1)}
                                         className={`flex items-center gap-2 font-bold transition-colors ${
-                                            step === 1 ? "text-red-400" : "text-slate-400 hover:text-white"
+                                            step === 1 ? "text-[#8D0102]" : "text-slate-400 hover:text-slate-700"
                                         }`}
                                     >
                                         <span className={`size-5 rounded-full flex items-center justify-center text-[10px] font-black ${
-                                            step === 1 ? "bg-red-600 text-white" : "bg-slate-800 text-slate-400"
+                                            step === 1 ? "bg-red-600 text-white shadow-xs" : "bg-slate-100 text-slate-500"
                                         }`}>
                                             1
                                         </span>
-                                        <span>Land & Owner Details</span>
+                                        <span className={step === 1 ? "text-slate-950 font-black" : "text-slate-400 font-medium"}>
+                                            Land & Owner Details
+                                        </span>
                                     </button>
 
-                                    <div className="h-0.5 flex-1 mx-3 bg-slate-800 relative">
+                                    <div className="h-0.5 flex-1 mx-3 bg-slate-100 relative rounded-full overflow-hidden">
                                         <motion.div
                                             className="absolute inset-y-0 left-0 bg-red-600"
                                             animate={{ width: step === 2 ? "100%" : "0%" }}
@@ -246,22 +255,24 @@ export default function ResalePropertyModal({ isOpen, onClose }: ResalePropertyM
                                             if (formData.ownerName && formData.phone) setStep(2);
                                         }}
                                         className={`flex items-center gap-2 font-bold transition-colors ${
-                                            step === 2 ? "text-red-400" : "text-slate-400 hover:text-white"
+                                            step === 2 ? "text-[#8D0102]" : "text-slate-400 hover:text-slate-700"
                                         }`}
                                     >
                                         <span className={`size-5 rounded-full flex items-center justify-center text-[10px] font-black ${
-                                            step === 2 ? "bg-red-600 text-white" : "bg-slate-800 text-slate-400"
+                                            step === 2 ? "bg-red-600 text-white shadow-xs" : "bg-slate-100 text-slate-500"
                                         }`}>
                                             2
                                         </span>
-                                        <span>Pricing & Verification</span>
+                                        <span className={step === 2 ? "text-slate-950 font-black" : "text-slate-400 font-medium"}>
+                                            Pricing & Verification
+                                        </span>
                                     </button>
                                 </div>
                             )}
                         </div>
 
-                        {/* Modal Body / Scrollable Form */}
-                        <div className="p-5 sm:p-7 overflow-y-auto flex-1">
+                        {/* Modal Body / Scrollable Form with Lenis scroll prevention */}
+                        <div data-lenis-prevent className="p-5 sm:p-7 overflow-y-auto flex-1 bg-white">
                             {!isSubmitted ? (
                                 <form onSubmit={handleSubmit}>
                                     <AnimatePresence mode="wait">
@@ -478,7 +489,7 @@ export default function ResalePropertyModal({ isOpen, onClose }: ResalePropertyM
                                                                 onClick={() => setFormData((prev) => ({ ...prev, sellingReason: r }))}
                                                                 className={`py-2 px-2.5 rounded-xl text-[11px] font-bold border text-center transition-all cursor-pointer ${
                                                                     formData.sellingReason === r
-                                                                        ? "bg-slate-900 text-white border-slate-900 shadow-sm"
+                                                                        ? "bg-red-600 text-white border-red-600 shadow-sm"
                                                                         : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
                                                                 }`}
                                                             >
