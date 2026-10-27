@@ -47,7 +47,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="top" className="relative -mt-20 flex min-h-[92svh] items-center overflow-hidden" aria-label="Introduction">
+    <section id="top" className="relative -mt-20 flex min-h-[100svh] sm:min-h-[92svh] items-start sm:items-center overflow-hidden" aria-label="Introduction">
       {/* Background slider */}
       <div className="absolute inset-x-0 -top-[10%] h-[115%]">
         {heroImages.map((img, i) => (
@@ -72,10 +72,10 @@ export default function Hero() {
         />
       </div>
 
-      <div className="shell relative w-full pb-16 pt-28 text-white sm:pb-20 sm:pt-32">
+      <div className="shell relative w-full pb-20 pt-44 text-white sm:pb-20 sm:pt-32">
         <div className="grid items-end gap-10 xl:grid-cols-[minmax(0,1fr)_20rem] xl:gap-14">
           {/* Left content area: Exactly identical height & structure for zero layout jumping */}
-          <div className="min-w-0 min-h-[460px] sm:min-h-[480px] flex flex-col justify-center">
+          <div className="min-w-0 min-h-[440px] sm:min-h-[480px] flex flex-col justify-start sm:justify-center">
             <AnimatePresence mode="wait">
               {heroTab === 0 ? (
                 /* ================= SLIDE 1: KESAR GREEN FLORA (PROJECT FIRST) ================= */
@@ -89,13 +89,13 @@ export default function Hero() {
                 >
                   {/* Badge */}
                   <div className="flex items-center gap-2">
-                    <span className="pill-badge border-primary/50 text-white backdrop-blur-md bg-black/40">
+                    <span className="pill-badge border-primary/50 text-white backdrop-blur-md bg-black/40 text-[0.65rem] sm:text-[0.7rem]">
                       <Sparkles className="size-3.5 text-primary" aria-hidden /> ONGOING MEGA PROJECT &bull; DHOLERA SIR
                     </span>
                   </div>
 
                   {/* Headline: Clean 2-Lines, Brand Red Accent */}
-                  <h1 className="mt-5 max-w-3xl font-display text-[clamp(2.1rem,4.4vw,3.8rem)] font-bold leading-[1.1] tracking-[-0.03em] sm:mt-6">
+                  <h1 className="mt-4 max-w-3xl font-display text-[clamp(1.85rem,4.4vw,3.8rem)] font-bold leading-[1.12] tracking-[-0.03em] sm:mt-6">
                     <span className="block text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
                       Kesar Green Flora:
                     </span>
@@ -190,13 +190,13 @@ export default function Hero() {
                 >
                   {/* Badge */}
                   <div className="flex items-center gap-2">
-                    <span className="pill-badge border-primary/50 text-white backdrop-blur-md bg-black/40">
+                    <span className="pill-badge border-primary/50 text-white backdrop-blur-md bg-black/40 text-[0.65rem] sm:text-[0.7rem]">
                       <ShieldCheck className="size-3.5 text-primary" aria-hidden /> VERIFIED REAL ESTATE ADVISORY
                     </span>
                   </div>
 
                   {/* Headline: Clean 2-Lines, Brand Red Accent, Identical Dimensions */}
-                  <h1 className="mt-5 max-w-3xl font-display text-[clamp(2.1rem,4.4vw,3.8rem)] font-bold leading-[1.1] tracking-[-0.03em] sm:mt-6">
+                  <h1 className="mt-4 max-w-3xl font-display text-[clamp(1.85rem,4.4vw,3.8rem)] font-bold leading-[1.12] tracking-[-0.03em] sm:mt-6">
                     <span className="block text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
                       Invest in Clear Land:
                     </span>
