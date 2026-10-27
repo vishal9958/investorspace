@@ -89,8 +89,8 @@ export default function KesarGreenFloraDetailPage() {
 
     const plotSizes = ["100 Sq. Yards", "150 Sq. Yards", "300 Sq. Yards", "600 Sq. Yards"];
 
-    // Exact Google Maps Directions URL pointing to exact plot coordinates (22.44075, 72.132611)
-    const exactGoogleMapUrl = "https://www.google.com/maps/dir/?api=1&destination=22.44075,72.132611";
+    // Exact Google Maps Directions URL pointing to main 6-Lane highway road coordinates (22.4421, 72.132611)
+    const exactGoogleMapUrl = "https://www.google.com/maps/dir/?api=1&destination=22.4421,72.132611";
 
     // Animation Variants
     const fadeInUp = {
@@ -123,15 +123,15 @@ export default function KesarGreenFloraDetailPage() {
                     </div>
                 </div>
 
-                {/* HERO SECTION WITH ANIMATED SLIDESHOW BACKGROUND */}
-                <section className="relative min-h-[600px] lg:min-h-[680px] flex items-center justify-center overflow-hidden bg-slate-950 text-white px-6 sm:px-10 lg:px-16">
-                    {/* Animated Crossfading Slide Background */}
+                {/* HERO SECTION WITH ANIMATED SLIDESHOW BACKGROUND (LIGHT THEME) */}
+                <section className="relative min-h-[600px] lg:min-h-[680px] flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900 px-6 sm:px-10 lg:px-16 border-b border-slate-200/80">
+                    {/* Animated Crossfading Slide Background with Soft Light Overlay */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
                         <AnimatePresence mode="popLayout">
                             <motion.div
                                 key={currentSlide}
                                 initial={{ opacity: 0, scale: 1.08 }}
-                                animate={{ opacity: 1, scale: 1 }}
+                                animate={{ opacity: 0.28, scale: 1 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 1.4, ease: "easeInOut" }}
                                 className="absolute inset-0 bg-cover bg-center"
@@ -139,9 +139,9 @@ export default function KesarGreenFloraDetailPage() {
                             />
                         </AnimatePresence>
 
-                        {/* Luxury Dark Glass Overlay & Subtle Blur for Crisp Text Contrast */}
-                        <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[3px]"></div>
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/70"></div>
+                        {/* Light Translucent Overlay for High-Contrast, Crystal-Clear Dark Text */}
+                        <div className="absolute inset-0 bg-white/70 backdrop-blur-[2px]"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/60"></div>
                     </div>
 
                     {/* Slide Indicator Dots */}
@@ -155,7 +155,7 @@ export default function KesarGreenFloraDetailPage() {
                                 className={`transition-all duration-300 rounded-full ${
                                     idx === currentSlide
                                         ? "w-7 h-2 bg-[#8D0102]"
-                                        : "w-2 h-2 bg-white/40 hover:bg-white/70"
+                                        : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
                                 }`}
                             />
                         ))}
@@ -170,28 +170,28 @@ export default function KesarGreenFloraDetailPage() {
                         >
                             <motion.div
                                 variants={fadeInUp}
-                                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold text-white backdrop-blur mb-5 shadow-lg"
+                                className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50/90 px-4 py-1.5 text-xs font-bold text-emerald-800 backdrop-blur mb-5 shadow-xs"
                             >
-                                <ShieldCheck className="size-4 text-emerald-400" /> 100% GOVT. APPROVED & TITLE CLEAR
+                                <ShieldCheck className="size-4 text-emerald-600" /> 100% GOVT. APPROVED & TITLE CLEAR
                             </motion.div>
 
                             <motion.h1
                                 variants={fadeInUp}
-                                className="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-tight drop-shadow-md"
+                                className="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-slate-950 tracking-tight leading-tight"
                             >
                                 Kesar Green Flora
                             </motion.h1>
 
                             <motion.p
                                 variants={fadeInUp}
-                                className="mt-3 text-sm sm:text-base text-rose-300 font-bold uppercase tracking-widest flex items-center gap-2"
+                                className="mt-3 text-sm sm:text-base text-[#8D0102] font-black uppercase tracking-wider flex items-center gap-2"
                             >
-                                <Sparkles className="size-4 text-rose-300 inline" /> &quot;Truth Is Our Ornament&quot; • Investor Space Promoters
+                                <Sparkles className="size-4 text-[#8D0102] inline" /> &quot;Truth Is Our Ornament&quot; • Investor Space Promoters
                             </motion.p>
 
                             <motion.p
                                 variants={fadeInUp}
-                                className="mt-4 text-xs sm:text-base text-white/90 leading-relaxed max-w-2xl drop-shadow"
+                                className="mt-4 text-xs sm:text-base text-slate-600 font-medium leading-relaxed max-w-2xl"
                             >
                                 Premium residential plots in Dholera SIR directly touch main 6-Lane Highway. Positioned right beside mega anchors: TATA Semiconductor Fab (₹91,000 Cr), International Airport, and Expressways.
                             </motion.p>
@@ -202,7 +202,7 @@ export default function KesarGreenFloraDetailPage() {
                                     whileHover={{ scale: 1.03 }}
                                     whileTap={{ scale: 0.97 }}
                                     href="tel:+919818581518"
-                                    className="inline-flex items-center gap-2 rounded-full bg-[#8D0102] px-6 py-3.5 text-xs sm:text-sm font-extrabold text-white shadow-xl hover:bg-[#a80203] transition-colors"
+                                    className="inline-flex items-center gap-2 rounded-full bg-[#8D0102] px-6 py-3.5 text-xs sm:text-sm font-extrabold text-white shadow-lg hover:bg-[#a80203] transition-colors"
                                 >
                                     <Phone className="size-4" /> Book Site Visit
                                 </motion.a>
@@ -214,9 +214,9 @@ export default function KesarGreenFloraDetailPage() {
                                     download="Dholera Master Plan.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-5 py-3.5 text-xs sm:text-sm font-bold text-white backdrop-blur hover:bg-white/30 transition-colors shadow-lg"
+                                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3.5 text-xs sm:text-sm font-bold text-slate-800 hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-xs"
                                 >
-                                    <FileText className="size-4 text-rose-300" /> Dholera Master Plan <Download className="size-3.5" />
+                                    <FileText className="size-4 text-[#8D0102]" /> Dholera Master Plan <Download className="size-3.5 text-slate-500" />
                                 </motion.a>
 
                                 <motion.a
@@ -226,9 +226,9 @@ export default function KesarGreenFloraDetailPage() {
                                     download="Approved Layout.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-5 py-3.5 text-xs sm:text-sm font-bold text-white backdrop-blur hover:bg-white/30 transition-colors shadow-lg"
+                                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3.5 text-xs sm:text-sm font-bold text-slate-800 hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-xs"
                                 >
-                                    <Download className="size-4 text-rose-300" /> Approved Layout
+                                    <Download className="size-4 text-[#8D0102]" /> Approved Layout
                                 </motion.a>
 
                                 <motion.a
@@ -238,9 +238,9 @@ export default function KesarGreenFloraDetailPage() {
                                     download="Brochure.pptx"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-5 py-3.5 text-xs sm:text-sm font-bold text-white backdrop-blur hover:bg-white/30 transition-colors shadow-lg"
+                                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3.5 text-xs sm:text-sm font-bold text-slate-800 hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-xs"
                                 >
-                                    <Presentation className="size-4 text-rose-300" /> Brochure <Download className="size-3.5" />
+                                    <Presentation className="size-4 text-[#8D0102]" /> Brochure <Download className="size-3.5 text-slate-500" />
                                 </motion.a>
                             </motion.div>
                         </motion.div>
@@ -571,7 +571,7 @@ export default function KesarGreenFloraDetailPage() {
                                             <MapPin className="size-4 text-[#8D0102] shrink-0 mt-0.5" />
                                             <div>
                                                 <span className="font-bold text-slate-900 block">Exact Plot Pinpoint:</span>
-                                                <span className="text-slate-600 font-medium text-[11px]">Kesar Green Flora, Dholera SIR, Main 6-Lane Highway, Gujarat — 22°26&apos;26.7&quot;N 72°07&apos;57.4&quot;E</span>
+                                                <span className="text-slate-600 font-medium text-[11px]">Kesar Green Flora, Dholera SIR, Main 6-Lane Highway, Gujarat — 22°26&apos;31.6&quot;N 72°07&apos;57.4&quot;E</span>
                                             </div>
                                         </div>
 
@@ -622,7 +622,7 @@ export default function KesarGreenFloraDetailPage() {
                                 <div className="relative w-full h-[360px] sm:h-[440px] rounded-2xl overflow-hidden bg-slate-100">
                                     <iframe
                                         title="Kesar Green Flora Exact Map Location"
-                                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3687.688427498016!2d72.13261109999999!3d22.44075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDI2JzI2LjciTiA3MsKwMDcnNTcuNCJF!5e0!3m2!1sen!2sin!4v1792152761387!5m2!1sen!2sin"
+                                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d14500.0!2d72.132611!3d22.4421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDI2JzMxLjYiTiA3MsKwMDcnNTcuNCJF!5e0!3m2!1sen!2sin!4v1792152761387!5m2!1sen!2sin"
                                         width="100%"
                                         height="100%"
                                         style={{ border: 0 }}
