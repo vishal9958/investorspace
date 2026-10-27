@@ -192,16 +192,16 @@ export default function CompanyPage() {
             icon: Building2,
         },
         {
-            number: "6",
-            title: "Commitments",
-            desc: "Commitments we apply to every plot we show",
-            icon: ShieldCheck,
-        },
-        {
             number: "5",
             title: "Document Checks",
             desc: "Document checks we ask for before you pay",
             icon: FileCheck,
+        },
+        {
+            number: "6",
+            title: "Commitments",
+            desc: "Commitments we apply to every plot we show",
+            icon: ShieldCheck,
         },
     ];
 
