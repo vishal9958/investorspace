@@ -1,779 +1,240 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 import Footer from "@/components/Footer";
 import PageTitle from "@/components/PageTitle";
-import Testimonials from "@/components/home/Testimonials";
+import ServiceSidebar from "@/components/services/ServiceSidebar";
 import {
-    ArrowRight,
-    CheckCircle2,
-    ShieldCheck,
-    Check,
-    X,
-    PhoneCall,
-    Sparkles,
-    Layers,
-    ArrowUpRight,
-    ChevronRight,
-    Compass,
-    Users,
-    FileCheck,
-    MapPin,
-    HeartHandshake,
-    Building2,
-    Landmark,
-    RefreshCw,
+  Award,
+  ThumbsUp,
+  Sparkles,
+  MessageSquareQuote,
+  Check,
+  ChevronDown,
 } from "lucide-react";
 
 export default function ServicesForAllPage() {
-    const [activeTab, setActiveTab] = useState(0);
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const [hoveredStep, setHoveredStep] = useState<number | null>(null);
-    const [activeService, setActiveService] = useState(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-    // Hero Background Slides
-    const heroSlides = [
-        "/images/forall.png",
-        "/images/forall1.png",
-        "/images/forall2.png",
-    ];
+  const whyChooseUs = [
+    {
+      title: "Expertise",
+      desc: "Our real estate specialists have years of experience helping individuals find the right properties that fit their budget, lifestyle, and future goals.",
+      icon: Award,
+    },
+    {
+      title: "Personal Guidance",
+      desc: "We ensure one-on-one attention with dedicated property advisors who assist you in exploring options, comparing locations, and understanding market value.",
+      icon: ThumbsUp,
+    },
+    {
+      title: "Legal Transparency",
+      desc: "All our projects are government-approved and legally verified, giving you complete peace of mind before you invest or buy.",
+      icon: Sparkles,
+    },
+    {
+      title: "Lifetime Assistance",
+      desc: "Beyond purchase, we offer long-term support — from financing and documentation to resale and property management assistance.",
+      icon: MessageSquareQuote,
+    },
+  ];
 
-    // Slide Transition Timer
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-        }, 3000);
-        return () => clearInterval(timer);
-    }, [heroSlides.length]);
+  const servicesOffered = [
+    {
+      title: "Verified Projects",
+      desc: "Every project listed with InvestorSpace undergoes strict verification, ensuring you invest only in government-approved, legally clear, and high-potential properties.",
+    },
+    {
+      title: "Personalized Visit",
+      desc: "We organize personalized site visits so you can experience each project firsthand, assess amenities, and make confident, informed decisions.",
+    },
+    {
+      title: "Loan Assistance",
+      desc: "Our team partners with trusted financial institutions to help you secure housing or investment loans easily with minimal paperwork and faster approvals.",
+    },
+    {
+      title: "Legal Support",
+      desc: "We provide end-to-end legal assistance — from reviewing documents and sale deeds to verifying ownership and compliance — ensuring a safe transaction.",
+    },
+    {
+      title: "Resell Support",
+      desc: "When it’s time to upgrade or liquidate your asset, our experts assist with property resale, helping you find qualified buyers and achieve the best market value.",
+    },
+  ];
 
-    const fadeInUp = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
-        },
-    };
+  const faqs = [
+    {
+      q: "Who can avail Services For All?",
+      a: "Anyone looking to buy residential or investment plots safely, whether you are a first-time homebuyer, salaried professional, or family investor.",
+    },
+    {
+      q: "Are site visits provided free of charge?",
+      a: "Yes, we arrange guided site visits from Ahmedabad to project locations with complete transport and expert briefing.",
+    },
+    {
+      q: "Can I get home or plot loan assistance?",
+      a: "Yes, we partner with leading banks to help arrange hassle-free loan approvals with minimal paperwork.",
+    },
+    {
+      q: "How do you verify land ownership?",
+      a: "Every land parcel goes through a 4-tier check: 7/12 extract verification, NA/NOC title check, TP scheme allotment verification, and encumbrance check.",
+    },
+  ];
 
-    const staggerContainer = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.1 },
-        },
-    };
+  return (
+    <>
+      <PageTitle title="Services For All" />
 
-    // Services Offered
-    const featuresBreakdown = [
-        {
-            id: 0,
-            title: "Verified Projects",
-            desc: "Every project listed with InvestorSpace undergoes strict verification, ensuring you invest only in government-approved, legally clear, and high-potential properties.",
-            icon: Building2,
-            badge: "Government Approved",
-            details: ["Strict Verification Checks", "100% Legally Clear Titles", "High-Potential Assets"],
-        },
-        {
-            id: 1,
-            title: "Personalized Visit",
-            desc: "We organize personalized site visits so you can experience each project firsthand, assess amenities, and make confident, informed decisions.",
-            icon: MapPin,
-            badge: "Firsthand Experience",
-            details: ["One-on-One Guided Tour", "On-Site Amenity Assessment", "Location Evaluation"],
-        },
-        {
-            id: 2,
-            title: "Loan Assistance",
-            desc: "Our team partners with trusted financial institutions to help you secure housing or investment loans easily with minimal paperwork and faster approvals.",
-            icon: Landmark,
-            badge: "Fast Approvals",
-            details: ["Trusted Bank Partnerships", "Minimal Paperwork", "Smooth Loan Discrepancy Help"],
-        },
-        {
-            id: 3,
-            title: "Legal Support",
-            desc: "We provide end-to-end legal assistance — from reviewing documents and sale deeds to verifying ownership and compliance — ensuring a safe transaction.",
-            icon: FileCheck,
-            badge: "End-to-End Cover",
-            details: ["Sale Deed Review", "Ownership Title Audit", "Complete Legal Compliance"],
-        },
-        {
-            id: 4,
-            title: "Resell Support",
-            desc: "When it’s time to upgrade or liquidate your asset, our experts assist with property resale, helping you find qualified buyers and achieve the best market value.",
-            icon: RefreshCw,
-            badge: "Best Market Value",
-            details: ["Qualified Buyer Matching", "Asset Liquidation Help", "Strategic Resale Advice"],
-        },
-    ];
+      <main className="pt-28 sm:pt-32 pb-24 bg-white font-sans text-slate-900 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            {/* Left Content Column */}
+            <div className="lg:col-span-8 space-y-12 sm:space-y-14">
+              {/* 1. Main Feature Image */}
+              <div className="rounded-3xl overflow-hidden shadow-xs border border-slate-100 bg-slate-100">
+                <img
+                  src="/images/for_all.jpeg"
+                  alt="About Services For All"
+                  className="w-full h-[320px] sm:h-[460px] object-cover"
+                />
+              </div>
 
-    // Why Choose Us Steps
-    const steps = [
-        {
-            num: "01",
-            title: "Expertise",
-            subtitle: "Right Fit Budget & Goals",
-            desc: "Our real estate specialists have years of experience helping individuals find the right properties that fit their budget, lifestyle, and future goals.",
-            tag: "Why Choose Us",
-        },
-        {
-            num: "02",
-            title: "Personal Guidance",
-            subtitle: "Dedicated Property Advisors",
-            desc: "We ensure one-on-one attention with dedicated property advisors who assist you in exploring options, comparing locations, and understanding market value.",
-            tag: "Why Choose Us",
-        },
-        {
-            num: "03",
-            title: "Legal Transparency",
-            subtitle: "100% Government Approved",
-            desc: "All our projects are government-approved and legally verified, giving you complete peace of mind before you invest or buy.",
-            tag: "Why Choose Us",
-        },
-        {
-            num: "04",
-            title: "Lifetime Assistance",
-            subtitle: "Long-Term Property Partner",
-            desc: "Beyond purchase, we offer long-term support — from financing and documentation to resale and property management assistance.",
-            tag: "Why Choose Us",
-        },
-    ];
+              {/* 2. About the Services For All */}
+              <section>
+                <h1 className="font-bold text-3xl sm:text-5xl text-slate-950 tracking-tight leading-tight">
+                  About the Services For All
+                </h1>
 
-    const otherServices = [
-        {
-            id: 0,
-            title: "Investor Services",
-            tagline: "High Growth Strategic Land Assets",
-            desc: "Verified projects, customized resale/returns strategy, and end-to-end legal support designed for individual investors.",
-            link: "/services/investor",
-            image: "/images/invester.jpeg",
-            highlights: ["Verified Investment Options", "Resale Strategy", "Full Legal Cover"],
-        },
-        {
-            id: 1,
-            title: "Builder Services",
-            tagline: "Infrastructure & Plotting Development",
-            desc: "Distinct brand identity creation, digital/offline promotional campaigns, marketing strategy, and end-to-end sales enablement.",
-            link: "/services/builder",
-            image: "/images/builder.jpeg",
-            highlights: ["Brand Identity", "Marketing Campaigns", "Sales Execution"],
-        },
-        {
-            id: 2,
-            title: "Developer Services",
-            tagline: "Land Sourcing & Large Scale Project Advisory",
-            desc: "Strategic land sourcing, title checks, and government liasioning for mega real estate developers.",
-            link: "/services/developer",
-            image: "/images/developer.jpeg",
-            highlights: ["Contiguous Land Parcels", "Government Approval Liasion", "Title Verification"],
-        },
-    ];
+                <div className="mt-6 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+                  <p>
+                    At <strong className="font-bold text-slate-900">InvestorSpace</strong>, we believe transparent and safe land ownership should be accessible to everyone. You do not need to be a real estate mogul to invest securely.
+                  </p>
+                  <p>
+                    Our dedicated advisory guides every first-time buyer and family through every step with zero jargon, complete legal safety, and guaranteed clear title plots.
+                  </p>
+                  <p>
+                    From choosing the right location to site visits, bank financing, and final registration, we make your property purchase simple, clear, and trustworthy.
+                  </p>
+                </div>
+              </section>
 
-    const comparisonRows = [
-        { name: "100% Government-Approved & Verified Projects", investorSpace: true, broker: false, direct: false },
-        { name: "Dedicated One-on-One Personal Guidance", investorSpace: true, broker: false, direct: false },
-        { name: "End-to-End Legal & Document Review", investorSpace: true, broker: false, direct: false },
-        { name: "Bank Loan Assistance & Faster Approvals", investorSpace: true, broker: true, direct: false },
-        { name: "Post-Purchase Resale & Lifetime Support", investorSpace: true, broker: false, direct: false },
-    ];
+              {/* 3. Why choose us */}
+              <section>
+                <h2 className="font-bold text-2xl sm:text-4xl text-slate-950 tracking-tight">
+                  Why choose us
+                </h2>
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const form = e.currentTarget;
-        const name = (form.elements.namedItem("name") as HTMLInputElement)?.value || "";
-        const phone = (form.elements.namedItem("phone") as HTMLInputElement)?.value || "";
-        const email = (form.elements.namedItem("email") as HTMLInputElement)?.value || "";
-        const interest = (form.elements.namedItem("interest") as HTMLSelectElement)?.value || "";
-        const message = (form.elements.namedItem("message") as HTMLTextAreaElement)?.value || "";
-        const waText = encodeURIComponent(`New Normal Services Enquiry\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nInterest: ${interest}\nMessage: ${message}`);
-        window.open(`https://wa.me/919818581518?text=${waText}`, "_blank");
-    };
+                <div className="mt-5 space-y-3 text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+                  <p>
+                    Buying land is one of the most important decisions of your life. We treat your investment with the utmost responsibility, transparency, and care.
+                  </p>
+                  <p>
+                    We eliminate middleman ambiguities and present only 100% verified, NA-certified, and government-approved properties.
+                  </p>
+                </div>
 
-    return (
-        <>
-            <PageTitle title="Services For All" />
-            <main className="bg-white font-sans text-slate-900 overflow-hidden">
+                {/* 4 Feature Points Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8">
+                  {whyChooseUs.map((item, i) => {
+                    const Icon = item.icon;
+                    return (
+                      <div key={i} className="flex items-start gap-4">
+                        <div className="size-12 rounded-full bg-[#8D0102] text-white flex items-center justify-center shrink-0 shadow-md shadow-rose-950/20">
+                          <Icon className="size-5" />
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-bold text-slate-950">{item.title}</h3>
+                          <p className="mt-1.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
 
-                {/* ================= 1. HERO SECTION ================= */}
-                <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-slate-950">
-                    <AnimatePresence mode="popLayout">
-                        <motion.div
-                            key={currentSlide}
-                            initial={{ opacity: 0, scale: 1.08 }}
-                            animate={{ opacity: 1, scale: 1.05 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.8, ease: "easeInOut" }}
-                            className="absolute inset-0 z-0"
+              {/* 4. Services offered */}
+              <section>
+                <h2 className="font-bold text-2xl sm:text-4xl text-slate-950 tracking-tight">
+                  Services offered
+                </h2>
+
+                <ul className="mt-6 space-y-4">
+                  {servicesOffered.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <Check className="size-4 text-slate-950 shrink-0 mt-1 stroke-[2.5]" />
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                        <strong className="text-slate-950 font-bold">{item.title} : </strong>
+                        {item.desc}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              {/* 5. Popular questions */}
+              <section>
+                <h2 className="font-bold text-2xl sm:text-4xl text-slate-950 tracking-tight">
+                  Popular questions
+                </h2>
+
+                <div className="mt-6 divide-y divide-slate-100 border-t border-slate-100">
+                  {faqs.map((faq, i) => {
+                    const isOpen = openFaq === i;
+                    return (
+                      <div key={i} className="py-4">
+                        <button
+                          type="button"
+                          onClick={() => setOpenFaq(isOpen ? null : i)}
+                          className="w-full flex items-center justify-between gap-4 text-left group"
                         >
-                            <img
-                                src={heroSlides[currentSlide]}
-                                alt="Services For All InvestorSpace"
-                                className="w-full h-full object-cover filter blur-sm brightness-[0.75] contrast-[1.05]"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30"></div>
-                        </motion.div>
-                    </AnimatePresence>
-
-                    <div className="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-16 pt-20">
-                        <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl">
-                            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2.5 rounded-full border border-white/40 bg-black/40 backdrop-blur-md px-5 py-2 text-xs sm:text-sm font-extrabold text-white shadow-md">
-                                <Sparkles className="size-4 text-rose-300" />
-                                <span className="tracking-wider">INDIVIDUAL PROPERTY SERVICES</span>
+                          <div className="flex items-center gap-3.5 flex-1">
+                            <span className="size-7 sm:size-8 rounded-full bg-[#8D0102] text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-xs">
+                              ?
+                            </span>
+                            <span className="font-bold text-slate-950 text-sm sm:text-base group-hover:text-[#8D0102] transition-colors">
+                              {faq.q}
+                            </span>
+                          </div>
+                          <ChevronDown
+                            className={`size-4 text-slate-500 shrink-0 transition-transform duration-300 ${
+                              isOpen ? "rotate-180 text-[#8D0102]" : ""
+                            }`}
+                          />
+                        </button>
+                        <AnimatePresence initial={false}>
+                          {isOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.25, ease: "easeInOut" }}
+                              className="overflow-hidden"
+                            >
+                              <p className="pl-11 sm:pl-12 pt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                                {faq.a}
+                              </p>
                             </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
+            </div>
 
-                            <motion.h1 variants={fadeInUp} className="mt-6 font-display text-5xl sm:text-7xl lg:text-8xl font-black text-white tracking-tight leading-[1.02] drop-shadow-lg">
-                                Services <span className="text-[#E02424] drop-shadow-md">For All</span>
-                            </motion.h1>
+            {/* Right Sticky Sidebar */}
+            <div className="lg:col-span-4 lg:sticky lg:top-28">
+              <ServiceSidebar currentService="all" />
+            </div>
+          </div>
+        </div>
+      </main>
 
-                            <motion.p variants={fadeInUp} className="mt-6 text-lg sm:text-xl lg:text-2xl text-white/95 leading-relaxed font-normal max-w-2xl drop-shadow">
-                                Buying a property is one of the biggest decisions in life — at InvestorSpace, we make that decision easy, transparent, and rewarding with verified options and complete legal assurance.
-                            </motion.p>
-
-                            <motion.div variants={fadeInUp} className="mt-10 flex flex-wrap items-center gap-5">
-                                <a
-                                    href="#contact-form"
-                                    className="inline-flex items-center gap-2.5 rounded-full bg-[#8D0102] px-9 py-4.5 text-sm sm:text-base font-extrabold text-white shadow-2xl hover:bg-rose-700 transition-all duration-300 hover:-translate-y-0.5 active:scale-95"
-                                >
-                                    <span>Discuss Your Property Goal</span>
-                                    <ArrowRight className="size-5" />
-                                </a>
-
-                                <a
-                                    href="#service-breakdown"
-                                    className="inline-flex items-center gap-2.5 rounded-full border border-white/40 bg-white/20 backdrop-blur-md px-8 py-4.5 text-sm sm:text-base font-bold text-white hover:bg-white/30 transition-all active:scale-95"
-                                >
-                                    <span>See what's included</span>
-                                    <ArrowRight className="size-5 text-white" />
-                                </a>
-                            </motion.div>
-
-                            <div className="mt-14 flex items-center gap-2.5">
-                                {heroSlides.map((_, idx) => (
-                                    <button
-                                        key={idx}
-                                        onClick={() => setCurrentSlide(idx)}
-                                        className={`h-2 rounded-full transition-all duration-300 ${currentSlide === idx ? "w-10 bg-[#8D0102]" : "w-3 bg-white/60 hover:bg-white"}`}
-                                    />
-                                ))}
-                            </div>
-                        </motion.div>
-                    </div>
-                </section>
-
-                {/* ================= 2. OUR PROMISE BANNER ================= */}
-                <section className="py-10 px-6 sm:px-10 lg:px-16 bg-white border-b border-slate-100">
-                    <div className="max-w-7xl mx-auto">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={fadeInUp}
-                            className="rounded-2xl bg-rose-50/70 border border-rose-100 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center gap-6 shadow-xs"
-                        >
-                            <div className="size-12 rounded-xl bg-[#8D0102] text-white flex items-center justify-center shrink-0 shadow-lg shadow-rose-900/20">
-                                <HeartHandshake className="size-6" />
-                            </div>
-
-                            <div>
-                                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#8D0102]">OUR PROMISE</span>
-                                <p className="mt-1 text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                                    We believe that a confident buyer is an informed buyer — from project selection to final handover and even resale, we stand beside you every step of the way.
-                                </p>
-                            </div>
-                        </motion.div>
-                    </div>
-                </section>
-
-                {/* ================= 3. THE SERVICE, BROKEN DOWN ================= */}
-                <section id="service-breakdown" className="py-24 px-6 sm:px-10 lg:px-16 bg-white">
-                    <div className="max-w-7xl mx-auto">
-                        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
-                            <span className="text-xs font-extrabold uppercase tracking-widest text-[#8D0102]">SERVICES OFFERED</span>
-                            <h2 className="mt-2 text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">
-                                The service, <span className="text-[#8D0102]">broken down</span>
-                            </h2>
-                            <p className="mt-2 text-sm text-slate-600 font-medium">Select a core service offering to inspect key features and client benefits.</p>
-                        </motion.div>
-
-                        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-                            {/* Left Side: Service Pillar Selector */}
-                            <div className="lg:col-span-6 flex flex-col justify-between space-y-3">
-                                {featuresBreakdown.map((item, index) => {
-                                    const Icon = item.icon;
-                                    const isActive = activeTab === index;
-
-                                    return (
-                                        <div
-                                            key={item.id}
-                                            onClick={() => setActiveTab(index)}
-                                            className={`group cursor-pointer rounded-2xl p-5 sm:p-6 transition-all duration-300 border flex items-center justify-between ${
-                                                isActive
-                                                    ? "bg-[#8D0102] text-white border-[#8D0102] shadow-xl scale-[1.01]"
-                                                    : "bg-white text-slate-900 border-slate-200/90 hover:border-slate-300 hover:bg-slate-50/60"
-                                            }`}
-                                        >
-                                            <div className="flex items-center gap-4">
-                                                <div className={`size-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                                                    isActive ? "bg-white text-[#8D0102]" : "bg-rose-50 text-[#8D0102]"
-                                                }`}>
-                                                    <Icon className="size-5" />
-                                                </div>
-                                                <div>
-                                                    <span className={`text-[10px] font-bold uppercase tracking-wider ${isActive ? "text-rose-200" : "text-slate-400"}`}>
-                                                        {item.badge}
-                                                    </span>
-                                                    <h3 className="text-base font-bold tracking-tight">{item.title}</h3>
-                                                </div>
-                                            </div>
-                                            <ChevronRight className={`size-5 transition-transform duration-300 ${isActive ? "text-white translate-x-1" : "text-slate-300"}`} />
-                                        </div>
-                                    );
-                                })}
-                            </div>
-
-                            {/* Right Side: Showcase Panel */}
-                            <div className="lg:col-span-6">
-                                <AnimatePresence mode="wait">
-                                    <motion.div
-                                        key={activeTab}
-                                        initial={{ opacity: 0, x: 15 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: -15 }}
-                                        transition={{ duration: 0.25 }}
-                                        className="h-full rounded-3xl bg-slate-50 p-8 sm:p-10 border border-slate-200/80 shadow-md flex flex-col justify-between relative overflow-hidden"
-                                    >
-                                        <div>
-                                            <div className="flex items-center justify-between">
-                                                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 text-[#8D0102] text-xs font-extrabold uppercase tracking-widest border border-rose-200">
-                                                    {featuresBreakdown[activeTab].badge}
-                                                </span>
-                                                <span className="text-xs font-bold text-slate-400">0{activeTab + 1} / 05</span>
-                                            </div>
-
-                                            <h3 className="mt-6 text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
-                                                {featuresBreakdown[activeTab].title}
-                                            </h3>
-
-                                            <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                                                {featuresBreakdown[activeTab].desc}
-                                            </p>
-
-                                            <div className="mt-8 pt-6 border-t border-slate-200/80">
-                                                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Key Features</h4>
-                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                                    {featuresBreakdown[activeTab].details.map((detail, dIdx) => (
-                                                        <div key={dIdx} className="flex items-center gap-2.5">
-                                                            <div className="size-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
-                                                                <Check className="size-3" />
-                                                            </div>
-                                                            <span className="text-xs sm:text-sm font-semibold text-slate-800">{detail}</span>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="mt-10 pt-6 border-t border-slate-200/80 flex items-center justify-between">
-                                            <span className="text-xs font-medium text-slate-500">Service Type: Individual Property Guidance</span>
-                                            <a href="#contact-form" className="text-xs font-extrabold text-[#8D0102] hover:underline inline-flex items-center gap-1">
-                                                Inquire Service <ArrowRight className="size-3.5" />
-                                            </a>
-                                        </div>
-                                    </motion.div>
-                                </AnimatePresence>
-                            </div>
-                        </div>
-
-                        {/* ================= COMPARISON MATRIX ================= */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
-                            className="mt-16 rounded-3xl bg-gradient-to-b from-slate-50 via-white to-slate-50 p-6 sm:p-10 border border-slate-200 shadow-xl relative overflow-hidden group"
-                        >
-                            <div className="absolute top-0 right-0 w-80 h-80 bg-rose-100/50 rounded-full blur-3xl pointer-events-none group-hover:bg-rose-200/50 transition-colors duration-700"></div>
-
-                            <div className="flex items-center justify-between pb-6 border-b border-slate-200/90 relative z-10">
-                                <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2.5">
-                                    <div className="size-8 rounded-lg bg-rose-100 text-[#8D0102] flex items-center justify-center">
-                                        <Layers className="size-4" />
-                                    </div>
-                                    <span>How we compare with other options</span>
-                                </h3>
-                                <span className="hidden sm:inline-block text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-                                    Verified Market Advantage
-                                </span>
-                            </div>
-
-                            <div className="mt-6 overflow-x-auto relative z-10">
-                                <table className="w-full text-left text-xs sm:text-sm">
-                                    <thead>
-                                        <tr className="border-b border-slate-200 text-slate-500">
-                                            <th className="pb-4 font-bold">Feature</th>
-                                            <th className="pb-4 font-bold text-center bg-[#8D0102] text-white rounded-t-2xl px-4 py-3 shadow-md relative overflow-hidden">
-                                                <span className="relative z-10">Investor Space</span>
-                                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full animate-[shimmer_2.5s_infinite]"></div>
-                                            </th>
-                                            <th className="pb-4 font-bold text-center px-3">Local Agent</th>
-                                            <th className="pb-4 font-bold text-center px-3">Going Direct</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="divide-y divide-slate-200/80">
-                                        {comparisonRows.map((row, rIdx) => (
-                                            <motion.tr
-                                                key={rIdx}
-                                                initial={{ opacity: 0, x: -10 }}
-                                                whileInView={{ opacity: 1, x: 0 }}
-                                                viewport={{ once: true }}
-                                                transition={{ delay: rIdx * 0.08 }}
-                                                className="hover:bg-rose-50/40 transition-all duration-200"
-                                            >
-                                                <td className="py-4 font-semibold text-slate-800 pr-2">{row.name}</td>
-                                                <td className="py-4 text-center bg-rose-50/80 border-x border-rose-100/90 px-4 font-bold">
-                                                    <motion.div
-                                                        initial={{ scale: 0 }}
-                                                        whileInView={{ scale: 1 }}
-                                                        viewport={{ once: true }}
-                                                        transition={{ type: "spring", stiffness: 300, delay: 0.1 + rIdx * 0.1 }}
-                                                    >
-                                                        <Check className="size-5 text-[#8D0102] mx-auto stroke-[2.5]" />
-                                                    </motion.div>
-                                                </td>
-                                                <td className="py-4 text-center">
-                                                    {row.broker ? (
-                                                        <Check className="size-4 text-slate-500 mx-auto" />
-                                                    ) : (
-                                                        <X className="size-4 text-slate-300 mx-auto" />
-                                                    )}
-                                                </td>
-                                                <td className="py-4 text-center">
-                                                    {row.direct ? (
-                                                        <Check className="size-4 text-slate-500 mx-auto" />
-                                                    ) : (
-                                                        <X className="size-4 text-slate-300 mx-auto" />
-                                                    )}
-                                                </td>
-                                            </motion.tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div className="mt-6 pt-4 border-t border-slate-200 text-[11px] text-slate-500 flex items-center justify-between relative z-10">
-                                <span>Complete Client Peace of Mind</span>
-                                <span className="font-extrabold text-[#8D0102] flex items-center gap-1">
-                                    <ShieldCheck className="size-3.5" /> 100% Legal Assurance
-                                </span>
-                            </div>
-                        </motion.div>
-                    </div>
-                </section>
-
-                {/* ================= 4. WHY CHOOSE US (4-STEP PIPELINE) ================= */}
-                <section className="py-24 px-6 sm:px-10 lg:px-16 bg-slate-50/80 border-y border-slate-200/80 overflow-hidden">
-                    <div className="max-w-7xl mx-auto">
-                        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="text-center max-w-2xl mx-auto">
-                            <span className="text-xs font-extrabold uppercase tracking-widest text-[#8D0102]">WHY CHOOSE US</span>
-                            <h2 className="mt-2 text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">
-                                Four steps, <span className="text-[#8D0102]">no surprises</span>
-                            </h2>
-                            <p className="mt-2 text-xs sm:text-sm text-slate-500 font-medium">Hover over the timeline nodes to activate process stages</p>
-                        </motion.div>
-
-                        <div className="mt-20 relative">
-                            <div className="hidden lg:block absolute top-[28px] left-[10%] right-[10%] h-[3px] bg-slate-200 z-0">
-                                <motion.div
-                                    className="h-full bg-gradient-to-r from-[#8D0102] via-rose-600 to-[#8D0102] transition-all duration-300"
-                                    style={{
-                                        width: hoveredStep !== null ? `${((hoveredStep + 1) / steps.length) * 100}%` : "25%",
-                                    }}
-                                ></motion.div>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
-                                {steps.map((step, idx) => {
-                                    const isHovered = hoveredStep === idx;
-                                    const isPast = hoveredStep !== null && idx <= hoveredStep;
-
-                                    return (
-                                        <motion.div
-                                            key={idx}
-                                            onMouseEnter={() => setHoveredStep(idx)}
-                                            onMouseLeave={() => setHoveredStep(null)}
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: idx * 0.08 }}
-                                            className="flex flex-col items-center lg:items-start text-center lg:text-left group cursor-pointer"
-                                        >
-                                            <div className="relative mb-6">
-                                                <div
-                                                    className={`size-14 rounded-full flex items-center justify-center font-black text-sm transition-all duration-300 border-2 ${
-                                                        isHovered || isPast
-                                                            ? "bg-[#8D0102] text-white border-[#8D0102] shadow-xl scale-110"
-                                                            : "bg-white text-slate-400 border-slate-300"
-                                                    }`}
-                                                >
-                                                    {step.num}
-                                                </div>
-
-                                                {isHovered && (
-                                                    <motion.div
-                                                        layoutId="node-glow"
-                                                        className="absolute -inset-2 rounded-full border-2 border-rose-500/50 animate-ping pointer-events-none"
-                                                    ></motion.div>
-                                                )}
-                                            </div>
-
-                                            <div
-                                                className={`w-full rounded-2xl p-6 transition-all duration-300 border ${
-                                                    isHovered
-                                                        ? "bg-white text-slate-900 border-[#8D0102] shadow-xl -translate-y-1.5 ring-2 ring-[#8D0102]/20"
-                                                        : "bg-white text-slate-900 border-slate-200/90 hover:border-slate-300"
-                                                }`}
-                                            >
-                                                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#8D0102]">
-                                                    {step.tag}
-                                                </span>
-
-                                                <h3 className="mt-1 text-base font-black tracking-tight">{step.title}</h3>
-                                                <p className="text-xs font-bold mt-0.5 text-slate-500">
-                                                    {step.subtitle}
-                                                </p>
-
-                                                <p className="mt-3 text-xs leading-relaxed text-slate-600">
-                                                    {step.desc}
-                                                </p>
-                                            </div>
-                                        </motion.div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* ================= 5. LEAD FORM SECTION ================= */}
-                <section id="contact-form" className="py-24 px-6 sm:px-10 lg:px-16 bg-slate-50">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                            <div className="lg:col-span-5 space-y-6">
-                                <div>
-                                    <span className="text-xs font-extrabold uppercase tracking-widest text-[#8D0102]">GET STARTED</span>
-                                    <h2 className="mt-2 text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">
-                                        Discuss Your <span className="text-[#8D0102]">Property Goal</span>
-                                    </h2>
-                                    <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                                        Have questions about buying a property or getting verified options? Request a call back and speak to a dedicated property advisor today.
-                                    </p>
-                                </div>
-
-                                <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-3">
-                                    <p className="text-[11px] font-extrabold uppercase tracking-wider text-slate-400">HELPFUL TO KEEP READY</p>
-                                    <div className="grid grid-cols-2 gap-3 text-xs font-bold text-slate-700">
-                                        <div className="flex items-center gap-2">
-                                            <CheckCircle2 className="size-4 text-[#8D0102]" />
-                                            <span>Your Budget Limit</span>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <CheckCircle2 className="size-4 text-[#8D0102]" />
-                                            <span>Preferred Property Type</span>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <CheckCircle2 className="size-4 text-[#8D0102]" />
-                                            <span>Personal Visit Availability</span>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <CheckCircle2 className="size-4 text-[#8D0102]" />
-                                            <span>Loan Requirement Status</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="rounded-3xl bg-gradient-to-br from-[#8D0102] to-rose-950 p-7 text-white shadow-xl relative overflow-hidden">
-                                    <h3 className="text-lg font-extrabold text-white">Prefer to talk directly?</h3>
-                                    <p className="mt-1 text-xs text-rose-100 font-medium">
-                                        Call or write to us anytime. We're happy to answer any questions.
-                                    </p>
-                                    <Link
-                                        href="/contact"
-                                        className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-xs font-black text-slate-950 shadow-md hover:bg-rose-50 transition-colors"
-                                    >
-                                        <PhoneCall className="size-3.5 text-[#8D0102]" />
-                                        <span>Open Contact Page</span>
-                                    </Link>
-                                </div>
-                            </div>
-
-                            <div className="lg:col-span-7 bg-white p-7 sm:p-10 rounded-3xl border border-slate-200/80 shadow-xl">
-                                <form className="space-y-4" onSubmit={handleSubmit}>
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <div>
-                                            <label className="block text-xs font-bold text-slate-700 mb-1">Full Name</label>
-                                            <input
-                                                type="text"
-                                                name="name" placeholder="John Doe" required
-                                                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
-                                            <input
-                                                type="email"
-                                                name="email" placeholder="john@example.com"
-                                                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <div>
-                                            <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
-                                            <input
-                                                type="tel"
-                                                name="phone" placeholder="+91 98765 43210" required
-                                                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="block text-xs font-bold text-slate-700 mb-1">I'm interested in...</label>
-                                            <select name="interest" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]">
-                                                <option>Verified Project Consultation</option>
-                                                <option>Book a Personalized Site Visit</option>
-                                                <option>Home Loan Assistance</option>
-                                                <option>Legal Support & Document Review</option>
-                                                <option>Resell & Liquidation Support</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-xs font-bold text-slate-700 mb-1">Tell us what you're looking for</label>
-                                        <textarea
-                                            rows={4}
-                                            name="message" placeholder="Share what you're looking for (e.g. dream home, plot, loan help, resale support)..."
-                                            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:border-[#8D0102] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#8D0102]"
-                                        ></textarea>
-                                    </div>
-
-                                    <button
-                                        type="submit"
-                                        className="w-full rounded-full bg-[#8D0102] py-4 text-xs sm:text-sm font-extrabold text-white shadow-xl hover:bg-rose-800 transition-colors"
-                                    >
-                                        Request Free Consultation
-                                    </button>
-
-                                    <p className="text-[11px] text-center text-slate-400 mt-2">
-                                        We reply within one working day. Your details are safe with us.
-                                    </p>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* ================= 6. EXPLORE OTHER SERVICES ================= */}
-                <section className="py-24 px-6 sm:px-10 lg:px-16 bg-white border-t border-slate-200/80">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-                            <div>
-                                <span className="text-xs font-extrabold uppercase tracking-widest text-[#8D0102]">MORE SERVICES</span>
-                                <h2 className="mt-2 text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">
-                                    Explore another <span className="text-[#8D0102]">service</span>
-                                </h2>
-                            </div>
-                            <p className="text-xs text-slate-500 font-medium max-w-sm">
-                                Select a service tab to preview tailored solutions and ecosystem offerings.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-                            <div className="lg:col-span-4 space-y-3">
-                                {otherServices.map((service, sIdx) => {
-                                    const isSelected = activeService === sIdx;
-
-                                    return (
-                                        <div
-                                            key={service.id}
-                                            onClick={() => setActiveService(sIdx)}
-                                            className={`cursor-pointer rounded-2xl p-5 transition-all duration-300 border ${
-                                                isSelected
-                                                    ? "bg-[#8D0102] text-white border-[#8D0102] shadow-xl shadow-rose-900/20"
-                                                    : "bg-slate-50 text-slate-800 border-slate-200/80 hover:bg-slate-100"
-                                            }`}
-                                        >
-                                            <div className="flex items-center justify-between">
-                                                <h3 className="font-bold text-base">{service.title}</h3>
-                                                <ChevronRight className={`size-4 transition-transform ${isSelected ? "rotate-90 text-white" : "text-slate-400"}`} />
-                                            </div>
-                                            <p className={`text-xs mt-1 font-medium ${isSelected ? "text-rose-100" : "text-slate-500"}`}>
-                                                {service.tagline}
-                                            </p>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-
-                            <div className="lg:col-span-8">
-                                <AnimatePresence mode="wait">
-                                    <motion.div
-                                        key={activeService}
-                                        initial={{ opacity: 0, x: 20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: -20 }}
-                                        transition={{ duration: 0.4 }}
-                                        className="relative rounded-3xl overflow-hidden min-h-[380px] flex flex-col justify-end p-8 text-white border border-slate-800 shadow-2xl bg-slate-950"
-                                    >
-                                        <img
-                                            src={otherServices[activeService].image}
-                                            alt={otherServices[activeService].title}
-                                            className="absolute inset-0 w-full h-full object-cover opacity-40"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
-
-                                        <div className="relative z-10 max-w-xl">
-                                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-[10px] font-extrabold uppercase tracking-widest text-rose-300 border border-white/20 mb-3">
-                                                <Compass className="size-3" />
-                                                <span>Recommended Service</span>
-                                            </span>
-
-                                            <h3 className="text-2xl sm:text-3xl font-black text-white">{otherServices[activeService].title}</h3>
-                                            <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                                                {otherServices[activeService].desc}
-                                            </p>
-
-                                            <div className="mt-4 flex flex-wrap items-center gap-3">
-                                                {otherServices[activeService].highlights.map((hl, hIdx) => (
-                                                    <div key={hIdx} className="inline-flex items-center gap-1.5 text-xs text-rose-200 bg-rose-950/60 px-2.5 py-1 rounded-md border border-rose-800/40">
-                                                        <CheckCircle2 className="size-3 text-rose-400" />
-                                                        <span>{hl}</span>
-                                                    </div>
-                                                ))}
-                                            </div>
-
-                                            <Link
-                                                href={otherServices[activeService].link}
-                                                className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#8D0102] px-6 py-3 text-xs font-extrabold text-white shadow-lg hover:bg-rose-700 transition-colors"
-                                            >
-                                                <span>View Service Details</span>
-                                                <ArrowUpRight className="size-4" />
-                                            </Link>
-                                        </div>
-                                    </motion.div>
-                                </AnimatePresence>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <Testimonials />
-            </main>
-
-            <Footer />
-        </>
-    );
+      <Footer />
+    </>
+  );
 }
