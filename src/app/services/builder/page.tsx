@@ -82,7 +82,7 @@ export default function BuilderServicesPage() {
     <>
       <PageTitle title="Builder Services" />
 
-      <main className="pt-28 sm:pt-32 pb-24 bg-white font-sans text-slate-900 overflow-hidden">
+      <main className="pt-28 sm:pt-32 pb-24 bg-white font-sans text-slate-900">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left Content Column */}
@@ -223,7 +223,7 @@ export default function BuilderServicesPage() {
             </div>
 
             {/* Right Sticky Sidebar */}
-            <div className="lg:col-span-4 lg:sticky lg:top-28">
+            <div className="lg:col-span-4 lg:sticky lg:top-28 self-start">
               <ServiceSidebar currentService="builder" />
             </div>
           </div>

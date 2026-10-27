@@ -78,7 +78,7 @@ export default function DeveloperServicesPage() {
     <>
       <PageTitle title="Developer Services" />
 
-      <main className="pt-28 sm:pt-32 pb-24 bg-white font-sans text-slate-900 overflow-hidden">
+      <main className="pt-28 sm:pt-32 pb-24 bg-white font-sans text-slate-900">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left Content Column */}
@@ -219,7 +219,7 @@ export default function DeveloperServicesPage() {
             </div>
 
             {/* Right Sticky Sidebar */}
-            <div className="lg:col-span-4 lg:sticky lg:top-28">
+            <div className="lg:col-span-4 lg:sticky lg:top-28 self-start">
               <ServiceSidebar currentService="developer" />
             </div>
           </div>

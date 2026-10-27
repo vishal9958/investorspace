@@ -45,20 +45,28 @@ export default function ServiceSidebar({ currentService }: ServiceSidebarProps) 
         </div>
       </div>
 
-      {/* 2. Any Questions? Let's talk Card */}
-      <div className="rounded-3xl overflow-hidden relative p-8 text-center text-white shadow-xl bg-slate-950 border border-slate-800">
-        {/* Architectural backdrop */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30 filter blur-xs"
-          style={{ backgroundImage: "url('/images/agent_call.jpeg')" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/75 to-black/90" />
+      {/* 2. Any Questions? Let's talk Card (Taller with Prominent Agent Image) */}
+      <div className="rounded-3xl overflow-hidden relative text-center text-white shadow-xl bg-gradient-to-b from-[#180a0c] via-slate-950 to-[#0e0405] border border-rose-950/40 pt-6 pb-7 px-6">
+        {/* Ambient subtle crimson glow */}
+        <div className="absolute top-0 inset-x-0 h-36 bg-gradient-to-b from-[#8D0102]/25 to-transparent pointer-events-none" />
+
+        {/* Prominent Agent Illustration */}
+        <div className="relative z-10 flex justify-center mb-3">
+          <div className="relative">
+            <div className="absolute inset-0 bg-[#8D0102]/20 rounded-full blur-xl transform scale-90" />
+            <img
+              src="/characters/agent_call.png"
+              alt="Investor Space Support"
+              className="relative z-10 h-48 sm:h-52 w-auto object-contain drop-shadow-2xl"
+            />
+          </div>
+        </div>
 
         <div className="relative z-10 flex flex-col items-center">
           {/* Red Layered Cube Icon */}
-          <div className="size-12 mb-3 bg-[#8D0102] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-rose-950/50">
+          <div className="size-11 mb-2 bg-[#8D0102] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-rose-950/60 border border-white/10">
             <svg
-              className="size-6 text-white"
+              className="size-5.5 text-white"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -72,20 +80,20 @@ export default function ServiceSidebar({ currentService }: ServiceSidebarProps) 
             </svg>
           </div>
 
-          <p className="text-xs sm:text-sm font-semibold text-white/90">
+          <p className="text-xs sm:text-sm font-semibold text-white/90 tracking-wide">
             Any Questions? Let&apos;s talk
           </p>
 
           <a
             href="tel:+919818581518"
-            className="text-2xl sm:text-3xl font-black text-white mt-1.5 tracking-tight hover:text-rose-300 transition-colors block"
+            className="text-2xl sm:text-3xl font-black text-white mt-1 tracking-tight hover:text-rose-300 transition-colors block"
           >
             +91 98185 81518
           </a>
 
           <Link
             href="/contact#callback"
-            className="inline-flex items-center gap-2.5 bg-white text-slate-950 rounded-full px-5 py-2.5 font-bold text-xs sm:text-sm shadow-xl hover:bg-slate-100 transition-all duration-200 mt-5 group"
+            className="inline-flex items-center gap-3 bg-white text-slate-950 rounded-full px-6 py-2.5 font-bold text-xs sm:text-sm shadow-xl hover:bg-slate-100 transition-all duration-200 mt-4 group hover:scale-[1.02] active:scale-95"
           >
             <span>Get A Call Back</span>
             <span className="size-6 rounded-full bg-[#8D0102] text-white flex items-center justify-center text-xs group-hover:scale-110 transition-transform">
