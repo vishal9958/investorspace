@@ -142,18 +142,8 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Right Header Actions (Interactive Home Trigger + CTA + Mobile Toggle) */}
+          {/* Right Header Actions (Interactive Home Trigger + Mobile Toggle) */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Desktop CTA */}
-            <div className="hidden lg:block">
-              <Link
-                href="/contact#callback"
-                className="inline-flex min-h-10 items-center rounded-full bg-primary px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-sm transition-all hover:bg-primary-dark hover:shadow-red active:scale-95"
-              >
-                Book a Site Visit
-              </Link>
-            </div>
-
             {/* Interactive Trigger Button (YouTube-style Home Icon with 360 Rotation & Slide-Out Badges) */}
             <HeaderActionTrigger />
 

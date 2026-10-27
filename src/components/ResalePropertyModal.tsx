@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     X,
@@ -29,9 +30,26 @@ interface ResalePropertyModalProps {
 }
 
 export default function ResalePropertyModal({ isOpen, onClose }: ResalePropertyModalProps) {
+    const [mounted, setMounted] = useState(false);
     const [step, setStep] = useState<1 | 2>(1);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // Lock body scroll when modal is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isOpen]);
 
     // Form State
     const [formData, setFormData] = useState({
@@ -145,10 +163,12 @@ export default function ResalePropertyModal({ isOpen, onClose }: ResalePropertyM
         window.open(`https://wa.me/919818581518?text=${text}`, "_blank");
     };
 
-    return (
+    if (!mounted) return null;
+
+    return createPortal(
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
+                <div className="fixed inset-0 z-[999999] flex items-center justify-center p-3 sm:p-5 overflow-y-auto pointer-events-auto">
                     {/* Glassmorphic Backdrop with Smooth Blur */}
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -156,7 +176,7 @@ export default function ResalePropertyModal({ isOpen, onClose }: ResalePropertyM
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
                         onClick={onClose}
-                        className="fixed inset-0 bg-slate-950/75 backdrop-blur-md"
+                        className="fixed inset-0 bg-slate-950/80 backdrop-blur-md"
                     />
 
                     {/* 3D Spring-Bounce Modal Container */}
@@ -666,6 +686,7 @@ export default function ResalePropertyModal({ isOpen, onClose }: ResalePropertyM
                     </motion.div>
                 </div>
             )}
-        </AnimatePresence>
+        </AnimatePresence>,
+        document.body
     );
 }
