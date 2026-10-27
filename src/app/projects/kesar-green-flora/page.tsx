@@ -71,20 +71,40 @@ export default function KesarGreenFloraDetailPage() {
     const [activeImage, setActiveImage] = useState("/images/FloraMaster.png");
 
     const distances = [
-        { time: "2 Min", title: "Upcoming Medical University", desc: "Top tier education & healthcare hub", icon: GraduationCap },
-        { time: "3 Min", title: "TATA Residential Flats", desc: "Executive housing ecosystem", icon: Building },
-        { time: "5 Min", title: "Indo-Arabian Industrial Park", desc: "Heavy industrial & manufacturing zone", icon: Building2 },
-        { time: "10 Min", title: "Dholera Airport Circle", desc: "Greenfield passenger & cargo airport", icon: Plane },
-        { time: "10 Min", title: "10-Lane Expressway", desc: "Ahmedabad - Dholera direct corridor", icon: Car },
-        { time: "10 Min", title: "Upcoming Metro Station", desc: "High-speed monorail / metro link", icon: Train },
-        { time: "10 Min", title: "Lothal Heritage Complex", desc: "World-class maritime heritage hub", icon: Landmark },
+        { time: "2 Min", title: "Upcoming Medical University", desc: "World-class medical education campus & healthcare hub", icon: GraduationCap },
+        { time: "3 Min", title: "Upcoming TATA Residential Sector", desc: "Executive housing township for TATA Semiconductor Fab workforce", icon: Building },
+        { time: "5 Min", title: "Indo-Arabian Industrial Park", desc: "Heavy manufacturing and industrial engineering zone", icon: Building2 },
+        { time: "10 Min", title: "Airport Circle (Dholera Int'l Airport)", desc: "Direct expressway access to Greenfield International Airport & cargo hub", icon: Plane },
+        { time: "10 Min", title: "Upcoming Metro & High-Speed Rail", desc: "High-speed mass transit line connecting Dholera directly to Ahmedabad", icon: Train },
+        { time: "10 Min", title: "10-Lane Expressway Interchange", desc: "Direct 45-minute connectivity corridor to Ahmedabad", icon: Car },
+        { time: "10 Min", title: "Lothal Maritime Heritage Complex", desc: "World-class cultural tourism and maritime museum destination", icon: Landmark },
     ];
 
     const nearbyCities = [
-        { city: "Dholera SIR Hub", dist: "0 Km", time: "Direct Access", desc: "Inside India's 1st Greenfield Smart City" },
-        { city: "Ahmedabad", dist: "~100 Km", time: "45-50 Mins", desc: "Via 10-Lane Expressway Link" },
-        { city: "Bhavnagar", dist: "~60 Km", time: "50 Mins", desc: "Major port and trade corridor" },
-        { city: "Vadodara", dist: "~130 Km", time: "1.5 Hours", desc: "Connected via upcoming Express Grids" },
+        {
+            city: "Medical University",
+            dist: "2 Min Drive",
+            time: "2-Minute Drive",
+            desc: "Upcoming state-of-the-art medical university campus & premier regional healthcare center.",
+        },
+        {
+            city: "TATA Residential Sector",
+            dist: "3 Min Drive",
+            time: "3-Minute Drive",
+            desc: "Upcoming executive township dedicated to TATA Semiconductor Fab engineers and leadership.",
+        },
+        {
+            city: "Airport Circle (Int'l Airport)",
+            dist: "10 Min Drive",
+            time: "10-Minute Drive",
+            desc: "Direct expressway link to Airport Circle and Dholera Greenfield International Airport.",
+        },
+        {
+            city: "Upcoming Metro Station",
+            dist: "10 Min Drive",
+            time: "10-Minute Drive",
+            desc: "High-speed monorail & metro transit connecting Dholera SIR directly to Ahmedabad City.",
+        },
     ];
 
     const plotSizes = ["100 Sq. Yards", "150 Sq. Yards", "300 Sq. Yards", "600 Sq. Yards"];
@@ -111,9 +131,9 @@ export default function KesarGreenFloraDetailPage() {
     return (
         <>
             <PageTitle title="Kesar Green Flora" />
-            <main className="pt-28 bg-white text-slate-900 font-sans overflow-hidden">
+            <main className="pt-20 lg:pt-24 bg-white text-slate-900 font-sans overflow-hidden">
                 {/* Breadcrumb Navigation */}
-                <div className="bg-slate-50 border-b border-slate-200 py-3 px-6 sm:px-10 lg:px-16">
+                <div className="bg-slate-50/80 border-b border-slate-200/80 py-2 px-6 sm:px-10 lg:px-16">
                     <div className="max-w-7xl mx-auto flex items-center gap-2 text-xs text-slate-500">
                         <Link href="/" className="hover:text-[#8D0102] transition">Home</Link>
                         <ChevronRight className="size-3" />
@@ -124,24 +144,24 @@ export default function KesarGreenFloraDetailPage() {
                 </div>
 
                 {/* HERO SECTION WITH ANIMATED SLIDESHOW BACKGROUND (LIGHT THEME) */}
-                <section className="relative min-h-[600px] lg:min-h-[680px] flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900 px-6 sm:px-10 lg:px-16 border-b border-slate-200/80">
-                    {/* Animated Crossfading Slide Background with Soft Light Overlay */}
+                <section className="relative min-h-[500px] lg:min-h-[560px] flex items-center justify-center overflow-hidden bg-slate-100 text-slate-900 px-6 sm:px-10 lg:px-16 border-b border-slate-200/80">
+                    {/* Animated Crossfading Slide Background */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
                         <AnimatePresence mode="popLayout">
                             <motion.div
                                 key={currentSlide}
-                                initial={{ opacity: 0, scale: 1.08 }}
-                                animate={{ opacity: 0.28, scale: 1 }}
+                                initial={{ opacity: 0, scale: 1.05 }}
+                                animate={{ opacity: 0.88, scale: 1 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 1.4, ease: "easeInOut" }}
+                                transition={{ duration: 1.2, ease: "easeInOut" }}
                                 className="absolute inset-0 bg-cover bg-center"
                                 style={{ backgroundImage: `url('${heroSlides[currentSlide].src}')` }}
                             />
                         </AnimatePresence>
 
-                        {/* Light Translucent Overlay for High-Contrast, Crystal-Clear Dark Text */}
-                        <div className="absolute inset-0 bg-white/70 backdrop-blur-[2px]"></div>
-                        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/60"></div>
+                        {/* Directional Light Overlay: Solid readable white on left, transparent on right to showcase vivid project layout */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 sm:via-white/70 to-white/20 sm:to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-white/30"></div>
                     </div>
 
                     {/* Slide Indicator Dots */}
@@ -155,15 +175,15 @@ export default function KesarGreenFloraDetailPage() {
                                 className={`transition-all duration-300 rounded-full ${
                                     idx === currentSlide
                                         ? "w-7 h-2 bg-[#8D0102]"
-                                        : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
+                                        : "w-2 h-2 bg-slate-400/60 hover:bg-slate-600"
                                 }`}
                             />
                         ))}
                     </div>
 
-                    <div className="relative z-10 max-w-7xl mx-auto w-full py-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div className="relative z-10 max-w-7xl mx-auto w-full pt-4 pb-10 sm:pt-6 sm:pb-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                         <motion.div
-                            className="lg:col-span-7"
+                            className="lg:col-span-7 bg-white/75 lg:bg-white/50 backdrop-blur-[2px] p-5 sm:p-7 rounded-3xl border border-white/80 shadow-xs"
                             initial="hidden"
                             animate="visible"
                             variants={staggerContainer}
@@ -411,7 +431,7 @@ export default function KesarGreenFloraDetailPage() {
                     </div>
                 </section>
 
-                {/* NEARBY CITIES & CORRIDOR CONNECTIVITY */}
+                {/* STRATEGIC CONNECTIVITY & DRIVE TIMELINES */}
                 <section className="py-16 px-6 sm:px-10 lg:px-16 bg-slate-50 border-t border-b border-slate-200/80">
                     <div className="max-w-7xl mx-auto">
                         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
@@ -422,14 +442,14 @@ export default function KesarGreenFloraDetailPage() {
                                 variants={fadeInUp}
                             >
                                 <span className="text-xs font-bold uppercase tracking-widest text-[#8D0102]">
-                                    INTER-CITY & REGIONAL LINKS
+                                    KEY HUBS & FAST CONNECTIVITY
                                 </span>
                                 <h2 className="mt-2 text-2xl sm:text-4xl font-bold text-slate-950">
-                                    Surrounding Cities & Travel Timelines
+                                    Strategic Distances & Travel Timelines
                                 </h2>
                             </motion.div>
                             <p className="text-xs sm:text-sm text-slate-600 max-w-md">
-                                Kesar Green Flora connects seamlessly to major commercial centers across Gujarat via 10-Lane Expressway & Railway grids.
+                                Kesar Green Flora connects seamlessly to major infrastructure anchors, aviation corridors, and smart city transit grids.
                             </p>
                         </div>
 
