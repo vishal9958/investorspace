@@ -464,13 +464,13 @@ export default function ProjectsPage() {
                                 </div>
 
                                 {/* Bottom Info Banner */}
-                                <div className="bg-[#8D0102] text-white p-7 rounded-3xl shadow-xl flex items-center justify-between">
-                                    <div>
-                                        <h3 className="text-sm font-bold text-rose-100 uppercase tracking-wider text-[11px]">Selected Location</h3>
-                                        <p className="text-lg font-black text-white mt-0.5">Projects in {selectedCity}</p>
+                                <div className="bg-[#8D0102] text-white p-4 sm:p-7 rounded-2xl sm:rounded-3xl shadow-xl flex items-center justify-between gap-3">
+                                    <div className="min-w-0">
+                                        <h3 className="text-rose-100 uppercase tracking-wider text-[10px] sm:text-[11px] font-bold">Selected Location</h3>
+                                        <p className="text-base sm:text-lg font-black text-white mt-0.5 truncate">Projects in {selectedCity}</p>
                                     </div>
-                                    <div className="bg-white/10 px-4 py-2 rounded-2xl border border-white/20 text-xs font-bold">
-                                        {currentCount} Verified Project
+                                    <div className="shrink-0 whitespace-nowrap bg-white/10 px-3.5 py-2 sm:px-4 sm:py-2 rounded-xl sm:rounded-2xl border border-white/20 text-xs font-bold">
+                                        {currentCount} {currentCount === 1 ? "Verified Project" : "Verified Projects"}
                                     </div>
                                 </div>
                             </div>

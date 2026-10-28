@@ -140,11 +140,11 @@ export default function Hero() {
                           <MapPin className="size-4" />
                         </span>
                         <div className="min-w-0">
-                          <div className="flex items-center gap-2">
+                          <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                             <span className="font-display text-sm font-bold text-white group-hover:text-primary transition-colors">
                               Kesar Green Flora
                             </span>
-                            <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-bold text-emerald-300 border border-emerald-500/30">
+                            <span className="shrink-0 whitespace-nowrap rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-bold text-emerald-300 border border-emerald-500/30">
                               Ongoing Project
                             </span>
                           </div>
@@ -153,9 +153,10 @@ export default function Hero() {
                           </p>
                         </div>
                       </div>
-                      <span className="shrink-0 inline-flex items-center gap-1 text-xs font-semibold text-primary group-hover:translate-x-1 transition-transform">
+                      <span className="hidden sm:inline-flex shrink-0 items-center gap-1 text-xs font-semibold text-primary group-hover:translate-x-1 transition-transform">
                         Details <ChevronRight className="size-3.5" />
                       </span>
+                      <ChevronRight className="sm:hidden size-4 shrink-0 text-primary group-hover:translate-x-1 transition-transform" />
                     </div>
 
                     <div className="mt-3 grid grid-cols-2 gap-2 border-t border-white/15 pt-2.5 sm:grid-cols-4">
@@ -241,11 +242,11 @@ export default function Hero() {
                           <CheckCircle2 className="size-4" />
                         </span>
                         <div className="min-w-0">
-                          <div className="flex items-center gap-2">
+                          <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                             <span className="font-display text-sm font-bold text-white group-hover:text-primary transition-colors">
                               Investor Space Advisory
                             </span>
-                            <span className="rounded-full bg-primary/25 px-2 py-0.5 text-[10px] font-bold text-primary-light border border-primary/40">
+                            <span className="shrink-0 whitespace-nowrap rounded-full bg-primary/25 px-2 py-0.5 text-[10px] font-bold text-primary-light border border-primary/40">
                               Verified Quality
                             </span>
                           </div>
@@ -254,9 +255,10 @@ export default function Hero() {
                           </p>
                         </div>
                       </div>
-                      <span className="shrink-0 inline-flex items-center gap-1 text-xs font-semibold text-primary group-hover:translate-x-1 transition-transform">
+                      <span className="hidden sm:inline-flex shrink-0 items-center gap-1 text-xs font-semibold text-primary group-hover:translate-x-1 transition-transform">
                         Learn More <ChevronRight className="size-3.5" />
                       </span>
+                      <ChevronRight className="sm:hidden size-4 shrink-0 text-primary group-hover:translate-x-1 transition-transform" />
                     </div>
 
                     <div className="mt-3 grid grid-cols-2 gap-2 border-t border-white/15 pt-2.5 sm:grid-cols-4">

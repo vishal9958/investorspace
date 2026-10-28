@@ -465,19 +465,21 @@ export default function KesarGreenFloraDetailPage() {
                                     key={idx}
                                     variants={fadeInUp}
                                     whileHover={{ y: -6 }}
-                                    className="rounded-2xl bg-white p-6 border border-slate-200/80 shadow-xs hover:shadow-xl hover:border-[#8D0102]/30 transition-all duration-300"
+                                    className="rounded-2xl bg-white dark:bg-[#14090B] p-5 sm:p-6 border border-slate-200/80 dark:border-white/10 shadow-xs hover:shadow-xl hover:border-[#8D0102]/30 transition-all duration-300"
                                 >
-                                    <div className="flex items-center justify-between mb-3">
-                                        <span className="font-display font-black text-lg text-slate-900">{c.city}</span>
-                                        <span className="bg-rose-50 text-[#8D0102] font-extrabold text-xs px-2.5 py-1 rounded-full border border-rose-100">
+                                    <div className="flex items-start justify-between gap-2.5 mb-3">
+                                        <span className="font-display font-black text-base sm:text-lg text-slate-900 dark:text-white leading-tight min-w-0">
+                                            {c.city}
+                                        </span>
+                                        <span className="shrink-0 whitespace-nowrap bg-rose-50 dark:bg-rose-950/60 text-[#8D0102] dark:text-[#FF6B6B] font-extrabold text-xs px-2.5 py-1 rounded-full border border-rose-100 dark:border-rose-900/40">
                                             {c.dist}
                                         </span>
                                     </div>
-                                    <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700">
-                                        <Compass className="size-3.5 text-[#8D0102]" />
+                                    <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
+                                        <Compass className="size-3.5 text-[#8D0102] dark:text-[#FF4D4F]" />
                                         <span>Travel Time: {c.time}</span>
                                     </div>
-                                    <p className="mt-2 text-[11px] text-slate-500 leading-relaxed">{c.desc}</p>
+                                    <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">{c.desc}</p>
                                 </motion.div>
                             ))}
                         </motion.div>

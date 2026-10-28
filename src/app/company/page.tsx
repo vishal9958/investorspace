@@ -157,8 +157,8 @@ function HistoryTimeline() {
                                 className="flex flex-col justify-center"
                             >
                                 <div className="flex items-center gap-2 mb-1">
-                                    <span className="text-red-600 font-black text-2xl sm:text-3xl">{milestones[activeIndex].year}</span>
-                                    <span className="text-[0.6rem] font-bold uppercase tracking-widest text-red-400 bg-red-50 border border-red-100 px-2 py-0.5 rounded-full">
+                                    <span className="text-red-600 dark:text-[#FF4D4F] font-black text-2xl sm:text-3xl">{milestones[activeIndex].year}</span>
+                                    <span className="shrink-0 whitespace-nowrap text-[0.6rem] font-bold uppercase tracking-widest text-red-500 dark:text-red-300 bg-red-50 dark:bg-red-950/60 border border-red-100 dark:border-red-900/40 px-2.5 py-0.5 rounded-full">
                                         {milestones[activeIndex].badge}
                                     </span>
                                 </div>
